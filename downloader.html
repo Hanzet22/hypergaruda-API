@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Downloader · BintangAPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:#f6f8fc; color:#0b1a33; min-height:100vh; display:flex; flex-direction:column; }
+    .container { max-width:1200px; margin:0 auto; padding:0 20px; width:100%; }
+    header { background:#0b1a33; padding:20px 0; color:#fff; border-bottom:4px solid #fbbf24; }
+    header .container { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+    .logo h1 { font-size:24px; font-weight:800; }
+    .logo h1 span { color:#fbbf24; }
+    .badge { background:rgba(251,191,36,0.2); border:1px solid rgba(251,191,36,0.4); padding:4px 16px; border-radius:40px; font-size:13px; color:#fbbf24; }
+    nav { background:#fff; padding:12px 0; border-bottom:1px solid #e9edf4; }
+    nav .container { display:flex; flex-wrap:wrap; gap:6px 10px; }
+    nav a { padding:6px 16px; border-radius:40px; font-size:13px; font-weight:600; background:#f1f4f9; color:#2c3e5a; transition:0.2s; border:1px solid transparent; white-space:nowrap; }
+    nav a:hover { background:#e2e8f0; border-color:#cbd5e1; }
+    nav a.active { background:#0b1a33; color:#fff; border-color:#0b1a33; }
+    nav a.home { background:#fbbf24; color:#0b1a33; border-color:#fbbf24; }
+    main { flex:1; padding:30px 0; }
+    .endpoint { background:#fff; border-radius:16px; padding:20px 24px; margin-bottom:20px; border:1px solid #e9edf4; }
+    .endpoint h3 { font-size:18px; font-weight:700; }
+    .endpoint .url { font-size:13px; color:#6b7d98; background:#f1f4f9; padding:4px 12px; border-radius:20px; display:inline-block; margin:6px 0 12px; font-family:monospace; word-break:break-all; }
+    .endpoint .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:12px 0; }
+    .endpoint input { padding:10px 14px; border:1px solid #d1d9e8; border-radius:10px; font-size:14px; flex:1 1 200px; background:#fff; }
+    .endpoint button { background:#0b1a33; color:#fff; border:none; padding:10px 24px; border-radius:10px; font-weight:600; cursor:pointer; }
+    .endpoint button:hover { background:#1a2f4f; }
+    .endpoint .result { background:#f8faff; border:1px solid #e2e8f0; border-radius:12px; padding:16px; margin-top:12px; white-space:pre-wrap; font-size:14px; max-height:350px; overflow:auto; }
+    footer { background:#0b1a33; color:#8ba0bb; padding:16px 0; text-align:center; font-size:14px; margin-top:auto; border-top:3px solid #fbbf24; }
+    footer a { color:#fbbf24; font-weight:600; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo"><h1>✦ Bintang<span>API</span></h1></div>
+      <div class="badge">⬇️ Downloader · 3 endpoint</div>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="home">🏠 Home</a>
+      <a href="ai.html">AI Chat</a>
+      <a href="ai-image.html">AI Image</a>
+      <a href="ai-tools.html">AI Tools</a>
+      <a href="baca.html">Baca</a>
+      <a href="downloader.html" class="active">Downloader</a>
+      <a href="berita.html">Berita</a>
+      <a href="brat-maker.html">Brat Maker</a>
+      <a href="nonton.html">Nonton</a>
+      <a href="scriptblox.html">Scriptblox</a>
+      <a href="search.html">Search</a>
+      <a href="stalker.html">Stalker</a>
+      <a href="tools.html">Tools</a>
+      <a href="uploader.html">Uploader</a>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <h2 style="font-size:22px; font-weight:700; margin-bottom:20px;">⬇️ Media Downloader</h2>
+
+      <!-- 22. CapCut -->
+      <div class="endpoint">
+        <h3>22. CapCut Video Downloader</h3>
+        <div class="url">GET /api/downloader/capcut?url=...</div>
+        <div class="row">
+          <input type="text" id="cc_url" value="https://www.capcut.com/tv2/ZSQANHeT9/" placeholder="url capcut">
+          <button onclick="fetchCapCut()">Fetch</button>
+        </div>
+        <div id="cc_result" class="result">Klik Fetch</div>
+      </div>
+
+      <!-- 23. Spotify -->
+      <div class="endpoint">
+        <h3>23. Spotify Downloader</h3>
+        <div class="url">GET /api/downloader/spotify?url=...</div>
+        <div class="row">
+          <input type="text" id="sp_url" value="https://open.spotify.com/track/28VbwtsYnj85UEODGpQRem?si=wKhLC8NDRgiYqSZn9GfD5g" placeholder="url spotify">
+          <button onclick="fetchSpotify()">Fetch</button>
+        </div>
+        <div id="sp_result" class="result">Klik Fetch</div>
+      </div>
+
+      <!-- 24. TikTok -->
+      <div class="endpoint">
+        <h3>24. TikTok Downloader</h3>
+        <div class="url">GET /api/downloader/tiktok?url=...</div>
+        <div class="row">
+          <input type="text" id="tt_url" value="https://vt.tiktok.com/ZSxWXd2UP/" placeholder="url tiktok">
+          <button onclick="fetchTikTok()">Fetch</button>
+        </div>
+        <div id="tt_result" class="result">Klik Fetch</div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">BintangAPI · <a href="https://bintangapi.my.id" target="_blank">bintangapi.my.id</a></div>
+  </footer>
+  <script>
+    async function doFetch(url, targetId) {
+      const el = document.getElementById(targetId);
+      el.textContent = '⏳ Loading...';
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        el.textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        el.textContent = '❌ Error: ' + e.message;
+      }
+    }
+    function fetchCapCut() {
+      const u = document.getElementById('cc_url').value.trim();
+      doFetch(`https://bintangapi.my.id/api/downloader/capcut?url=${encodeURIComponent(u)}`, 'cc_result');
+    }
+    function fetchSpotify() {
+      const u = document.getElementById('sp_url').value.trim();
+      doFetch(`https://bintangapi.my.id/api/downloader/spotify?url=${encodeURIComponent(u)}`, 'sp_result');
+    }
+    function fetchTikTok() {
+      const u = document.getElementById('tt_url').value.trim();
+      doFetch(`https://bintangapi.my.id/api/downloader/tiktok?url=${encodeURIComponent(u)}`, 'tt_result');
+    }
+  </script>
+</body>
+</html>
