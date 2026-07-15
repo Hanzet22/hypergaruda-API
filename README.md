@@ -1,2 +1,2 @@
-# hgi.github.io
+# hypergaruda.github.io
 Gabut UNIVERSSEEEEEEEEEE
