@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tools · BintangAPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:#f6f8fc; color:#0b1a33; min-height:100vh; display:flex; flex-direction:column; }
+    .container { max-width:1200px; margin:0 auto; padding:0 20px; width:100%; }
+    header { background:#0b1a33; padding:20px 0; color:#fff; border-bottom:4px solid #fbbf24; }
+    header .container { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+    .logo h1 { font-size:24px; font-weight:800; }
+    .logo h1 span { color:#fbbf24; }
+    .badge { background:rgba(251,191,36,0.2); border:1px solid rgba(251,191,36,0.4); padding:4px 16px; border-radius:40px; font-size:13px; color:#fbbf24; }
+    nav { background:#fff; padding:12px 0; border-bottom:1px solid #e9edf4; }
+    nav .container { display:flex; flex-wrap:wrap; gap:6px 10px; }
+    nav a { padding:6px 16px; border-radius:40px; font-size:13px; font-weight:600; background:#f1f4f9; color:#2c3e5a; transition:0.2s; border:1px solid transparent; white-space:nowrap; }
+    nav a:hover { background:#e2e8f0; border-color:#cbd5e1; }
+    nav a.active { background:#0b1a33; color:#fff; border-color:#0b1a33; }
+    nav a.home { background:#fbbf24; color:#0b1a33; border-color:#fbbf24; }
+    main { flex:1; padding:30px 0; }
+    .endpoint { background:#fff; border-radius:16px; padding:20px 24px; margin-bottom:20px; border:1px solid #e9edf4; }
+    .endpoint h3 { font-size:18px; font-weight:700; }
+    .endpoint .url { font-size:13px; color:#6b7d98; background:#f1f4f9; padding:4px 12px; border-radius:20px; display:inline-block; margin:6px 0 12px; font-family:monospace; }
+    .endpoint .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:12px 0; }
+    .endpoint input, .endpoint select { padding:10px 14px; border:1px solid #d1d9e8; border-radius:10px; font-size:14px; flex:1 1 200px; background:#fff; }
+    .endpoint button { background:#0b1a33; color:#fff; border:none; padding:10px 24px; border-radius:10px; font-weight:600; cursor:pointer; }
+    .endpoint button:hover { background:#1a2f4f; }
+    .endpoint .result { background:#f8faff; border:1px solid #e2e8f0; border-radius:12px; padding:16px; margin-top:12px; white-space:pre-wrap; font-size:14px; max-height:300px; overflow:auto; }
+    footer { background:#0b1a33; color:#8ba0bb; padding:16px 0; text-align:center; font-size:14px; margin-top:auto; border-top:3px solid #fbbf24; }
+    footer a { color:#fbbf24; font-weight:600; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo"><h1>✦ Bintang<span>API</span></h1></div>
+      <div class="badge">🔧 AI Tools · 5 endpoint</div>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="home">🏠 Home</a>
+      <a href="ai.html">AI Chat</a>
+      <a href="ai-image.html">AI Image</a>
+      <a href="ai-tools.html" class="active">AI Tools</a>
+      <a href="baca.html">Baca</a>
+      <a href="downloader.html">Downloader</a>
+      <a href="berita.html">Berita</a>
+      <a href="brat-maker.html">Brat Maker</a>
+      <a href="nonton.html">Nonton</a>
+      <a href="scriptblox.html">Scriptblox</a>
+      <a href="search.html">Search</a>
+      <a href="stalker.html">Stalker</a>
+      <a href="tools.html">Tools</a>
+      <a href="uploader.html">Uploader</a>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <h2 style="font-size:22px; font-weight:700; margin-bottom:20px;">🛠️ AI Tools</h2>
+      <!-- 13. Generator Prompt -->
+      <div class="endpoint">
+        <h3>13. Generator Prompt</h3>
+        <div class="url">GET /api/aitools/gen-prompt?q=...</div>
+        <div class="row">
+          <input type="text" id="gp_q" value="pinter coding" placeholder="q">
+          <button onclick="fetchGenPrompt()">Fetch</button>
+        </div>
+        <div id="gp_result" class="result">Klik Fetch</div>
+      </div>
+      <!-- 14. Humanizer AI -->
+      <div class="endpoint">
+        <h3>14. Humanizer AI</h3>
+        <div class="url">GET /api/aitools/humanizer?text=...</div>
+        <div class="row">
+          <input type="text" id="hum_text" value="Berdasarkan analisis yang mendalam, dapat disimpulkan bahwa implementasi teknologi artificial intelligence memberikan kontribusi signifikan terhadap peningkatan efisiensi operasional perusahaan." placeholder="text">
+          <button onclick="fetchHumanizer()">Fetch</button>
+        </div>
+        <div id="hum_result" class="result">Klik Fetch</div>
+      </div>
+      <!-- 15. Rewrite AI (5 mode) -->
+      <div class="endpoint">
+        <h3>15. Rewrite AI (Standard, Formal, Casual, Creative, Professional)</h3>
+        <div class="url">GET /api/aitools/rewrite?text=... (mode via header/query? mode=standard)</div>
+        <div class="row">
+          <input type="text" id="rw_text" value="BintangAPI itu website rest api" placeholder="text">
+          <select id="rw_mode">
+            <option value="standard">Standard</option>
+            <option value="formal">Formal</option>
+            <option value="casual">Casual</option>
+            <option value="creative">Creative</option>
+            <option value="professional">Professional</option>
+          </select>
+          <button onclick="fetchRewrite()">Fetch</button>
+        </div>
+        <div id="rw_result" class="result">Klik Fetch</div>
+      </div>
+      <!-- 16. Google TTS -->
+      <div class="endpoint">
+        <h3>16. Google TTS</h3>
+        <div class="url">GET /api/aitools/tts/googletts?text=...</div>
+        <div class="row">
+          <input type="text" id="gtts_text" value="halo dunia" placeholder="text">
+          <button onclick="fetchGoogleTTS()">Fetch</button>
+        </div>
+        <div id="gtts_result" class="result">Klik Fetch</div>
+      </div>
+      <!-- 17. QwenTTS (4 mode) -->
+      <div class="endpoint">
+        <h3>17. QwenTTS (Cherry, Ethan, Chelsie, Serena)</h3>
+        <div class="url">GET /api/aitools/tts/qwentts?text=... (mode via query? voice=cherry)</div>
+        <div class="row">
+          <input type="text" id="qtts_text" value="bintangapi" placeholder="text">
+          <select id="qtts_voice">
+            <option value="cherry">Cherry</option>
+            <option value="ethan">Ethan</option>
+            <option value="chelsie">Chelsie</option>
+            <option value="serena">Serena</option>
+          </select>
+          <button onclick="fetchQwenTTS()">Fetch</button>
+        </div>
+        <div id="qtts_result" class="result">Klik Fetch</div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">BintangAPI · <a href="https://bintangapi.my.id" target="_blank">bintangapi.my.id</a></div>
+  </footer>
+  <script>
+    async function doFetch(url, targetId) {
+      const el = document.getElementById(targetId);
+      el.textContent = '⏳ Loading...';
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        el.textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        el.textContent = '❌ Error: ' + e.message;
+      }
+    }
+    function fetchGenPrompt() {
+      const q = document.getElementById('gp_q').value.trim();
+      doFetch(`https://bintangapi.my.id/api/aitools/gen-prompt?q=${encodeURIComponent(q)}`, 'gp_result');
+    }
+    function fetchHumanizer() {
+      const t = document.getElementById('hum_text').value.trim();
+      doFetch(`https://bintangapi.my.id/api/aitools/humanizer?text=${encodeURIComponent(t)}`, 'hum_result');
+    }
+    function fetchRewrite() {
+      const t = document.getElementById('rw_text').value.trim();
+      const mode = document.getElementById('rw_mode').value;
+      doFetch(`https://bintangapi.my.id/api/aitools/rewrite?text=${encodeURIComponent(t)}&mode=${mode}`, 'rw_result');
+    }
+    function fetchGoogleTTS() {
+      const t = document.getElementById('gtts_text').value.trim();
+      doFetch(`https://bintangapi.my.id/api/aitools/tts/googletts?text=${encodeURIComponent(t)}`, 'gtts_result');
+    }
+    function fetchQwenTTS() {
+      const t = document.getElementById('qtts_text').value.trim();
+      const voice = document.getElementById('qtts_voice').value;
+      doFetch(`https://bintangapi.my.id/api/aitools/tts/qwentts?text=${encodeURIComponent(t)}&voice=${voice}`, 'qtts_result');
+    }
+  </script>
+</body>
+          </html>
