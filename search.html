@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search · BintangAPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:#f6f8fc; color:#0b1a33; min-height:100vh; display:flex; flex-direction:column; }
+    .container { max-width:1200px; margin:0 auto; padding:0 20px; width:100%; }
+    header { background:#0b1a33; padding:20px 0; color:#fff; border-bottom:4px solid #fbbf24; }
+    header .container { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+    .logo h1 { font-size:24px; font-weight:800; }
+    .logo h1 span { color:#fbbf24; }
+    .badge { background:rgba(251,191,36,0.2); border:1px solid rgba(251,191,36,0.4); padding:4px 16px; border-radius:40px; font-size:13px; color:#fbbf24; }
+    nav { background:#fff; padding:12px 0; border-bottom:1px solid #e9edf4; }
+    nav .container { display:flex; flex-wrap:wrap; gap:6px 10px; }
+    nav a { padding:6px 16px; border-radius:40px; font-size:13px; font-weight:600; background:#f1f4f9; color:#2c3e5a; transition:0.2s; border:1px solid transparent; white-space:nowrap; }
+    nav a:hover { background:#e2e8f0; border-color:#cbd5e1; }
+    nav a.active { background:#0b1a33; color:#fff; border-color:#0b1a33; }
+    nav a.home { background:#fbbf24; color:#0b1a33; border-color:#fbbf24; }
+    main { flex:1; padding:30px 0; }
+    .endpoint { background:#fff; border-radius:16px; padding:20px 24px; margin-bottom:20px; border:1px solid #e9edf4; }
+    .endpoint h3 { font-size:18px; font-weight:700; }
+    .endpoint .url { font-size:13px; color:#6b7d98; background:#f1f4f9; padding:4px 12px; border-radius:20px; display:inline-block; margin:6px 0 12px; font-family:monospace; }
+    .endpoint .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:12px 0; }
+    .endpoint input { padding:10px 14px; border:1px solid #d1d9e8; border-radius:10px; font-size:14px; flex:1 1 200px; background:#fff; }
+    .endpoint button { background:#0b1a33; color:#fff; border:none; padding:10px 24px; border-radius:10px; font-weight:600; cursor:pointer; }
+    .endpoint button:hover { background:#1a2f4f; }
+    .endpoint .result { background:#f8faff; border:1px solid #e2e8f0; border-radius:12px; padding:16px; margin-top:12px; white-space:pre-wrap; font-size:14px; max-height:350px; overflow:auto; }
+    footer { background:#0b1a33; color:#8ba0bb; padding:16px 0; text-align:center; font-size:14px; margin-top:auto; border-top:3px solid #fbbf24; }
+    footer a { color:#fbbf24; font-weight:600; }
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width:640px) { .grid-2 { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo"><h1>✦ Bintang<span>API</span></h1></div>
+      <div class="badge">🔍 Search · 8 endpoint</div>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="home">🏠 Home</a>
+      <a href="ai.html">AI Chat</a>
+      <a href="ai-image.html">AI Image</a>
+      <a href="ai-tools.html">AI Tools</a>
+      <a href="baca.html">Baca</a>
+      <a href="downloader.html">Downloader</a>
+      <a href="berita.html">Berita</a>
+      <a href="brat-maker.html">Brat Maker</a>
+      <a href="nonton.html">Nonton</a>
+      <a href="scriptblox.html">Scriptblox</a>
+      <a href="search.html" class="active">Search</a>
+      <a href="stalker.html">Stalker</a>
+      <a href="tools.html">Tools</a>
+      <a href="uploader.html">Uploader</a>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <h2 style="font-size:22px; font-weight:700; margin-bottom:20px;">🔍 Pencarian</h2>
+      <div class="grid-2">
+        <!-- 47. AN1 -->
+        <div class="endpoint">
+          <h3>47. AN1</h3>
+          <div class="url">GET /api/search/an1?q=...&page=1</div>
+          <div class="row">
+            <input type="text" id="an1_q" value="car" placeholder="q">
+            <input type="number" id="an1_page" value="1" placeholder="page" style="flex:0 0 70px;">
+            <button onclick="fetchAn1()">Fetch</button>
+          </div>
+          <div id="an1_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 48. Brainly -->
+        <div class="endpoint">
+          <h3>48. Brainly</h3>
+          <div class="url">GET /api/search/brainly?q=...&limit=10</div>
+          <div class="row">
+            <input type="text" id="br_q" value="bintang adalah" placeholder="q">
+            <input type="number" id="br_limit" value="10" placeholder="limit" style="flex:0 0 70px;">
+            <button onclick="fetchBrainly()">Fetch</button>
+          </div>
+          <div id="br_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 49. Freefire Hero -->
+        <div class="endpoint">
+          <h3>49. Freefire Hero</h3>
+          <div class="url">GET /api/search/ff-hero?text=...</div>
+          <div class="row">
+            <input type="text" id="ffh_text" value="alok" placeholder="text">
+            <button onclick="fetchFFHero()">Fetch</button>
+          </div>
+          <div id="ffh_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 50. Pinterest -->
+        <div class="endpoint">
+          <h3>50. Pinterest</h3>
+          <div class="url">GET /api/search/pinterest?q=...</div>
+          <div class="row">
+            <input type="text" id="pin_q" value="cogan" placeholder="q">
+            <button onclick="fetchPinterest()">Fetch</button>
+          </div>
+          <div id="pin_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 51. Reuters -->
+        <div class="endpoint">
+          <h3>51. Reuters</h3>
+          <div class="url">GET /api/search/reuters?q=...</div>
+          <div class="row">
+            <input type="text" id="reu_q" value="indonesia" placeholder="q">
+            <button onclick="fetchReuters()">Fetch</button>
+          </div>
+          <div id="reu_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 52. StickerLY -->
+        <div class="endpoint">
+          <h3>52. StickerLY Search</h3>
+          <div class="url">GET /api/search/stikerly?q=...</div>
+          <div class="row">
+            <input type="text" id="stk_q" value="brain" placeholder="q">
+            <button onclick="fetchStickerLY()">Fetch</button>
+          </div>
+          <div id="stk_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 53. Wikipedia -->
+        <div class="endpoint">
+          <h3>53. Wikipedia</h3>
+          <div class="url">GET /api/search/wikipedia?q=...</div>
+          <div class="row">
+            <input type="text" id="wiki_q" value="nasi goreng" placeholder="q">
+            <button onclick="fetchWikipedia()">Fetch</button>
+          </div>
+          <div id="wiki_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 54. Node Gabut (Zodiak) -->
+        <div class="endpoint">
+          <h3>54. Node Gabut (Zodiak)</h3>
+          <div class="url">GET /api/search/zodiak-check?q=...</div>
+          <div class="row">
+            <input type="text" id="zod_q" value="1945-09-10" placeholder="tanggal lahir (YYYY-MM-DD)">
+            <button onclick="fetchZodiak()">Fetch</button>
+          </div>
+          <div id="zod_result" class="result">Klik Fetch</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">BintangAPI · <a href="https://bintangapi.my.id" target="_blank">bintangapi.my.id</a></div>
+  </footer>
+  <script>
+    async function doFetch(url, targetId) {
+      const el = document.getElementById(targetId);
+      el.textContent = '⏳ Loading...';
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        el.textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        el.textContent = '❌ Error: ' + e.message;
+      }
+    }
+    function fetchAn1() {
+      const q = document.getElementById('an1_q').value.trim();
+      const p = document.getElementById('an1_page').value || 1;
+      doFetch(`https://bintangapi.my.id/api/search/an1?q=${encodeURIComponent(q)}&page=${p}`, 'an1_result');
+    }
+    function fetchBrainly() {
+      const q = document.getElementById('br_q').value.trim();
+      const l = document.getElementById('br_limit').value || 10;
+      doFetch(`https://bintangapi.my.id/api/search/brainly?q=${encodeURIComponent(q)}&limit=${l}`, 'br_result');
+    }
+    function fetchFFHero() {
+      const t = document.getElementById('ffh_text').value.trim();
+      doFetch(`https://bintangapi.my.id/api/search/ff-hero?text=${encodeURIComponent(t)}`, 'ffh_result');
+    }
+    function fetchPinterest() {
+      const q = document.getElementById('pin_q').value.trim();
+      doFetch(`https://bintangapi.my.id/api/search/pinterest?q=${encodeURIComponent(q)}`, 'pin_result');
+    }
+    function fetchReuters() {
+      const q = document.getElementById('reu_q').value.trim();
+      doFetch(`https://bintangapi.my.id/api/search/reuters?q=${encodeURIComponent(q)}`, 'reu_result');
+    }
+    function fetchStickerLY() {
+      const q = document.getElementById('stk_q').value.trim();
+      doFetch(`https://bintangapi.my.id/api/search/stikerly?q=${encodeURIComponent(q)}`, 'stk_result');
+    }
+    function fetchWikipedia() {
+      const q = document.getElementById('wiki_q').value.trim();
+      doFetch(`https://bintangapi.my.id/api/search/wikipedia?q=${encodeURIComponent(q)}`, 'wiki_result');
+    }
+    function fetchZodiak() {
+      const q = document.getElementById('zod_q').value.trim();
+      doFetch(`https://bintangapi.my.id/api/search/zodiak-check?q=${encodeURIComponent(q)}`, 'zod_result');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nonton · BintangAPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:#f6f8fc; color:#0b1a33; min-height:100vh; display:flex; flex-direction:column; }
+    .container { max-width:1200px; margin:0 auto; padding:0 20px; width:100%; }
+    header { background:#0b1a33; padding:20px 0; color:#fff; border-bottom:4px solid #fbbf24; }
+    header .container { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+    .logo h1 { font-size:24px; font-weight:800; }
+    .logo h1 span { color:#fbbf24; }
+    .badge { background:rgba(251,191,36,0.2); border:1px solid rgba(251,191,36,0.4); padding:4px 16px; border-radius:40px; font-size:13px; color:#fbbf24; }
+    nav { background:#fff; padding:12px 0; border-bottom:1px solid #e9edf4; }
+    nav .container { display:flex; flex-wrap:wrap; gap:6px 10px; }
+    nav a { padding:6px 16px; border-radius:40px; font-size:13px; font-weight:600; background:#f1f4f9; color:#2c3e5a; transition:0.2s; border:1px solid transparent; white-space:nowrap; }
+    nav a:hover { background:#e2e8f0; border-color:#cbd5e1; }
+    nav a.active { background:#0b1a33; color:#fff; border-color:#0b1a33; }
+    nav a.home { background:#fbbf24; color:#0b1a33; border-color:#fbbf24; }
+    main { flex:1; padding:30px 0; }
+    .endpoint { background:#fff; border-radius:16px; padding:20px 24px; margin-bottom:20px; border:1px solid #e9edf4; }
+    .endpoint h3 { font-size:18px; font-weight:700; }
+    .endpoint .url { font-size:13px; color:#6b7d98; background:#f1f4f9; padding:4px 12px; border-radius:20px; display:inline-block; margin:6px 0 12px; font-family:monospace; word-break:break-all; }
+    .endpoint .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:12px 0; }
+    .endpoint input { padding:10px 14px; border:1px solid #d1d9e8; border-radius:10px; font-size:14px; flex:1 1 200px; background:#fff; }
+    .endpoint button { background:#0b1a33; color:#fff; border:none; padding:10px 24px; border-radius:10px; font-weight:600; cursor:pointer; }
+    .endpoint button:hover { background:#1a2f4f; }
+    .endpoint .result { background:#f8faff; border:1px solid #e2e8f0; border-radius:12px; padding:16px; margin-top:12px; white-space:pre-wrap; font-size:14px; max-height:350px; overflow:auto; }
+    footer { background:#0b1a33; color:#8ba0bb; padding:16px 0; text-align:center; font-size:14px; margin-top:auto; border-top:3px solid #fbbf24; }
+    footer a { color:#fbbf24; font-weight:600; }
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width:640px) { .grid-2 { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo"><h1>✦ Bintang<span>API</span></h1></div>
+      <div class="badge">🎬 Nonton · 9 endpoint</div>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="home">🏠 Home</a>
+      <a href="ai.html">AI Chat</a>
+      <a href="ai-image.html">AI Image</a>
+      <a href="ai-tools.html">AI Tools</a>
+      <a href="baca.html">Baca</a>
+      <a href="downloader.html">Downloader</a>
+      <a href="berita.html">Berita</a>
+      <a href="brat-maker.html">Brat Maker</a>
+      <a href="nonton.html" class="active">Nonton</a>
+      <a href="scriptblox.html">Scriptblox</a>
+      <a href="search.html">Search</a>
+      <a href="stalker.html">Stalker</a>
+      <a href="tools.html">Tools</a>
+      <a href="uploader.html">Uploader</a>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <h2 style="font-size:22px; font-weight:700; margin-bottom:20px;">🎬 Otakudesu</h2>
+      <div class="grid-2">
+        <!-- 35. Completed -->
+        <div class="endpoint">
+          <h3>35. Completed</h3>
+          <div class="url">GET /api/nonton/otakudesu/completed?page=1</div>
+          <div class="row">
+            <input type="number" id="comp_page" value="1" placeholder="page" style="flex:0 0 80px;">
+            <button onclick="fetchOtaku('completed','comp_result')">Fetch</button>
+          </div>
+          <div id="comp_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 36. Detail -->
+        <div class="endpoint">
+          <h3>36. Detail</h3>
+          <div class="url">GET /api/nonton/otakudesu/detail?id=...</div>
+          <div class="row">
+            <input type="text" id="det_id" value="mato-seihei-slave-sub-indo" placeholder="id">
+            <button onclick="fetchOtakuDetail()">Fetch</button>
+          </div>
+          <div id="det_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 37. Genre -->
+        <div class="endpoint">
+          <h3>37. Genre</h3>
+          <div class="url">GET /api/nonton/otakudesu/genre?gen=...</div>
+          <div class="row">
+            <input type="text" id="gen_name" value="ecchi" placeholder="genre">
+            <button onclick="fetchOtakuGenre()">Fetch</button>
+          </div>
+          <div id="gen_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 38. Genre List -->
+        <div class="endpoint">
+          <h3>38. Genre List</h3>
+          <div class="url">GET /api/nonton/otakudesu/genre-list</div>
+          <button onclick="fetchOtaku('genre-list','genlist_result')">Fetch</button>
+          <div id="genlist_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 39. Home -->
+        <div class="endpoint">
+          <h3>39. Home</h3>
+          <div class="url">GET /api/nonton/otakudesu/home</div>
+          <button onclick="fetchOtaku('home','home_result')">Fetch</button>
+          <div id="home_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 40. Ongoing -->
+        <div class="endpoint">
+          <h3>40. Ongoing</h3>
+          <div class="url">GET /api/nonton/otakudesu/ongoing?page=1</div>
+          <div class="row">
+            <input type="number" id="ongo_page" value="1" placeholder="page" style="flex:0 0 80px;">
+            <button onclick="fetchOtaku('ongoing','ongo_result')">Fetch</button>
+          </div>
+          <div id="ongo_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 41. Schedule -->
+        <div class="endpoint">
+          <h3>41. Schedule</h3>
+          <div class="url">GET /api/nonton/otakudesu/schedule</div>
+          <button onclick="fetchOtaku('schedule','sched_result')">Fetch</button>
+          <div id="sched_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 42. Search -->
+        <div class="endpoint">
+          <h3>42. Search</h3>
+          <div class="url">GET /api/nonton/otakudesu/search?q=...</div>
+          <div class="row">
+            <input type="text" id="search_q" value="king" placeholder="q">
+            <button onclick="fetchOtakuSearch()">Fetch</button>
+          </div>
+          <div id="search_result" class="result">Klik Fetch</div>
+        </div>
+        <!-- 43. Stream -->
+        <div class="endpoint">
+          <h3>43. Stream & Nonton</h3>
+          <div class="url">GET /api/nonton/otakudesu/stream?id=...</div>
+          <div class="row">
+            <input type="text" id="stream_id" value="https://otakudesu.blog/episode/msns-episode-1-sub-indo/" placeholder="url episode">
+            <button onclick="fetchOtakuStream()">Fetch</button>
+          </div>
+          <div id="stream_result" class="result">Klik Fetch</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">BintangAPI · <a href="https://bintangapi.my.id" target="_blank">bintangapi.my.id</a></div>
+  </footer>
+  <script>
+    async function doFetch(url, targetId) {
+      const el = document.getElementById(targetId);
+      el.textContent = '⏳ Loading...';
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        el.textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        el.textContent = '❌ Error: ' + e.message;
+      }
+    }
+    function fetchOtaku(endpoint, targetId) {
+      const base = 'https://bintangapi.my.id/api/nonton/otakudesu/';
+      let url = base + endpoint;
+      if (endpoint === 'completed' || endpoint === 'ongoing') {
+        const page = document.getElementById(endpoint === 'completed' ? 'comp_page' : 'ongo_page').value || 1;
+        url += `?page=${page}`;
+      }
+      doFetch(url, targetId);
+    }
+    function fetchOtakuDetail() {
+      const id = document.getElementById('det_id').value.trim();
+      doFetch(`https://bintangapi.my.id/api/nonton/otakudesu/detail?id=${encodeURIComponent(id)}`, 'det_result');
+    }
+    function fetchOtakuGenre() {
+      const g = document.getElementById('gen_name').value.trim();
+      doFetch(`https://bintangapi.my.id/api/nonton/otakudesu/genre?gen=${encodeURIComponent(g)}`, 'gen_result');
+    }
+    function fetchOtakuSearch() {
+      const q = document.getElementById('search_q').value.trim();
+      doFetch(`https://bintangapi.my.id/api/nonton/otakudesu/search?q=${encodeURIComponent(q)}`, 'search_result');
+    }
+    function fetchOtakuStream() {
+      const id = document.getElementById('stream_id').value.trim();
+      doFetch(`https://bintangapi.my.id/api/nonton/otakudesu/stream?id=${encodeURIComponent(id)}`, 'stream_result');
+    }
+  </script>
+</body>
+</html>

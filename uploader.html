@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uploader · BintangAPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:#f6f8fc; color:#0b1a33; min-height:100vh; display:flex; flex-direction:column; }
+    .container { max-width:1200px; margin:0 auto; padding:0 20px; width:100%; }
+    header { background:#0b1a33; padding:20px 0; color:#fff; border-bottom:4px solid #fbbf24; }
+    header .container { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+    .logo h1 { font-size:24px; font-weight:800; }
+    .logo h1 span { color:#fbbf24; }
+    .badge { background:rgba(251,191,36,0.2); border:1px solid rgba(251,191,36,0.4); padding:4px 16px; border-radius:40px; font-size:13px; color:#fbbf24; }
+    nav { background:#fff; padding:12px 0; border-bottom:1px solid #e9edf4; }
+    nav .container { display:flex; flex-wrap:wrap; gap:6px 10px; }
+    nav a { padding:6px 16px; border-radius:40px; font-size:13px; font-weight:600; background:#f1f4f9; color:#2c3e5a; transition:0.2s; border:1px solid transparent; white-space:nowrap; }
+    nav a:hover { background:#e2e8f0; border-color:#cbd5e1; }
+    nav a.active { background:#0b1a33; color:#fff; border-color:#0b1a33; }
+    nav a.home { background:#fbbf24; color:#0b1a33; border-color:#fbbf24; }
+    main { flex:1; padding:30px 0; }
+    .endpoint { background:#fff; border-radius:16px; padding:20px 24px; margin-bottom:20px; border:1px solid #e9edf4; max-width:600px; }
+    .endpoint h3 { font-size:18px; font-weight:700; }
+    .endpoint .url { font-size:13px; color:#6b7d98; background:#f1f4f9; padding:4px 12px; border-radius:20px; display:inline-block; margin:6px 0 12px; font-family:monospace; }
+    .endpoint .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:12px 0; }
+    .endpoint input[type="file"] { padding:8px; border:1px solid #d1d9e8; border-radius:10px; background:#fff; flex:1; }
+    .endpoint button { background:#0b1a33; color:#fff; border:none; padding:10px 24px; border-radius:10px; font-weight:600; cursor:pointer; }
+    .endpoint button:hover { background:#1a2f4f; }
+    .endpoint .result { background:#f8faff; border:1px solid #e2e8f0; border-radius:12px; padding:16px; margin-top:12px; white-space:pre-wrap; font-size:14px; max-height:350px; overflow:auto; }
+    footer { background:#0b1a33; color:#8ba0bb; padding:16px 0; text-align:center; font-size:14px; margin-top:auto; border-top:3px solid #fbbf24; }
+    footer a { color:#fbbf24; font-weight:600; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo"><h1>✦ Bintang<span>API</span></h1></div>
+      <div class="badge">📤 Uploader · 1 endpoint</div>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="home">🏠 Home</a>
+      <a href="ai.html">AI Chat</a>
+      <a href="ai-image.html">AI Image</a>
+      <a href="ai-tools.html">AI Tools</a>
+      <a href="baca.html">Baca</a>
+      <a href="downloader.html">Downloader</a>
+      <a href="berita.html">Berita</a>
+      <a href="brat-maker.html">Brat Maker</a>
+      <a href="nonton.html">Nonton</a>
+      <a href="scriptblox.html">Scriptblox</a>
+      <a href="search.html">Search</a>
+      <a href="stalker.html">Stalker</a>
+      <a href="tools.html">Tools</a>
+      <a href="uploader.html" class="active">Uploader</a>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <h2 style="font-size:22px; font-weight:700; margin-bottom:20px;">📤 Uploader</h2>
+      <!-- 74. Uguu Image Hosting -->
+      <div class="endpoint">
+        <h3>74. Uguu Image Hosting</h3>
+        <div class="url">POST /api/uploader/uguu (multipart/form-data)</div>
+        <div class="row">
+          <input type="file" id="uguu_file" accept="image/*">
+          <button onclick="uploadUguu()">Upload</button>
+        </div>
+        <div id="uguu_result" class="result">Pilih file dan klik Upload</div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">BintangAPI · <a href="https://bintangapi.my.id" target="_blank">bintangapi.my.id</a></div>
+  </footer>
+  <script>
+    async function uploadUguu() {
+      const fileInput = document.getElementById('uguu_file');
+      const el = document.getElementById('uguu_result');
+      if (!fileInput.files || fileInput.files.length === 0) {
+        el.textContent = '❌ Pilih file terlebih dahulu.';
+        return;
+      }
+      const fd = new FormData();
+      fd.append('file', fileInput.files[0]);
+      el.textContent = '⏳ Uploading...';
+      try {
+        const res = await fetch('https://bintangapi.my.id/api/uploader/uguu', {
+          method: 'POST',
+          body: fd
+        });
+        const data = await res.json();
+        el.textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        el.textContent = '❌ Error: ' + e.message;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools · BintangAPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:#f6f8fc; color:#0b1a33; min-height:100vh; display:flex; flex-direction:column; }
+    .container { max-width:1200px; margin:0 auto; padding:0 20px; width:100%; }
+    header { background:#0b1a33; padding:20px 0; color:#fff; border-bottom:4px solid #fbbf24; }
+    header .container { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+    .logo h1 { font-size:24px; font-weight:800; }
+    .logo h1 span { color:#fbbf24; }
+    .badge { background:rgba(251,191,36,0.2); border:1px solid rgba(251,191,36,0.4); padding:4px 16px; border-radius:40px; font-size:13px; color:#fbbf24; }
+    nav { background:#fff; padding:12px 0; border-bottom:1px solid #e9edf4; }
+    nav .container { display:flex; flex-wrap:wrap; gap:6px 10px; }
+    nav a { padding:6px 16px; border-radius:40px; font-size:13px; font-weight:600; background:#f1f4f9; color:#2c3e5a; transition:0.2s; border:1px solid transparent; white-space:nowrap; }
+    nav a:hover { background:#e2e8f0; border-color:#cbd5e1; }
+    nav a.active { background:#0b1a33; color:#fff; border-color:#0b1a33; }
+    nav a.home { background:#fbbf24; color:#0b1a33; border-color:#fbbf24; }
+    main { flex:1; padding:30px 0; }
+    .endpoint { background:#fff; border-radius:16px; padding:20px 24px; margin-bottom:20px; border:1px solid #e9edf4; }
+    .endpoint h3 { font-size:18px; font-weight:700; }
+    .endpoint .url { font-size:13px; color:#6b7d98; background:#f1f4f9; padding:4px 12px; border-radius:20px; display:inline-block; margin:6px 0 12px; font-family:monospace; word-break:break-all; }
+    .endpoint .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:12px 0; }
+    .endpoint input, .endpoint select { padding:10px 14px; border:1px solid #d1d9e8; border-radius:10px; font-size:14px; flex:1 1 200px; background:#fff; }
+    .endpoint button { background:#0b1a33; color:#fff; border:none; padding:10px 24px; border-radius:10px; font-weight:600; cursor:pointer; }
+    .endpoint button:hover { background:#1a2f4f; }
+    .endpoint .result { background:#f8faff; border:1px solid #e2e8f0; border-radius:12px; padding:16px; margin-top:12px; white-space:pre-wrap; font-size:14px; max-height:350px; overflow:auto; }
+    footer { background:#0b1a33; color:#8ba0bb; padding:16px 0; text-align:center; font-size:14px; margin-top:auto; border-top:3px solid #fbbf24; }
+    footer a { color:#fbbf24; font-weight:600; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo"><h1>✦ Bintang<span>API</span></h1></div>
+      <div class="badge">🛠️ Tools · 3 endpoint</div>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="home">🏠 Home</a>
+      <a href="ai.html">AI Chat</a>
+      <a href="ai-image.html">AI Image</a>
+      <a href="ai-tools.html">AI Tools</a>
+      <a href="baca.html">Baca</a>
+      <a href="downloader.html">Downloader</a>
+      <a href="berita.html">Berita</a>
+      <a href="brat-maker.html">Brat Maker</a>
+      <a href="nonton.html">Nonton</a>
+      <a href="scriptblox.html">Scriptblox</a>
+      <a href="search.html">Search</a>
+      <a href="stalker.html">Stalker</a>
+      <a href="tools.html" class="active">Tools</a>
+      <a href="uploader.html">Uploader</a>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <h2 style="font-size:22px; font-weight:700; margin-bottom:20px;">🛠️ Tools</h2>
+      <!-- 71. Bypass Web -->
+      <div class="endpoint">
+        <h3>71. Bypass Web (anti ads)</h3>
+        <div class="url">GET /api/tools/bypassurl?url=...</div>
+        <div class="row">
+          <input type="text" id="bp1_url" value="https://linkvertise.com/access/1239053/55d5Jdz1eY7h">
+          <button onclick="fetchBypass('bypassurl','bp1_result')">Fetch</button>
+        </div>
+        <div id="bp1_result" class="result">Klik Fetch</div>
+      </div>
+      <!-- 72. Bypass V2 -->
+      <div class="endpoint">
+        <h3>72. Bypass V2 (lebih kuat)</h3>
+        <div class="url">GET /api/tools/bypassurl2?url=...</div>
+        <div class="row">
+          <input type="text" id="bp2_url" value="https://linkvertise.com/access/1239053/55d5Jdz1eY7h">
+          <button onclick="fetchBypass('bypassurl2','bp2_result')">Fetch</button>
+        </div>
+        <div id="bp2_result" class="result">Klik Fetch</div>
+      </div>
+      <!-- 73. Web Screenshot -->
+      <div class="endpoint">
+        <h3>73. Web Screenshot (Phone, PC, Tablet)</h3>
+        <div class="url">GET /api/tools/ssweb?url=...&device=...</div>
+        <div class="row">
+          <input type="text" id="ss_url" value="https://bintangapi.my.id">
+          <select id="ss_device">
+            <option value="phone">Phone</option>
+            <option value="pc">PC</option>
+            <option value="tablet">Tablet</option>
+          </select>
+          <button onclick="fetchScreenshot()">Fetch</button>
+        </div>
+        <div id="ss_result" class="result">Klik Fetch</div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">BintangAPI · <a href="https://bintangapi.my.id" target="_blank">bintangapi.my.id</a></div>
+  </footer>
+  <script>
+    async function doFetch(url, targetId) {
+      const el = document.getElementById(targetId);
+      el.textContent = '⏳ Loading...';
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        el.textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        el.textContent = '❌ Error: ' + e.message;
+      }
+    }
+    function fetchBypass(endpoint, targetId) {
+      const u = document.getElementById(endpoint === 'bypassurl' ? 'bp1_url' : 'bp2_url').value.trim();
+      doFetch(`https://bintangapi.my.id/api/tools/${endpoint}?url=${encodeURIComponent(u)}`, targetId);
+    }
+    function fetchScreenshot() {
+      const u = document.getElementById('ss_url').value.trim();
+      const d = document.getElementById('ss_device').value;
+      doFetch(`https://bintangapi.my.id/api/tools/ssweb?url=${encodeURIComponent(u)}&device=${d}`, 'ss_result');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stalker · BintangAPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:#f6f8fc; color:#0b1a33; min-height:100vh; display:flex; flex-direction:column; }
+    .container { max-width:1200px; margin:0 auto; padding:0 20px; width:100%; }
+    header { background:#0b1a33; padding:20px 0; color:#fff; border-bottom:4px solid #fbbf24; }
+    header .container { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+    .logo h1 { font-size:24px; font-weight:800; }
+    .logo h1 span { color:#fbbf24; }
+    .badge { background:rgba(251,191,36,0.2); border:1px solid rgba(251,191,36,0.4); padding:4px 16px; border-radius:40px; font-size:13px; color:#fbbf24; }
+    nav { background:#fff; padding:12px 0; border-bottom:1px solid #e9edf4; }
+    nav .container { display:flex; flex-wrap:wrap; gap:6px 10px; }
+    nav a { padding:6px 16px; border-radius:40px; font-size:13px; font-weight:600; background:#f1f4f9; color:#2c3e5a; transition:0.2s; border:1px solid transparent; white-space:nowrap; }
+    nav a:hover { background:#e2e8f0; border-color:#cbd5e1; }
+    nav a.active { background:#0b1a33; color:#fff; border-color:#0b1a33; }
+    nav a.home { background:#fbbf24; color:#0b1a33; border-color:#fbbf24; }
+    main { flex:1; padding:30px 0; }
+    .endpoint { background:#fff; border-radius:16px; padding:20px 24px; margin-bottom:20px; border:1px solid #e9edf4; }
+    .endpoint h3 { font-size:18px; font-weight:700; }
+    .endpoint .url { font-size:13px; color:#6b7d98; background:#f1f4f9; padding:4px 12px; border-radius:20px; display:inline-block; margin:6px 0 12px; font-family:monospace; word-break:break-all; }
+    .endpoint .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:12px 0; }
+    .endpoint input { padding:10px 14px; border:1px solid #d1d9e8; border-radius:10px; font-size:14px; flex:1 1 200px; background:#fff; }
+    .endpoint button { background:#0b1a33; color:#fff; border:none; padding:10px 24px; border-radius:10px; font-weight:600; cursor:pointer; }
+    .endpoint button:hover { background:#1a2f4f; }
+    .endpoint .result { background:#f8faff; border:1px solid #e2e8f0; border-radius:12px; padding:16px; margin-top:12px; white-space:pre-wrap; font-size:14px; max-height:350px; overflow:auto; }
+    footer { background:#0b1a33; color:#8ba0bb; padding:16px 0; text-align:center; font-size:14px; margin-top:auto; border-top:3px solid #fbbf24; }
+    footer a { color:#fbbf24; font-weight:600; }
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width:640px) { .grid-2 { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo"><h1>✦ Bintang<span>API</span></h1></div>
+      <div class="badge">🕵️ Stalker · 16 endpoint</div>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="home">🏠 Home</a>
+      <a href="ai.html">AI Chat</a>
+      <a href="ai-image.html">AI Image</a>
+      <a href="ai-tools.html">AI Tools</a>
+      <a href="baca.html">Baca</a>
+      <a href="downloader.html">Downloader</a>
+      <a href="berita.html">Berita</a>
+      <a href="brat-maker.html">Brat Maker</a>
+      <a href="nonton.html">Nonton</a>
+      <a href="scriptblox.html">Scriptblox</a>
+      <a href="search.html">Search</a>
+      <a href="stalker.html" class="active">Stalker</a>
+      <a href="tools.html">Tools</a>
+      <a href="uploader.html">Uploader</a>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <h2 style="font-size:22px; font-weight:700; margin-bottom:20px;">🕵️ Stalker Media Sosial & Lainnya</h2>
+      <div class="grid-2">
+        <!-- 55. YT Stalker -->
+        <div class="endpoint"><h3>55. YT Stalker</h3><div class="url">/api/stalker/youtube?username=...</div><div class="row"><input type="text" id="yt_user" value="windah basudara"><button onclick="stalk('youtube','yt_user','yt_result')">Fetch</button></div><div id="yt_result" class="result">Klik Fetch</div></div>
+        <!-- 56. X Stalker (Profil) -->
+        <div class="endpoint"><h3>56. X Stalker (Profil)</h3><div class="url">/api/stalker/x?username=...</div><div class="row"><input type="text" id="x_user" value="prabowo"><button onclick="stalk('x','x_user','x_result')">Fetch</button></div><div id="x_result" class="result">Klik Fetch</div></div>
+        <!-- 57. TikTok Stalker -->
+        <div class="endpoint"><h3>57. TikTok Stalker</h3><div class="url">/api/stalker/tiktok?username=...</div><div class="row"><input type="text" id="tt_user" value="officialbintangapi"><button onclick="stalk('tiktok','tt_user','tt_result')">Fetch</button></div><div id="tt_result" class="result">Klik Fetch</div></div>
+        <!-- 58. Telegram Stalk -->
+        <div class="endpoint"><h3>58. Telegram Stalk</h3><div class="url">/api/stalker/telegram?username=...</div><div class="row"><input type="text" id="tel_user" value="mrbeast"><button onclick="stalk('telegram','tel_user','tel_result')">Fetch</button></div><div id="tel_result" class="result">Klik Fetch</div></div>
+        <!-- 59. SoundCloud Stalker -->
+        <div class="endpoint"><h3>59. SoundCloud Stalker</h3><div class="url">/api/stalker/soundcloud?username=...</div><div class="row"><input type="text" id="sc_user" value="justin bieber"><button onclick="stalk('soundcloud','sc_user','sc_result')">Fetch</button></div><div id="sc_result" class="result">Klik Fetch</div></div>
+        <!-- 60. Roblox Stalker -->
+        <div class="endpoint"><h3>60. Roblox Stalker</h3><div class="url">/api/stalker/roblox?usn=...</div><div class="row"><input type="text" id="rb_user" value="bintangnieh"><button onclick="stalk('roblox','rb_user','rb_result')">Fetch</button></div><div id="rb_result" class="result">Klik Fetch</div></div>
+        <!-- 61. Pinterest Stalker -->
+        <div class="endpoint"><h3>61. Pinterest Stalker</h3><div class="url">/api/stalker/pinterest?username=...</div><div class="row"><input type="text" id="pin_user" value="handsome"><button onclick="stalk('pinterest','pin_user','pin_result')">Fetch</button></div><div id="pin_result" class="result">Klik Fetch</div></div>
+        <!-- 62. NPM Stalker -->
+        <div class="endpoint"><h3>62. NPM Stalker</h3><div class="url">/api/stalker/npm?name=...</div><div class="row"><input type="text" id="npm_user" value="nebu"><button onclick="stalk('npm','npm_user','npm_result')">Fetch</button></div><div id="npm_result" class="result">Klik Fetch</div></div>
+        <!-- 63. ML Stalker -->
+        <div class="endpoint"><h3>63. ML Stalker</h3><div class="url">/api/stalker/ml?user_id=...&zone_id=...</div><div class="row"><input type="text" id="ml_id" value="88242375" placeholder="user_id"><input type="text" id="ml_zone" value="2178" placeholder="zone_id"><button onclick="fetchML()">Fetch</button></div><div id="ml_result" class="result">Klik Fetch</div></div>
+        <!-- 64. Minecraft Stalker -->
+        <div class="endpoint"><h3>64. Minecraft Stalker</h3><div class="url">/api/stalker/minecraft?username=...</div><div class="row"><input type="text" id="mc_user" value="dream"><button onclick="stalk('minecraft','mc_user','mc_result')">Fetch</button></div><div id="mc_result" class="result">Klik Fetch</div></div>
+        <!-- 65. Lahelu Stalker -->
+        <div class="endpoint"><h3>65. Lahelu Stalker</h3><div class="url">/api/stalker/lahelu?username=...</div><div class="row"><input type="text" id="lh_user" value="bedrock"><button onclick="stalk('lahelu','lh_user','lh_result')">Fetch</button></div><div id="lh_result" class="result">Klik Fetch</div></div>
+        <!-- 66. Instagram Stalker -->
+        <div class="endpoint"><h3>66. Instagram Stalker</h3><div class="url">/api/stalker/instagram?username=...</div><div class="row"><input type="text" id="ig_user" value="mrbeast"><button onclick="stalk('instagram','ig_user','ig_result')">Fetch</button></div><div id="ig_result" class="result">Klik Fetch</div></div>
+        <!-- 67. GitHub Stalker -->
+        <div class="endpoint"><h3>67. GitHub Stalker</h3><div class="url">/api/stalker/github?username=...</div><div class="row"><input type="text" id="gh_user" value="Bintang-X"><button onclick="stalk('github','gh_user','gh_result')">Fetch</button></div><div id="gh_result" class="result">Klik Fetch</div></div>
+        <!-- 68. FreeFire BIO Stalker -->
+        <div class="endpoint"><h3>68. FreeFire BIO Stalker</h3><div class="url">/api/stalker/ff?uid=...</div><div class="row"><input type="text" id="ff_uid" value="225009777"><button onclick="stalk('ff','ff_uid','ff_result')">Fetch</button></div><div id="ff_result" class="result">Klik Fetch</div></div>
+        <!-- 69. Chess Stalker -->
+        <div class="endpoint"><h3>69. Chess Stalker</h3><div class="url">/api/stalker/chess?username=...</div><div class="row"><input type="text" id="ch_user" value="kingsbishop"><button onclick="stalk('chess','ch_user','ch_result')">Fetch</button></div><div id="ch_result" class="result">Klik Fetch</div></div>
+        <!-- 70. Channel WhatsApp View -->
+        <div class="endpoint"><h3>70. Channel WhatsApp View</h3><div class="url">/api/stalker/channelwa?url=...</div><div class="row"><input type="text" id="wa_url" value="https://whatsapp.com/channel/0029VbBoeHKGZNCj6vM2vV0H"><button onclick="fetchWAChannel()">Fetch</button></div><div id="wa_result" class="result">Klik Fetch</div></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">BintangAPI · <a href="https://bintangapi.my.id" target="_blank">bintangapi.my.id</a></div>
+  </footer>
+  <script>
+    async function doFetch(url, targetId) {
+      const el = document.getElementById(targetId);
+      el.textContent = '⏳ Loading...';
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        el.textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        el.textContent = '❌ Error: ' + e.message;
+      }
+    }
+    function stalk(endpoint, inputId, targetId) {
+      const val = document.getElementById(inputId).value.trim();
+      const base = 'https://bintangapi.my.id/api/stalker/';
+      let url = base + endpoint + '?';
+      if (endpoint === 'roblox') url += `usn=${encodeURIComponent(val)}`;
+      else if (endpoint === 'npm') url += `name=${encodeURIComponent(val)}`;
+      else if (endpoint === 'ff') url += `uid=${encodeURIComponent(val)}`;
+      else url += `username=${encodeURIComponent(val)}`;
+      doFetch(url, targetId);
+    }
+    function fetchML() {
+      const uid = document.getElementById('ml_id').value.trim();
+      const zone = document.getElementById('ml_zone').value.trim();
+      doFetch(`https://bintangapi.my.id/api/stalker/ml?user_id=${encodeURIComponent(uid)}&zone_id=${encodeURIComponent(zone)}`, 'ml_result');
+    }
+    function fetchWAChannel() {
+      const u = document.getElementById('wa_url').value.trim();
+      doFetch(`https://bintangapi.my.id/api/stalker/channelwa?url=${encodeURIComponent(u)}`, 'wa_result');
+    }
+  </script>
+</body>
+</html>
