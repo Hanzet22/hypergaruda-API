@@ -1,185 +1,177 @@
-🌟 BintangAPI Dashboard
+# 🌟 BintangAPI Dashboard
 
-<p align="center">Web Interface untuk BintangAPI
-Membantu testing, eksplorasi, dan penggunaan API langsung dari browser.
+<p align="center">
+  <strong>Web Interface resmi untuk melakukan testing, eksplorasi, dan eksekusi API langsung dari browser.</strong>
+</p>
 
-Dibuat dengan ❤️ oleh HyperGaruda
-Gabut Universe Edition 🐱‍👤
+<p align="center">
+  Dibuat dengan ❤️ oleh <b>HyperGaruda</b> — <i>Gabut Universe Edition 🐱‍👤</i>
+</p>
 
-</p><p align="center">"Status" (https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
-"Endpoints" (https://img.shields.io/badge/Endpoints-74-blue?style=for-the-badge)
-"License" (https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-"Made With" (https://img.shields.io/badge/Made%20with-HTML%20%7C%20CSS%20%7C%20JavaScript-orange?style=for-the-badge)
-
-</p>---
-
-📚 Daftar Isi
-
-- "Tentang Project" (#-tentang-project)
-- "Kontributor" (#-kontributor)
-- "Struktur Project" (#-struktur-project)
-- "Cara Menggunakan" (#-cara-menggunakan)
-- "Fitur" (#-fitur)
-- "Kredit" (#-kredit--apresiasi)
-- "Lisensi" (#-lisensi)
-- "Kontak" (#-kontak)
+<p align="center">
+  <img src="https://shields.io" alt="Status Active">
+  <img src="https://shields.io" alt="Endpoints 74">
+  <img src="https://shields.io" alt="License MIT">
+  <img src="https://shields.io" alt="Made With">
+</p>
 
 ---
 
-📌 Tentang Project
-
-BintangAPI Dashboard merupakan dashboard web interaktif yang dirancang untuk mengakses seluruh endpoint dari BintangAPI tanpa perlu menulis kode secara manual.
-
-Dashboard ini cocok digunakan untuk:
-
-- 🧪 Testing endpoint
-- 🔍 Eksplorasi API
-- 💻 Belajar menggunakan REST API
-- ⚡ Mencoba request secara cepat langsung dari browser
-
-«[!NOTE]
-Seluruh request dilakukan menggunakan endpoint resmi dari BintangAPI.»
+### 📚 Daftar Isi
+- [📌 Tentang Project](#-tentang-project)
+- [👥 Kontributor](#-kontributor)
+- [📂 Struktur Project](#-struktur-project)
+- [📊 Statistik Endpoint](#-statistik-endpoint)
+- [🚀 Cara Menggunakan](#-cara-menggunakan)
+- [✨ Fitur Utama](#-fitur-utama)
+- [📸 Preview](#-preview)
+- [🙏 Kredit & Apresiasi](#-kredit--apresiasi)
+- [📄 Lisensi](#-lisensi)
+- [📞 Kontak](#-kontak)
 
 ---
 
-👥 Kontributor
+### 📌 Tentang Project
+**BintangAPI Dashboard** merupakan platform web interaktif yang dirancang khusus untuk mempermudah akses ke seluruh endpoint gratis dari BintangAPI tanpa perlu melakukan *coding* manual atau konfigurasi di Postman.
 
-Peran| Kontributor
-🖥️ Web Development & UI/UX| HyperGaruda (hanzet22)
-⚙️ API Development & Documentation| BintangAPI X (Bintang-X)
-🧠 Ide & Konsep| Gabut Universe
+**Dashboard ini sangat ideal untuk:**
+* 🧪 **Testing Endpoint:** Melakukan uji coba parameter input secara langsung.
+* 🔍 **Eksplorasi API:** Mengetahui respon data dari setiap fitur.
+* 💻 **Bahan Pembelajaran:** Referensi integrasi REST API berbasis web bagi pemula.
+* ⚡ **Eksekusi Cepat:** Mendapatkan output *real-time* langsung via browser.
+
+> [!NOTE]
+> Seluruh request diproses secara langsung menggunakan endpoint resmi dari server utama BintangAPI.
 
 ---
 
-📂 Struktur Project
+### 👥 Kontributor
 
+| Peran | Nama / Instansi |
+| :--- | :--- |
+| 🖥️ **Web Development & UI/UX** | [HyperGaruda](https://github.com/Hanzet22) (`hanzet22`) |
+| ⚙️ **API Development & Documentation** | [BintangAPI X](https://github.com/Bintang-X) (`Bintang-X`) |
+| 🧠 **Ide & Konsep Dasar** | Gabut Universe Community |
+
+---
+
+### 📂 Struktur Project
+Dashboard ini dibangun secara modular menggunakan skema penamaan file statis yang bersih:
+
+```text
 hanzet22.github.io/
 └── hypergaruda.github.io/
-    ├── index.html
-    ├── ai.html
-    ├── ai-image.html
-    ├── ai-tools.html
-    ├── baca.html
-    ├── downloader.html
-    ├── berita.html
-    ├── brat-maker.html
-    ├── nonton.html
-    ├── scriptblox.html
-    ├── search.html
-    ├── stalker.html
-    ├── tools.html
-    ├── uploader.html
-    └── README.md
-
-📊 Statistik
-
-Kategori| Endpoint
-AI Chat| 9
-AI Image| 3
-AI Tools| 5
-Baca WattPad| 4
-Downloader| 3
-Berita| 9
-Brat Maker| 2
-Nonton| 9
-ScriptBlox| 3
-Search| 8
-Stalker| 16
-Tools| 3
-Uploader| 1
-TOTAL| 74
+    ├── index.html          # Halaman Utama / Portal Dashboard
+    ├── ai.html             # Endpoint Modul AI Chat
+    ├── ai-image.html       # Endpoint Modul AI Image
+    ├── ai-tools.html       # Endpoint Modul AI Tools
+    ├── baca.html           # Endpoint Modul WattPad Reader
+    ├── downloader.html     # Endpoint Modul Social Media Downloader
+    ├── berita.html         # Endpoint Modul Berita Nasional
+    ├── brat-maker.html     # Endpoint Modul Pembuat Teks Brat
+    ├── nonton.html         # Endpoint Modul Portal Film/Streaming
+    ├── scriptblox.html     # Endpoint Modul ScriptBlox Searcher
+    ├── search.html         # Endpoint Modul Search Engine Integrator
+    ├── stalker.html        # Endpoint Modul Media Social Stalker
+    ├── tools.html          # Endpoint Modul Utilitas Umum
+    ├── uploader.html       # Endpoint Modul Uploader Media
+    └── README.md           # Dokumentasi Project
+```
 
 ---
 
-🚀 Cara Menggunakan
+### 📊 Statistik Endpoint
 
-1. Buka dashboard.
-
-https://hanzet22.github.io/hypergaruda.github.io/
-
-2. Pilih kategori endpoint.
-
-3. Masukkan parameter yang diperlukan.
-
-Contoh:
-
-prompt
-username
-url
-query
-
-4. Tekan tombol Fetch.
-
-5. Respons API akan ditampilkan dalam format JSON yang telah diformat agar mudah dibaca.
+| Kategori Modul | Jumlah Endpoint |
+| :--- | :---: |
+| 🧠 AI Chat | 9 |
+| 🖼️ AI Image | 3 |
+| 🔧 AI Tools | 5 |
+| 📖 Baca WattPad | 4 |
+| ⬇️ Downloader | 3 |
+| 📰 Berita | 9 |
+| 🎨 Brat Maker | 2 |
+| 🎬 Nonton | 9 |
+| 📜 ScriptBlox | 3 |
+| 🔍 Search | 8 |
+| 🕵️ Stalker | 16 |
+| 🛠️ Tools | 3 |
+| 📤 Uploader | 1 |
+| 📈 **TOTAL ENDPOINT READY** | **74** |
 
 ---
 
-✨ Fitur
+### 🚀 Cara Menggunakan
 
-- ✅ 74 endpoint siap digunakan
-- ✅ UI sederhana dan mudah dipahami
-- ✅ Form otomatis untuk setiap endpoint
-- ✅ JSON Pretty Viewer
-- ✅ Upload file (Uguu Image Hosting)
-- ✅ Mobile Friendly
-- ✅ Responsive Design
-- ✅ Gratis digunakan
-
----
-
-📸 Preview
-
-«[!TIP]
-Tambahkan screenshot dashboard di sini agar repository terlihat lebih menarik.»
-
-docs/images/dashboard.png
+1. **Akses Dashboard**  
+   Buka interface web melalui link resmi: [HyperGaruda GitHub Pages](https://hanzet22.github.io/hypergaruda-API/)
+2. **Pilih Kategori**  
+   Navigasikan ke menu halaman modul sesuai kebutuhan lu pada daftar di atas.
+3. **Isi Parameter**  
+   Lengkapi form parameter yang diminta pada halaman terkait, seperti contoh berikut:
+   * `prompt` (untuk AI text generation)
+   * `username` / `url` / `query` (untuk pencarian & downloader)
+4. **Eksekusi Request**  
+   Tekan tombol **Fetch**.
+5. **Analisis Output**  
+   Respons server API akan langsung dimuat secara instan di layar dalam format **JSON Pretty Viewer** sehingga sangat mudah dibaca.
 
 ---
 
-🙏 Kredit & Apresiasi
-
-Komponen| Dibuat Oleh
-API & Dokumentasi| BintangAPI (Bintang-X)
-Dashboard Web| HyperGaruda (hanzet22)
-Testing & Support| Gabut Universe Community
-
-Terima kasih kepada Bintang-X yang telah menyediakan API gratis sehingga dashboard ini dapat dibuat dan digunakan oleh siapa saja.
+### ✨ Fitur Utama
+* 🚀 **74 Live Endpoints:** Seluruh server aktif dan terintegrasi penuh.
+* 📱 **Mobile Friendly & Responsive:** UI tetap presisi dibuka dari HP, tablet, maupun desktop.
+* 🪄 **Automated Form Fields:** Input form otomatis menyesuaikan kebutuhan dari *endpoint* yang dipilih.
+* 📦 **JSON Pretty Viewer:** Output data rapi dengan indentasi kode yang jelas.
+* 📤 **Uguu Image Hosting Integration:** Memungkinkan unggah file langsung dari modul uploader.
 
 ---
 
-📄 Lisensi
+### 📸 Preview
+> [!TIP]
+> Tempelkan screenshot beresolusi tinggi dari tampilan halaman utama dashboard lu di bawah ini agar repositori terlihat jauh lebih berkelas bagi pengunjung.
 
-Project ini menggunakan lisensi MIT.
-
-Silakan:
-
-- ✅ Menggunakan
-- ✅ Memodifikasi
-- ✅ Mempelajari
-- ✅ Membagikan
-
-sesuai ketentuan lisensi MIT.
-
-«"Yang penting tetap lestarikan budaya gabut." ☕»
+```text
+💾 docs/images/dashboard.png
+```
 
 ---
 
-📞 Kontak
+### 🙏 Kredit & Apresiasi
 
-Platform| Link
-🌐 Website BintangAPI| https://bintangapi.my.id
-💻 GitHub HyperGaruda| https://github.com/hanzet22
-💻 GitHub BintangAPI| https://github.com/Bintang-X
+| Komponen Sistem | Kreator Utama |
+| :--- | :--- |
+| **Penyedia API & Dokumentasi Inti** | **BintangAPI (Bintang-X)** |
+| **Arsitektur & Desain Dashboard Web** | **HyperGaruda (hanzet22)** |
+| **Fasilitator Pengujian & Support** | **Gabut Universe Community** |
+
+Apresiasi setinggi-tingginya kepada **Bintang-X** yang sudah bersedia membagikan API ini secara cuma-cuma demi mendukung ekosistem belajar developer lokal.
 
 ---
 
-<div align="center">🐱‍👤 Gabut Universe
+### 📄 Lisensi
+Di bawah naungan **Lisensi MIT**. Lu bebas penuh untuk:
+* 🔄 Menggunakan kembali kode program.
+* 🛠️ Memodifikasi struktur komponen.
+* 📚 Mempelajari alur logikanya.
+* 🤝 Menyebarluaskan proyek ini secara massal.
 
-AWOKAWOKAWOK 🔥
+> "Yang penting tetap lestarikan budaya gabut." ☕ — *Filosofi Gabut Universe*
 
-«"Gabut itu bukan dosa, tapi seni."
-— Filosofi Gabut Universe»
+---
 
-⭐ Jika project ini bermanfaat, jangan lupa berikan Star pada repository ini.
+### 📞 Kontak & Tautan
 
+* 🌐 **Website Resmi BintangAPI:** [bintangapi.my.id](https://bintangapi.my.id)
+* 💻 **GitHub HyperGaruda:** [@hanzet22](https://github.com/Hanzet22)
+* 💻 **GitHub BintangAPI:** [@Bintang-X](https://github.com/Bintang-X)
+
+---
+<div align="center">
+
+### 🐱‍👤 Gabut Universe
+**AWOKAWOKAWOK 🔥**  
+*"Gabut itu bukan dosa, tapi seni."*
+
+⭐ *Kalau lu suka atau ngerasa kebantu sama project dashboard ini, jangan lupa tinggalin jejak dengan pencet tombol **Star** di pojok kanan atas repositori ini!*
 </div>
