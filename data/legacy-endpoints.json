@@ -1,0 +1,857 @@
+{
+  "schemaVersion": 1,
+  "notice": "74 individually transcribed legacy route records. The official BintangAPI documentation index reports 77 endpoints; 3 net records remain unmapped pending individual route details. Nothing here is live-verified or approved.",
+  "categories": [
+    {
+      "id": "ai",
+      "name": "AI Chat",
+      "icon": "🧠",
+      "description": "Conversational AI and research models",
+      "count": 9,
+      "legacyPage": "ai.html"
+    },
+    {
+      "id": "ai-image",
+      "name": "AI Image",
+      "icon": "🖼️",
+      "description": "Image generation providers",
+      "count": 3,
+      "legacyPage": "ai-image.html"
+    },
+    {
+      "id": "ai-tools",
+      "name": "AI Tools",
+      "icon": "🧰",
+      "description": "Prompt, text and speech utilities",
+      "count": 5,
+      "legacyPage": "ai-tools.html"
+    },
+    {
+      "id": "baca",
+      "name": "Baca",
+      "icon": "📖",
+      "description": "Wattpad reading and discovery",
+      "count": 4,
+      "legacyPage": "baca.html"
+    },
+    {
+      "id": "berita",
+      "name": "Berita",
+      "icon": "📰",
+      "description": "News and information feeds",
+      "count": 8,
+      "legacyPage": "berita.html"
+    },
+    {
+      "id": "brat-maker",
+      "name": "Brat Maker",
+      "icon": "🎨",
+      "description": "Image and video text maker",
+      "count": 2,
+      "legacyPage": "brat-maker.html"
+    },
+    {
+      "id": "downloader",
+      "name": "Downloader",
+      "icon": "⬇️",
+      "description": "Media download utilities",
+      "count": 3,
+      "legacyPage": "downloader.html"
+    },
+    {
+      "id": "nonton",
+      "name": "Nonton",
+      "icon": "🎬",
+      "description": "Anime catalog and streaming endpoints",
+      "count": 9,
+      "legacyPage": "nonton.html"
+    },
+    {
+      "id": "scriptblox",
+      "name": "ScriptBlox",
+      "icon": "📜",
+      "description": "ScriptBlox discovery",
+      "count": 3,
+      "legacyPage": "scriptblox.html"
+    },
+    {
+      "id": "search",
+      "name": "Search",
+      "icon": "🔎",
+      "description": "Search and information retrieval",
+      "count": 8,
+      "legacyPage": "search.html"
+    },
+    {
+      "id": "stalker",
+      "name": "Stalker",
+      "icon": "👁️",
+      "description": "Public profile lookup endpoints",
+      "count": 16,
+      "legacyPage": "stalker.html"
+    },
+    {
+      "id": "tools",
+      "name": "Tools",
+      "icon": "🛠️",
+      "description": "General web utilities",
+      "count": 3,
+      "legacyPage": "tools.html"
+    },
+    {
+      "id": "uploader",
+      "name": "Uploader",
+      "icon": "📤",
+      "description": "Media upload endpoint",
+      "count": 1,
+      "legacyPage": "uploader.html"
+    }
+  ],
+  "endpoints": [
+    {
+      "id": "ai-1",
+      "category": "ai",
+      "title": "AI Prompt",
+      "method": "GET",
+      "path": "/api/aichat/aiprompt?prompt=...&text=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-2",
+      "category": "ai",
+      "title": "AI Research",
+      "method": "GET",
+      "path": "/api/aichat/research?q=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-3",
+      "category": "ai",
+      "title": "CoPilot",
+      "method": "GET",
+      "path": "/api/aichat/copilot?text=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-4",
+      "category": "ai",
+      "title": "DeepSeek V3",
+      "method": "GET",
+      "path": "/api/aichat/deep-v3?text=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-5",
+      "category": "ai",
+      "title": "DeepSeek V4 Flash",
+      "method": "GET",
+      "path": "/api/aichat/deep-v4?text=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-6",
+      "category": "ai",
+      "title": "GITA AI",
+      "method": "GET",
+      "path": "/api/aichat/gita?text=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-7",
+      "category": "ai",
+      "title": "Llama Scout 4",
+      "method": "GET",
+      "path": "/api/aichat/llama-4?text=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-8",
+      "category": "ai",
+      "title": "Qwen3 Coder",
+      "method": "GET",
+      "path": "/api/aichat/qwen-coder?text=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-9",
+      "category": "ai",
+      "title": "UhhhhhGPT (WormGPT)",
+      "method": "GET",
+      "path": "/api/aichat/wormgpt?q=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-image-1",
+      "category": "ai-image",
+      "title": "AIFlux",
+      "method": "GET",
+      "path": "/api/aiimg/flux?prompt=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-image-2",
+      "category": "ai-image",
+      "title": "WhiteCream AI",
+      "method": "GET",
+      "path": "/api/aiimg/writecream?prompt=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-image-3",
+      "category": "ai-image",
+      "title": "ZImage",
+      "method": "GET",
+      "path": "/api/aiimg/zimage?prompt=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-tools-1",
+      "category": "ai-tools",
+      "title": "Generator Prompt",
+      "method": "GET",
+      "path": "/api/aitools/gen-prompt?q=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-tools-2",
+      "category": "ai-tools",
+      "title": "Humanizer AI",
+      "method": "GET",
+      "path": "/api/aitools/humanizer?text=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-tools-3",
+      "category": "ai-tools",
+      "title": "Rewrite AI (Standard, Formal, Casual, Creative, Professional)",
+      "method": "GET",
+      "path": "/api/aitools/rewrite?text=... (mode via header/query? mode=standard)",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-tools-4",
+      "category": "ai-tools",
+      "title": "Google TTS",
+      "method": "GET",
+      "path": "/api/aitools/tts/googletts?text=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "ai-tools-5",
+      "category": "ai-tools",
+      "title": "QwenTTS (Cherry, Ethan, Chelsie, Serena)",
+      "method": "GET",
+      "path": "/api/aitools/tts/qwentts?text=... (mode via query? voice=cherry)",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "baca-1",
+      "category": "baca",
+      "title": "WattPad - BACA",
+      "method": "GET",
+      "path": "/api/baca/wattpad-baca?url=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "baca-2",
+      "category": "baca",
+      "title": "WattPad - DETAIL",
+      "method": "GET",
+      "path": "/api/baca/wattpad-det?url=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "baca-3",
+      "category": "baca",
+      "title": "WattPad - HOME",
+      "method": "GET",
+      "path": "/api/baca/wattpad-home",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "baca-4",
+      "category": "baca",
+      "title": "WattPad - SEARCH",
+      "method": "GET",
+      "path": "/api/baca/wattpad-searc?q=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "berita-1",
+      "category": "berita",
+      "title": "AntaraNews",
+      "method": "GET",
+      "path": "/api/info/berita/antara",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "berita-2",
+      "category": "berita",
+      "title": "CNBCIndonesia",
+      "method": "GET",
+      "path": "/api/info/berita/cnbc",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "berita-3",
+      "category": "berita",
+      "title": "CNN",
+      "method": "GET",
+      "path": "/api/info/berita/cnn",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "berita-4",
+      "category": "berita",
+      "title": "GoogleNews",
+      "method": "GET",
+      "path": "/api/info/berita/google",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "berita-5",
+      "category": "berita",
+      "title": "KompasTV",
+      "method": "GET",
+      "path": "/api/info/berita/kompas",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "berita-6",
+      "category": "berita",
+      "title": "Liputan6",
+      "method": "GET",
+      "path": "/api/info/berita/liputan6",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "berita-7",
+      "category": "berita",
+      "title": "SindoNews",
+      "method": "GET",
+      "path": "/api/info/berita/sindo",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "berita-8",
+      "category": "berita",
+      "title": "Grow A Garden Stock",
+      "method": "GET",
+      "path": "/api/info/gagstock",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "brat-maker-1",
+      "category": "brat-maker",
+      "title": "Brat Maker (Image)",
+      "method": "GET",
+      "path": "/api/maker/brat?text=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "brat-maker-2",
+      "category": "brat-maker",
+      "title": "Brat Maker (Video)",
+      "method": "GET",
+      "path": "/api/maker/bratvid?text=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "downloader-1",
+      "category": "downloader",
+      "title": "CapCut Video Downloader",
+      "method": "GET",
+      "path": "/api/downloader/capcut?url=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "downloader-2",
+      "category": "downloader",
+      "title": "Spotify Downloader",
+      "method": "GET",
+      "path": "/api/downloader/spotify?url=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "downloader-3",
+      "category": "downloader",
+      "title": "TikTok Downloader",
+      "method": "GET",
+      "path": "/api/downloader/tiktok?url=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "nonton-1",
+      "category": "nonton",
+      "title": "Completed",
+      "method": "GET",
+      "path": "/api/nonton/otakudesu/completed?page=1",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "nonton-2",
+      "category": "nonton",
+      "title": "Detail",
+      "method": "GET",
+      "path": "/api/nonton/otakudesu/detail?id=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "nonton-3",
+      "category": "nonton",
+      "title": "Genre",
+      "method": "GET",
+      "path": "/api/nonton/otakudesu/genre?gen=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "nonton-4",
+      "category": "nonton",
+      "title": "Genre List",
+      "method": "GET",
+      "path": "/api/nonton/otakudesu/genre-list",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "nonton-5",
+      "category": "nonton",
+      "title": "Home",
+      "method": "GET",
+      "path": "/api/nonton/otakudesu/home",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "nonton-6",
+      "category": "nonton",
+      "title": "Ongoing",
+      "method": "GET",
+      "path": "/api/nonton/otakudesu/ongoing?page=1",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "nonton-7",
+      "category": "nonton",
+      "title": "Schedule",
+      "method": "GET",
+      "path": "/api/nonton/otakudesu/schedule",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "nonton-8",
+      "category": "nonton",
+      "title": "Search",
+      "method": "GET",
+      "path": "/api/nonton/otakudesu/search?q=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "nonton-9",
+      "category": "nonton",
+      "title": "Stream & Nonton",
+      "method": "GET",
+      "path": "/api/nonton/otakudesu/stream?id=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "scriptblox-1",
+      "category": "scriptblox",
+      "title": "Home",
+      "method": "GET",
+      "path": "/api/scriptblox/bloxhome",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "scriptblox-2",
+      "category": "scriptblox",
+      "title": "Search",
+      "method": "GET",
+      "path": "/api/scriptblox/bloxsearch?q=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "scriptblox-3",
+      "category": "scriptblox",
+      "title": "Trending",
+      "method": "GET",
+      "path": "/api/scriptblox/bloxtrend",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "search-1",
+      "category": "search",
+      "title": "AN1",
+      "method": "GET",
+      "path": "/api/search/an1?q=...&page=1",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "search-2",
+      "category": "search",
+      "title": "Brainly",
+      "method": "GET",
+      "path": "/api/search/brainly?q=...&limit=10",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "search-3",
+      "category": "search",
+      "title": "Freefire Hero",
+      "method": "GET",
+      "path": "/api/search/ff-hero?text=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "search-4",
+      "category": "search",
+      "title": "Pinterest",
+      "method": "GET",
+      "path": "/api/search/pinterest?q=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "search-5",
+      "category": "search",
+      "title": "Reuters",
+      "method": "GET",
+      "path": "/api/search/reuters?q=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "search-6",
+      "category": "search",
+      "title": "StickerLY Search",
+      "method": "GET",
+      "path": "/api/search/stikerly?q=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "search-7",
+      "category": "search",
+      "title": "Wikipedia",
+      "method": "GET",
+      "path": "/api/search/wikipedia?q=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "search-8",
+      "category": "search",
+      "title": "Node Gabut (Zodiak)",
+      "method": "GET",
+      "path": "/api/search/zodiak-check?q=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-1",
+      "category": "stalker",
+      "title": "YT Stalker",
+      "method": "GET",
+      "path": "/api/stalker/youtube?username=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-2",
+      "category": "stalker",
+      "title": "X Stalker (Profil)",
+      "method": "GET",
+      "path": "/api/stalker/x?username=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-3",
+      "category": "stalker",
+      "title": "TikTok Stalker",
+      "method": "GET",
+      "path": "/api/stalker/tiktok?username=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-4",
+      "category": "stalker",
+      "title": "Telegram Stalk",
+      "method": "GET",
+      "path": "/api/stalker/telegram?username=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-5",
+      "category": "stalker",
+      "title": "SoundCloud Stalker",
+      "method": "GET",
+      "path": "/api/stalker/soundcloud?username=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-6",
+      "category": "stalker",
+      "title": "Roblox Stalker",
+      "method": "GET",
+      "path": "/api/stalker/roblox?usn=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-7",
+      "category": "stalker",
+      "title": "Pinterest Stalker",
+      "method": "GET",
+      "path": "/api/stalker/pinterest?username=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-8",
+      "category": "stalker",
+      "title": "NPM Stalker",
+      "method": "GET",
+      "path": "/api/stalker/npm?name=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-9",
+      "category": "stalker",
+      "title": "ML Stalker",
+      "method": "GET",
+      "path": "/api/stalker/ml?user_id=...&zone_id=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-10",
+      "category": "stalker",
+      "title": "Minecraft Stalker",
+      "method": "GET",
+      "path": "/api/stalker/minecraft?username=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-11",
+      "category": "stalker",
+      "title": "Lahelu Stalker",
+      "method": "GET",
+      "path": "/api/stalker/lahelu?username=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-12",
+      "category": "stalker",
+      "title": "Instagram Stalker",
+      "method": "GET",
+      "path": "/api/stalker/instagram?username=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-13",
+      "category": "stalker",
+      "title": "GitHub Stalker",
+      "method": "GET",
+      "path": "/api/stalker/github?username=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-14",
+      "category": "stalker",
+      "title": "FreeFire BIO Stalker",
+      "method": "GET",
+      "path": "/api/stalker/ff?uid=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-15",
+      "category": "stalker",
+      "title": "Chess Stalker",
+      "method": "GET",
+      "path": "/api/stalker/chess?username=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "stalker-16",
+      "category": "stalker",
+      "title": "Channel WhatsApp View",
+      "method": "GET",
+      "path": "/api/stalker/channelwa?url=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "tools-1",
+      "category": "tools",
+      "title": "Bypass Web (anti ads)",
+      "method": "GET",
+      "path": "/api/tools/bypassurl?url=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "tools-2",
+      "category": "tools",
+      "title": "Bypass V2 (lebih kuat)",
+      "method": "GET",
+      "path": "/api/tools/bypassurl2?url=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "tools-3",
+      "category": "tools",
+      "title": "Web Screenshot (Phone, PC, Tablet)",
+      "method": "GET",
+      "path": "/api/tools/ssweb?url=...&device=...",
+      "source": "legacy-html",
+      "verification": "unverified"
+    },
+    {
+      "id": "uploader-1",
+      "category": "uploader",
+      "title": "Uguu Image Hosting",
+      "method": "POST",
+      "path": "/api/uploader/uguu (multipart/form-data)",
+      "source": "legacy-html",
+      "verification": "unverified"
+    }
+  ],
+  "sourceSnapshot": {
+    "capturedAt": "2026-11-10",
+    "source": "BintangAPI official documentation index",
+    "sourceUrl": "https://bintangapi.my.id/api",
+    "relatedOrigin": "https://starlabs.biz.id/",
+    "reportedEndpointCount": 77,
+    "reportedCategories": [
+      {
+        "id": "ai",
+        "name": "AI chat",
+        "count": 9
+      },
+      {
+        "id": "ai-image",
+        "name": "AI img",
+        "count": 3
+      },
+      {
+        "id": "ai-tools",
+        "name": "AI tools",
+        "count": 6
+      },
+      {
+        "id": "baca",
+        "name": "baca",
+        "count": 4
+      },
+      {
+        "id": "downloader",
+        "name": "downloader",
+        "count": 3
+      },
+      {
+        "id": "info",
+        "name": "info",
+        "count": 8
+      },
+      {
+        "id": "maker",
+        "name": "maker",
+        "count": 2
+      },
+      {
+        "id": "nonton",
+        "name": "nonton",
+        "count": 9
+      },
+      {
+        "id": "scriptblox",
+        "name": "scriptblox",
+        "count": 3
+      },
+      {
+        "id": "search",
+        "name": "search",
+        "count": 8
+      },
+      {
+        "id": "stalker",
+        "name": "stalker",
+        "count": 15
+      },
+      {
+        "id": "tools",
+        "name": "tools",
+        "count": 6
+      },
+      {
+        "id": "uploader",
+        "name": "uploader",
+        "count": 1
+      }
+    ],
+    "locallyMappedRecords": 74,
+    "unmappedNetDelta": 3,
+    "note": "The official index reports 77 entries, while this repository has 74 individually transcribed legacy route records. The net difference is not represented as fabricated route names or paths. Category totals differ in both directions; individual additions/removals require detail-page reconciliation."
+  },
+  "archivedAt": "2026-11-10",
+  "archiveNote": "Preserved Phase 04 inventory of 74 legacy HTML records for traceability. Active catalogue now follows the 77 documented BintangAPI routes."
+}

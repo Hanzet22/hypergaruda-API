@@ -1,76 +1,81 @@
 # HyperGaruda API — Control Deck
 
-A refreshed, responsive interface for browsing the BintangAPI endpoint inventory, maintained by HyperGaruda.
+A responsive endpoint catalogue and local API documentation playground maintained by HyperGaruda.
 
 ## Dashboard
 - Overview: `index.html`
-- Endpoint catalog: `catalog.html`
+- Endpoint catalogue: `catalog.html`
+- API Playground: `playground.html`
 - Previous dashboard snapshot: `legacy-index.html`
-- Legacy category playgrounds: `ai.html`, `ai-image.html`, `ai-tools.html`, `baca.html`, `berita.html`, `brat-maker.html`, `downloader.html`, `nonton.html`, `scriptblox.html`, `search.html`, `stalker.html`, `tools.html`, and `uploader.html`.
+- Legacy category pages remain available for historical reference.
 
-The new interface provides category navigation, endpoint search, method labels, route copying, dark/light themes, and a mobile-friendly layout.
+## Active endpoint inventory
+The active catalogue contains **77 documented BintangAPI endpoint records across 13 categories**, transcribed from the public API documentation snapshot dated 2026-11-10.
 
-## Catalog inventory
-The local catalog contains **74 individually transcribed endpoint records across 13 modules**. The official BintangAPI documentation index currently reports **77 endpoints**; the net difference of 3 is tracked as an unmapped source delta rather than invented route names.
-
-| Module | Records |
+| Category | Documented routes |
 |---|---:|
 | AI Chat | 9 |
 | AI Image | 3 |
-| AI Tools | 5 |
+| AI Tools | 6 |
 | Baca | 4 |
-| Berita | 8 |
-| Brat Maker | 2 |
 | Downloader | 3 |
+| Info | 8 |
+| Maker | 2 |
 | Nonton | 9 |
 | ScriptBlox | 3 |
 | Search | 8 |
-| Stalker | 16 |
-| Tools | 3 |
+| Stalker | 15 |
+| Tools | 6 |
 | Uploader | 1 |
-| **Total** | **74** |
+| **Total** | **77** |
 
-> The 74 local records are not live-verified or approved endpoint claims. BintangAPI's current index reports 77 total endpoints with category counts that differ from the preserved legacy pages. Three net records are not yet individually mapped. The redesigned dashboard and new Playground simulation do not invoke upstream APIs directly. Legacy module pages remain separate.
+The previous Phase 04 inventory of 74 legacy HTML records is preserved in `data/legacy-endpoints.json`. The active catalogue follows the upstream documentation's route and parameter metadata. Documentation presence is not live verification, availability or provider approval.
+
+## Sources and attribution
+- BintangAPI homepage: https://bintangapi.my.id/
+- BintangAPI API documentation: https://bintangapi.my.id/api
+- StarLabs Code Snippet Library: https://starlabs.biz.id/
+- Upstream developer profile: https://github.com/Bintang-X
+
+BintangAPI describes itself as a REST wrapper around scraper and script collections from StarLabs. The captured StarLabs page displayed 159 snippets; snippets are not equivalent to API endpoints. HyperGaruda records public route metadata with attribution. No upstream scraper code, scripts, credentials or implementation logic are copied. The user previously stated that a permission request had been sent to the upstream developer; approval is not assumed and permission status remains pending confirmation.
+
+## Playground behavior
+- Endpoint selection, parameter entry, route preview and cURL/Node.js snippet previews are available in `playground.html`.
+- Preview generation is local-only and returns a synthetic response.
+- The Playground does not send upstream requests.
+- Live mode remains disabled until a gateway is implemented with runtime validation, provider allowlists, timeouts, outbound controls and Phase 05 rate limiting.
+- Privacy-sensitive profile lookup, media retrieval, script discovery, link-bypass, selected AI-labelled routes, third-party app discovery and file upload are marked review-required.
 
 ## Architecture
 - `assets/`: shared visual system and browser interactions.
-- `data/endpoints.json`: normalized endpoint inventory.
+- `data/endpoints.json`: active 77-record documented endpoint inventory.
+- `data/legacy-endpoints.json`: preserved 74-record Phase 04 inventory.
+- `docs/PHASE-06-ENDPOINT-PLAYGROUND.md`: source provenance, scope and limitations.
 - `apps/web`: reserved Next.js application boundary.
 - `apps/docs`: reserved Astro documentation boundary.
 - `apps/ui-lab`: reserved Vite UI/CSS experiment boundary.
 - `packages/contracts`: transport-neutral TypeScript contracts.
 - `packages/config`: non-secret runtime configuration parser.
-- `packages/rate-limit`: framework-neutral dual-layer token-bucket engine, bounded memory store, and optional injected Redis/Lua adapter.
+- `packages/rate-limit`: framework-neutral dual-layer token-bucket engine with optional injected Redis/Lua adapter.
 - `services/native`: isolated Rust library scaffold.
 
-The current UI uses HTML5, CSS3, and browser JavaScript to keep this migration slice lightweight and compatible with static hosting. The framework boundaries from Phase 03 remain reserved and are not falsely described as fully instantiated apps.
-
-## Phase 06 — Endpoint catalog & Playground
-The official BintangAPI index reports 77 endpoints. This repository preserves 74 individually transcribed route records and records the three-entry net delta as unmapped until individual detail pages can be reconciled. The new `playground.html` is a documentation and request-preview simulator only: it does not send upstream requests. Live execution remains disabled until a validated gateway and provider allowlist exist. See [Phase 06 notes](docs/PHASE-06-ENDPOINT-PLAYGROUND.md).
+The current UI remains static HTML5, CSS3 and browser JavaScript. Framework boundaries are not described as instantiated applications.
 
 ## Phase 05 — Rate limiting
-The rate-limit package separates gateway/client policies from provider/endpoint policies. Its memory backend is for local or single-process use; Redis is optional and is not connected or provisioned by this repository. See [Phase 05 design and integration notes](docs/PHASE-05-RATE-LIMITING.md).
+The rate-limit package separates gateway/client budgets from provider/endpoint budgets. Memory is single-process development storage; Redis is optional and is not connected or provisioned. Gateway integration remains pending. See [Phase 05 notes](docs/PHASE-05-RATE-LIMITING.md).
 
-## Attribution
-- Dashboard UI / integration: [HyperGaruda](https://github.com/Hanzet22)
-- API documentation / upstream service: [BintangAPI X](https://github.com/Bintang-X)
-- Upstream documentation: [BintangAPI](https://bintangapi.my.id/) · [API index](https://bintangapi.my.id/api)
-- Related snippet-library reference: [StarLabs](https://starlabs.biz.id/) (the public page currently reports 0 snippets; no code was copied from it).
-
-This repository does not claim ownership of the upstream BintangAPI service or its implementation. Use and redistribution of upstream code or services remain subject to their respective terms and permissions.
+## Phase 06 — Endpoint expansion and Playground
+The active catalogue now follows the 77 route records exposed by BintangAPI docs. The former 74-record inventory remains archived. The Playground generates local-only request previews; it does not contact upstream hosts. Live execution is not available until the gateway is ready. See [Phase 06 notes](docs/PHASE-06-ENDPOINT-PLAYGROUND.md).
 
 ## Development
-This UI slice has no third-party runtime dependencies and can be served as static files. The foundation metadata check remains available with `npm ci --ignore-scripts` and `npm run check:foundation`.
+The UI has no third-party runtime dependencies and can be served as static files. The foundation metadata check remains available through `npm run check:foundation`.
 
 ## Roadmap
-1. UI revamp and endpoint inventory normalization.
-2. API Gateway Foundation with runtime validation and provider allowlists.
-3. Dual Rate Limiter and abuse controls (Phase 05 package foundation implemented; gateway integration pending).
-4. Sandbox boundary and execution isolation design.
-5. Authentication, authorization, audit events, and operational hardening.
-6. Provider migration, deployment, monitoring, and release readiness.
-
-See [Phase 03 Foundation](docs/PHASE-03-FOUNDATION.md), [Phase 04 UI Revamp](docs/PHASE-04-UI-REVAMP.md), and [Phase 05 Rate Limiting](docs/PHASE-05-RATE-LIMITING.md), plus [Phase 06 Playground](docs/PHASE-06-ENDPOINT-PLAYGROUND.md).
+1. Phase 04 — dashboard and catalogue UI refresh.
+2. Phase 05 — dual rate-limiter package foundation (gateway integration pending).
+3. Phase 06 — documented endpoint expansion and local-only Playground (implemented).
+4. Next — gateway runtime, provider adapters, outbound allowlists, timeouts and reviewed live execution.
+5. Authentication, authorization, audit events, operational hardening and deployment.
 
 ## License
-This repository retains its existing MIT license. Upstream APIs, provider names, and third-party services remain the property of their respective owners and may have separate terms.
+This repository retains its existing MIT license. Upstream APIs, provider names, documentation and third-party services remain the property of their respective owners and may have separate terms.

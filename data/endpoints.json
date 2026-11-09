@@ -1,855 +1,1736 @@
 {
-  "schemaVersion": 1,
-  "notice": "74 individually transcribed legacy route records. The official BintangAPI documentation index reports 77 endpoints; 3 net records remain unmapped pending individual route details. Nothing here is live-verified or approved.",
+  "schemaVersion": 2,
+  "notice": "77 endpoint records transcribed from BintangAPI documentation snapshot dated 2026-11-10. Documentation presence is not live verification, permission to redistribute upstream code, or a guarantee of availability. Playground simulation never sends upstream requests.",
+  "sourceSnapshot": {
+    "capturedAt": "2026-11-10",
+    "reportedEndpointCount": 77,
+    "categoryCount": 13,
+    "bintangApiHomepage": "https://bintangapi.my.id/",
+    "bintangApiDocs": "https://bintangapi.my.id/api",
+    "baseUrl": "https://bintangapi.my.id/api",
+    "sourceOrigin": "StarLabs",
+    "starLabsUrl": "https://starlabs.biz.id/",
+    "starLabsSnippetCount": 159,
+    "permissionStatus": "pending-confirmation",
+    "attribution": "BintangAPI describes itself as a REST wrapper around scraper and script collections from StarLabs. No upstream source code or scraper implementation was copied."
+  },
   "categories": [
     {
-      "id": "ai",
+      "id": "ai-chat",
       "name": "AI Chat",
       "icon": "🧠",
       "description": "Conversational AI and research models",
-      "count": 9,
-      "legacyPage": "ai.html"
+      "legacyPage": "ai.html",
+      "upstreamName": "AI chat",
+      "count": 9
     },
     {
       "id": "ai-image",
       "name": "AI Image",
       "icon": "🖼️",
-      "description": "Image generation providers",
-      "count": 3,
-      "legacyPage": "ai-image.html"
+      "description": "Text-to-image endpoints",
+      "legacyPage": "ai-image.html",
+      "upstreamName": "AI img",
+      "count": 3
     },
     {
       "id": "ai-tools",
       "name": "AI Tools",
       "icon": "🧰",
-      "description": "Prompt, text and speech utilities",
-      "count": 5,
-      "legacyPage": "ai-tools.html"
+      "description": "Text, presentation and speech utilities",
+      "legacyPage": "ai-tools.html",
+      "upstreamName": "AI tools",
+      "count": 6
     },
     {
       "id": "baca",
       "name": "Baca",
       "icon": "📖",
-      "description": "Wattpad reading and discovery",
-      "count": 4,
-      "legacyPage": "baca.html"
-    },
-    {
-      "id": "berita",
-      "name": "Berita",
-      "icon": "📰",
-      "description": "News and information feeds",
-      "count": 8,
-      "legacyPage": "berita.html"
-    },
-    {
-      "id": "brat-maker",
-      "name": "Brat Maker",
-      "icon": "🎨",
-      "description": "Image and video text maker",
-      "count": 2,
-      "legacyPage": "brat-maker.html"
+      "description": "Wattpad reading and story discovery",
+      "legacyPage": "baca.html",
+      "upstreamName": "baca",
+      "count": 4
     },
     {
       "id": "downloader",
       "name": "Downloader",
       "icon": "⬇️",
-      "description": "Media download utilities",
-      "count": 3,
-      "legacyPage": "downloader.html"
+      "description": "Documented media retrieval routes",
+      "legacyPage": "downloader.html",
+      "upstreamName": "downloader",
+      "count": 3
+    },
+    {
+      "id": "info",
+      "name": "Info",
+      "icon": "📰",
+      "description": "News and public information feeds",
+      "upstreamName": "info",
+      "count": 8
+    },
+    {
+      "id": "maker",
+      "name": "Maker",
+      "icon": "🎨",
+      "description": "Text and visual maker endpoints",
+      "legacyPage": "brat-maker.html",
+      "upstreamName": "maker",
+      "count": 2
     },
     {
       "id": "nonton",
       "name": "Nonton",
       "icon": "🎬",
-      "description": "Anime catalog and streaming endpoints",
-      "count": 9,
-      "legacyPage": "nonton.html"
+      "description": "Anime catalogue and episode metadata",
+      "legacyPage": "nonton.html",
+      "upstreamName": "nonton",
+      "count": 9
     },
     {
       "id": "scriptblox",
       "name": "ScriptBlox",
       "icon": "📜",
-      "description": "ScriptBlox discovery",
-      "count": 3,
-      "legacyPage": "scriptblox.html"
+      "description": "ScriptBlox discovery endpoints",
+      "legacyPage": "scriptblox.html",
+      "upstreamName": "scriptblox",
+      "count": 3
     },
     {
       "id": "search",
       "name": "Search",
       "icon": "🔎",
       "description": "Search and information retrieval",
-      "count": 8,
-      "legacyPage": "search.html"
+      "legacyPage": "search.html",
+      "upstreamName": "search",
+      "count": 8
     },
     {
       "id": "stalker",
       "name": "Stalker",
       "icon": "👁️",
-      "description": "Public profile lookup endpoints",
-      "count": 16,
-      "legacyPage": "stalker.html"
+      "description": "Public-profile lookup routes; review required",
+      "legacyPage": "stalker.html",
+      "upstreamName": "stalker",
+      "count": 15
     },
     {
       "id": "tools",
       "name": "Tools",
       "icon": "🛠️",
-      "description": "General web utilities",
-      "count": 3,
-      "legacyPage": "tools.html"
+      "description": "General utilities and conversion tools",
+      "legacyPage": "tools.html",
+      "upstreamName": "tools",
+      "count": 6
     },
     {
       "id": "uploader",
       "name": "Uploader",
       "icon": "📤",
-      "description": "Media upload endpoint",
-      "count": 1,
-      "legacyPage": "uploader.html"
+      "description": "File upload endpoint; review required",
+      "legacyPage": "uploader.html",
+      "upstreamName": "uploader",
+      "count": 1
     }
   ],
   "endpoints": [
     {
-      "id": "ai-1",
-      "category": "ai",
-      "title": "AI Prompt",
+      "id": "ai-chat-ai-prompt-01",
+      "category": "ai-chat",
+      "title": "AI PROMPT",
       "method": "GET",
-      "path": "/api/aichat/aiprompt?prompt=...&text=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aichat/aiprompt",
+      "description": "API untuk bertanya ke AI dengan custom prompt yang bisa diatur sesuai keinginan. Anda bisa menentukan karakter/role AI melalui parameter prompt.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "prompt",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-2",
-      "category": "ai",
-      "title": "AI Research",
+      "id": "ai-chat-ai-research-02",
+      "category": "ai-chat",
+      "title": "AI RESEARCH",
       "method": "GET",
-      "path": "/api/aichat/research?q=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aichat/research",
+      "description": "API untuk melakukan research dengan AI, Memberikan jawaban berdasarkan sumber-sumber yang relevan dari web.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-3",
-      "category": "ai",
-      "title": "CoPilot",
+      "id": "ai-chat-copilot-03",
+      "category": "ai-chat",
+      "title": "COPILOT",
       "method": "GET",
-      "path": "/api/aichat/copilot?text=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aichat/copilot",
+      "description": "chat dengan copilot ai",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-4",
-      "category": "ai",
-      "title": "DeepSeek V3",
+      "id": "ai-chat-deepseek-v3-04",
+      "category": "ai-chat",
+      "title": "DEEPSEEK-V3",
       "method": "GET",
-      "path": "/api/aichat/deep-v3?text=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aichat/deep-v3",
+      "description": "API untuk chat dengan model DeepSeek-V3. Kirim pertanyaan, dapatkan jawaban dari AI DeepSeek V3.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-5",
-      "category": "ai",
-      "title": "DeepSeek V4 Flash",
+      "id": "ai-chat-deepseek-v4-flash-05",
+      "category": "ai-chat",
+      "title": "DEEPSEEK-V4-FLASH",
       "method": "GET",
-      "path": "/api/aichat/deep-v4?text=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aichat/deep-v4",
+      "description": "API untuk chat dengan DeepSeek AI menggunakan model DeepSeek V4 Flash. Kirim pertanyaan, dapatkan jawaban dari AI.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-6",
-      "category": "ai",
+      "id": "ai-chat-gita-ai-06",
+      "category": "ai-chat",
       "title": "GITA AI",
       "method": "GET",
-      "path": "/api/aichat/gita?text=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aichat/gita",
+      "description": "Chat dengan AI yang menjawab berdasarkan ajaran dan kebijaksanaan Bhagavad Gita. Cocok buat curhat, tanya soal hidup, atau diskusi filosofis.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-7",
-      "category": "ai",
-      "title": "Llama Scout 4",
+      "id": "ai-chat-llama-4-scout-07",
+      "category": "ai-chat",
+      "title": "LLAMA-4-SCOUT",
       "method": "GET",
-      "path": "/api/aichat/llama-4?text=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aichat/llama-4",
+      "description": "API untuk chat dengan model Llama 4 Scout 17B",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-8",
-      "category": "ai",
-      "title": "Qwen3 Coder",
+      "id": "ai-chat-qwen3-coder-08",
+      "category": "ai-chat",
+      "title": "QWEN3-CODER",
       "method": "GET",
-      "path": "/api/aichat/qwen-coder?text=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aichat/qwen-coder",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": "halo cuy"
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-9",
-      "category": "ai",
-      "title": "UhhhhhGPT (WormGPT)",
+      "id": "ai-chat-wormgpt-09",
+      "category": "ai-chat",
+      "title": "WORMGPT",
       "method": "GET",
-      "path": "/api/aichat/wormgpt?q=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aichat/wormgpt",
+      "description": "chat dengan wormgpt yang sudah di 90%bypass",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "This route label requires a separate safety review."
     },
     {
-      "id": "ai-image-1",
+      "id": "ai-image-grok-imagine-10",
       "category": "ai-image",
-      "title": "AIFlux",
+      "title": "GROK IMAGINE",
       "method": "GET",
-      "path": "/api/aiimg/flux?prompt=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aiimg/grok",
+      "description": "teks to img dengan model grok ai",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "prompt",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        },
+        {
+          "name": "ratio",
+          "type": "select",
+          "options": [
+            "1:1",
+            "16:9",
+            "9:16",
+            "4:3",
+            "3:4"
+          ],
+          "placeholder": ""
+        },
+        {
+          "name": "resolusi",
+          "type": "select",
+          "options": [
+            "1K",
+            "2K"
+          ],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-image-2",
+      "id": "ai-image-writecream-11",
       "category": "ai-image",
-      "title": "WhiteCream AI",
+      "title": "WRITECREAM",
       "method": "GET",
-      "path": "/api/aiimg/writecream?prompt=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aiimg/writecream",
+      "description": "generate gambar dengan writecream ai",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "prompt",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-image-3",
+      "id": "ai-image-zimage-12",
       "category": "ai-image",
-      "title": "ZImage",
+      "title": "Zimage",
       "method": "GET",
-      "path": "/api/aiimg/zimage?prompt=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aiimg/zimage",
+      "description": "API untuk menghasilkan gambar dari teks menggunakan AI Zimage.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "prompt",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-tools-1",
+      "id": "ai-tools-ai-ppt-13",
       "category": "ai-tools",
-      "title": "Generator Prompt",
+      "title": "AI PPT",
       "method": "GET",
-      "path": "/api/aitools/gen-prompt?q=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aitools/ai-ppt",
+      "description": "AI PPT Generator API adalah layanan REST API cerdas yang mengubah teks prompt menjadi struktur presentasi profesional secara otomatis.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "prompt",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-tools-2",
+      "id": "ai-tools-generator-prompt-14",
       "category": "ai-tools",
-      "title": "Humanizer AI",
+      "title": "GENERATOR PROMPT",
       "method": "GET",
-      "path": "/api/aitools/humanizer?text=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aitools/gen-prompt",
+      "description": "API untuk menghasilkan prompt AI otomatis berdasarkan pertanyaan/input pengguna.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-tools-3",
+      "id": "ai-tools-google-tts-15",
       "category": "ai-tools",
-      "title": "Rewrite AI (Standard, Formal, Casual, Creative, Professional)",
+      "title": "GOOGLE TTS",
       "method": "GET",
-      "path": "/api/aitools/rewrite?text=... (mode via header/query? mode=standard)",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aitools/tts/googletts",
+      "description": "Google Text-to-Speech Bahasa Indonesia",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-tools-4",
+      "id": "ai-tools-humanizer-ai-16",
       "category": "ai-tools",
-      "title": "Google TTS",
+      "title": "HUMANIZER AI",
       "method": "GET",
-      "path": "/api/aitools/tts/googletts?text=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aitools/humanizer",
+      "description": "API untuk mengubah teks buatan AI menjadi lebih alami seperti tulisan manusia",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "ai-tools-5",
+      "id": "ai-tools-ppt-job-17",
       "category": "ai-tools",
-      "title": "QwenTTS (Cherry, Ethan, Chelsie, Serena)",
+      "title": "PPT JOB",
       "method": "GET",
-      "path": "/api/aitools/tts/qwentts?text=... (mode via query? voice=cherry)",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/aitools/ai-ppt",
+      "description": "pengecek status untuk setiap request pembuatan presentasi.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "job",
+          "type": "string",
+          "options": [],
+          "placeholder": "bintangapi_xxxxxx"
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "baca-1",
+      "id": "ai-tools-rewrite-ai-18",
+      "category": "ai-tools",
+      "title": "REWRITE AI",
+      "method": "GET",
+      "path": "/api/aitools/rewrite",
+      "description": "API untuk melakukan rewrite/penyempurnaan teks menggunakan AI dengan berbagai mode (standard, creative, formal, casual, professional).",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        },
+        {
+          "name": "mode",
+          "type": "select",
+          "options": [
+            "standard",
+            "formal",
+            "casual",
+            "creative",
+            "professional"
+          ],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
+    },
+    {
+      "id": "baca-wattpad-baca-19",
       "category": "baca",
-      "title": "WattPad - BACA",
+      "title": "WATTPAD BACA",
       "method": "GET",
-      "path": "/api/baca/wattpad-baca?url=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/baca/wattpad-baca",
+      "description": "API untuk membaca konten chapter dari Wattpad berdasarkan URL chapter. Menampilkan judul chapter, judul cerita, author, dan isi konten.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "baca-2",
+      "id": "baca-wattpad-detail-20",
       "category": "baca",
-      "title": "WattPad - DETAIL",
+      "title": "WATTPAD DETAIL",
       "method": "GET",
-      "path": "/api/baca/wattpad-det?url=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/baca/wattpad-det",
+      "description": "API untuk mendapatkan informasi detail dari sebuah cerita di Wattpad berdasarkan URL story. Menampilkan judul, author, cover, deskripsi, genre, status, statistik (reads, votes, parts), dan daftar chapter.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "baca-3",
+      "id": "baca-wattpad-home-21",
       "category": "baca",
-      "title": "WattPad - HOME",
+      "title": "WATTPAD HOME",
       "method": "GET",
       "path": "/api/baca/wattpad-home",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "description": "API untuk mendapatkan daftar cerita dari Wattpad (home feed). Menampilkan cerita populer dengan judul, author, cover, deskripsi, statistik, status, tags, dan kategori.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "baca-4",
+      "id": "baca-wattpad-search-22",
       "category": "baca",
-      "title": "WattPad - SEARCH",
+      "title": "WATTPAD SEARCH",
       "method": "GET",
-      "path": "/api/baca/wattpad-searc?q=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/baca/wattpad-searc",
+      "description": "API untuk mencari cerita di Wattpad berdasarkan kata kunci. Menampilkan judul, author, deskripsi, reads, votes, comments, jumlah parts, cover, dan URL.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "berita-1",
-      "category": "berita",
-      "title": "AntaraNews",
+      "id": "downloader-capcut-dl-23",
+      "category": "downloader",
+      "title": "CAPCUT DL",
+      "method": "GET",
+      "path": "/api/downloader/capcut",
+      "description": "API untuk mendownload template/video dari CapCut berdasarkan URL template. Mengembalikan informasi judul, author, URL video, dan URL cover.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+    },
+    {
+      "id": "downloader-soptify-dl-24",
+      "category": "downloader",
+      "title": "SOPTIFY DL",
+      "method": "GET",
+      "path": "/api/downloader/spotify",
+      "description": "API untuk mendownload lagu dari Spotify berdasarkan URL track. Mengembalikan informasi metadata lagu termasuk judul, artis, album, durasi, cover art, dan URL download.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+    },
+    {
+      "id": "downloader-tiktok-dl-25",
+      "category": "downloader",
+      "title": "TIKTOK DL",
+      "method": "GET",
+      "path": "/api/downloader/tiktok",
+      "description": "API untuk mendapatkan informasi video TikTok termasuk link download tanpa watermark, dengan watermark, audio, thumbnail, dan detail user.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+    },
+    {
+      "id": "info-antara-26",
+      "category": "info",
+      "title": "ANTARA",
       "method": "GET",
       "path": "/api/info/berita/antara",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "description": "API untuk mengambil berita terkini dari Antara News secara real-time",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "berita-2",
-      "category": "berita",
-      "title": "CNBCIndonesia",
+      "id": "info-cnbc-indonesia-27",
+      "category": "info",
+      "title": "CNBC INDONESIA",
       "method": "GET",
       "path": "/api/info/berita/cnbc",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "description": "API untuk mengambil berita terbaru dari CNBC Indonesia. Menampilkan judul, link, deskripsi, thumbnail, dan waktu publikasi.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "berita-3",
-      "category": "berita",
+      "id": "info-cnn-28",
+      "category": "info",
       "title": "CNN",
       "method": "GET",
       "path": "/api/info/berita/cnn",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "description": "API untuk mengambil berita terkini dari CNN News secara real-time",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "berita-4",
-      "category": "berita",
-      "title": "GoogleNews",
-      "method": "GET",
-      "path": "/api/info/berita/google",
-      "source": "legacy-html",
-      "verification": "unverified"
-    },
-    {
-      "id": "berita-5",
-      "category": "berita",
-      "title": "KompasTV",
-      "method": "GET",
-      "path": "/api/info/berita/kompas",
-      "source": "legacy-html",
-      "verification": "unverified"
-    },
-    {
-      "id": "berita-6",
-      "category": "berita",
-      "title": "Liputan6",
-      "method": "GET",
-      "path": "/api/info/berita/liputan6",
-      "source": "legacy-html",
-      "verification": "unverified"
-    },
-    {
-      "id": "berita-7",
-      "category": "berita",
-      "title": "SindoNews",
-      "method": "GET",
-      "path": "/api/info/berita/sindo",
-      "source": "legacy-html",
-      "verification": "unverified"
-    },
-    {
-      "id": "berita-8",
-      "category": "berita",
-      "title": "Grow A Garden Stock",
+      "id": "info-gag-stock-29",
+      "category": "info",
+      "title": "GAG STOCK",
       "method": "GET",
       "path": "/api/info/gagstock",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "description": "API untuk mengambil data stock item dari game Grow a Garden.Menampilkan daftar item per kategori (Gear, Egg, Seeds, Event, Cosmetics) beserta jumlah stok yang tersedia dan countdown timer untuk restock.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "brat-maker-1",
-      "category": "brat-maker",
-      "title": "Brat Maker (Image)",
+      "id": "info-google-news-30",
+      "category": "info",
+      "title": "GOOGLE NEWS",
       "method": "GET",
-      "path": "/api/maker/brat?text=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/info/berita/google",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "brat-maker-2",
-      "category": "brat-maker",
-      "title": "Brat Maker (Video)",
+      "id": "info-kompas-news-31",
+      "category": "info",
+      "title": "KOMPAS NEWS",
       "method": "GET",
-      "path": "/api/maker/bratvid?text=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/info/berita/kompas",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "downloader-1",
-      "category": "downloader",
-      "title": "CapCut Video Downloader",
+      "id": "info-liputan6-32",
+      "category": "info",
+      "title": "LIPUTAN6",
       "method": "GET",
-      "path": "/api/downloader/capcut?url=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/info/berita/liputan6",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "downloader-2",
-      "category": "downloader",
-      "title": "Spotify Downloader",
+      "id": "info-sindo-news-33",
+      "category": "info",
+      "title": "SINDO NEWS",
       "method": "GET",
-      "path": "/api/downloader/spotify?url=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/info/berita/sindo",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "downloader-3",
-      "category": "downloader",
-      "title": "TikTok Downloader",
+      "id": "maker-brat-34",
+      "category": "maker",
+      "title": "BRAT",
       "method": "GET",
-      "path": "/api/downloader/tiktok?url=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/maker/brat",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "nonton-1",
+      "id": "maker-brat-video-35",
+      "category": "maker",
+      "title": "BRAT VIDEO",
+      "method": "GET",
+      "path": "/api/maker/bratvid",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
+    },
+    {
+      "id": "nonton-otakudesu-completed-36",
       "category": "nonton",
-      "title": "Completed",
+      "title": "OTAKUDESU COMPLETED",
       "method": "GET",
-      "path": "/api/nonton/otakudesu/completed?page=1",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/nonton/otakudesu/completed",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "page",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
     },
     {
-      "id": "nonton-2",
+      "id": "nonton-otakudesu-detail-37",
       "category": "nonton",
-      "title": "Detail",
+      "title": "OTAKUDESU DETAIL",
       "method": "GET",
-      "path": "/api/nonton/otakudesu/detail?id=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/nonton/otakudesu/detail",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
     },
     {
-      "id": "nonton-3",
+      "id": "nonton-otakudesu-genre-38",
       "category": "nonton",
-      "title": "Genre",
+      "title": "OTAKUDESU GENRE",
       "method": "GET",
-      "path": "/api/nonton/otakudesu/genre?gen=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/nonton/otakudesu/genre",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "gen",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
     },
     {
-      "id": "nonton-4",
+      "id": "nonton-otakudesu-genre-list-39",
       "category": "nonton",
-      "title": "Genre List",
+      "title": "OTAKUDESU GENRE LIST",
       "method": "GET",
       "path": "/api/nonton/otakudesu/genre-list",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
     },
     {
-      "id": "nonton-5",
+      "id": "nonton-otakudesu-home-40",
       "category": "nonton",
-      "title": "Home",
+      "title": "OTAKUDESU HOME",
       "method": "GET",
       "path": "/api/nonton/otakudesu/home",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
     },
     {
-      "id": "nonton-6",
+      "id": "nonton-otakudesu-ongoing-41",
       "category": "nonton",
-      "title": "Ongoing",
+      "title": "OTAKUDESU ONGOING",
       "method": "GET",
-      "path": "/api/nonton/otakudesu/ongoing?page=1",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/nonton/otakudesu/ongoing",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "page",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
     },
     {
-      "id": "nonton-7",
+      "id": "nonton-otakudesu-schedule-42",
       "category": "nonton",
-      "title": "Schedule",
+      "title": "OTAKUDESU SCHEDULE",
       "method": "GET",
       "path": "/api/nonton/otakudesu/schedule",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
     },
     {
-      "id": "nonton-8",
+      "id": "nonton-otakudesu-search-43",
       "category": "nonton",
-      "title": "Search",
+      "title": "OTAKUDESU SEARCH",
       "method": "GET",
-      "path": "/api/nonton/otakudesu/search?q=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/nonton/otakudesu/search",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
     },
     {
-      "id": "nonton-9",
+      "id": "nonton-otakudesu-stream-download-44",
       "category": "nonton",
-      "title": "Stream & Nonton",
+      "title": "OTAKUDESU STREAM + DOWNLOAD",
       "method": "GET",
-      "path": "/api/nonton/otakudesu/stream?id=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/nonton/otakudesu/stream",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
     },
     {
-      "id": "scriptblox-1",
+      "id": "scriptblox-scriptblox-home-45",
       "category": "scriptblox",
-      "title": "Home",
+      "title": "SCRIPTBLOX HOME",
       "method": "GET",
       "path": "/api/scriptblox/bloxhome",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Script discovery is disabled pending content and safety review."
     },
     {
-      "id": "scriptblox-2",
+      "id": "scriptblox-scriptblox-search-46",
       "category": "scriptblox",
-      "title": "Search",
+      "title": "SCRIPTBLOX SEARCH",
       "method": "GET",
-      "path": "/api/scriptblox/bloxsearch?q=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/scriptblox/bloxsearch",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Script discovery is disabled pending content and safety review."
     },
     {
-      "id": "scriptblox-3",
+      "id": "scriptblox-scriptblox-trending-47",
       "category": "scriptblox",
-      "title": "Trending",
+      "title": "SCRIPTBLOX TRENDING",
       "method": "GET",
       "path": "/api/scriptblox/bloxtrend",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Script discovery is disabled pending content and safety review."
     },
     {
-      "id": "search-1",
+      "id": "search-an1-search-48",
       "category": "search",
-      "title": "AN1",
+      "title": "AN1 SEARCH",
       "method": "GET",
-      "path": "/api/search/an1?q=...&page=1",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/search/an1",
+      "description": "API untuk mencari aplikasi/game Android MOD dari AN1.com",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        },
+        {
+          "name": "page",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Third-party app discovery is disabled pending source and distribution review."
     },
     {
-      "id": "search-2",
+      "id": "search-brainly-search-49",
       "category": "search",
-      "title": "Brainly",
+      "title": "BRAINLY SEARCH",
       "method": "GET",
-      "path": "/api/search/brainly?q=...&limit=10",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/search/brainly",
+      "description": "API untuk mencari pertanyaan di Brainly berdasarkan kata kunci.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        },
+        {
+          "name": "limit",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "search-3",
+      "id": "search-ff-hero-50",
       "category": "search",
-      "title": "Freefire Hero",
+      "title": "FF HERO",
       "method": "GET",
-      "path": "/api/search/ff-hero?text=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/search/ff-hero",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": "alok"
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "search-4",
+      "id": "search-pinterest-51",
       "category": "search",
-      "title": "Pinterest",
+      "title": "PINTEREST",
       "method": "GET",
-      "path": "/api/search/pinterest?q=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/search/pinterest",
+      "description": "API untuk mencari gambar dan pin dari Pinterest berdasarkan kata kunci. Menampilkan hasil berupa gambar, deskripsi, pinner, likes, dan informasi lainnya.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "search-5",
+      "id": "search-reuters-search-52",
       "category": "search",
-      "title": "Reuters",
+      "title": "REUTERS SEARCH",
       "method": "GET",
-      "path": "/api/search/reuters?q=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/search/reuters",
+      "description": "API untuk mencari berita dari Reuters berdasarkan kata kunci. Menampilkan judul, deskripsi, URL, tanggal, kategori, thumbnail, dan penulis.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "search-6",
+      "id": "search-stikerly-search-53",
       "category": "search",
-      "title": "StickerLY Search",
+      "title": "STIKERLY SEARCH",
       "method": "GET",
-      "path": "/api/search/stikerly?q=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/search/stikerly",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "search-7",
+      "id": "search-wikipedia-54",
       "category": "search",
-      "title": "Wikipedia",
+      "title": "WIKIPEDIA",
       "method": "GET",
-      "path": "/api/search/wikipedia?q=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/search/wikipedia",
+      "description": "API untuk mencari artikel di Wikipedia Indonesia dan mendapatkan detail lengkap setiap hasil (isi artikel, URL, thumbnail).",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "search-8",
+      "id": "search-zodiak-checker-55",
       "category": "search",
-      "title": "Node Gabut (Zodiak)",
+      "title": "ZODIAK CHECKER",
       "method": "GET",
-      "path": "/api/search/zodiak-check?q=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/search/zodiak-check",
+      "description": "Cek zodiak berdasarkan tanggal lahir, lengkap dengan sifat, elemen, dan planet penguasa.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "q",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "stalker-1",
+      "id": "stalker-channel-wa-view-56",
       "category": "stalker",
-      "title": "YT Stalker",
+      "title": "CHANNEL WA VIEW",
       "method": "GET",
-      "path": "/api/stalker/youtube?username=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/channelwa",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-2",
+      "id": "stalker-chess-com-user-stalker-57",
       "category": "stalker",
-      "title": "X Stalker (Profil)",
+      "title": "CHESS.COM USER STALKER",
       "method": "GET",
-      "path": "/api/stalker/x?username=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/chess",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "username",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-3",
+      "id": "stalker-free-fire-stalker-58",
       "category": "stalker",
-      "title": "TikTok Stalker",
+      "title": "FREE FIRE STALKER",
       "method": "GET",
-      "path": "/api/stalker/tiktok?username=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/ff",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "uid",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-4",
+      "id": "stalker-github-stalker-59",
       "category": "stalker",
-      "title": "Telegram Stalk",
+      "title": "GITHUB STALKER",
       "method": "GET",
-      "path": "/api/stalker/telegram?username=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/github",
+      "description": "API untuk mengambil profil lengkap GitHub user termasuk informasi user, repositories, recent events, dan statistik.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "username",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-5",
+      "id": "stalker-instagram-stalker-60",
       "category": "stalker",
-      "title": "SoundCloud Stalker",
+      "title": "INSTAGRAM STALKER",
       "method": "GET",
-      "path": "/api/stalker/soundcloud?username=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/instagram",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "username",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-6",
+      "id": "stalker-lahelu-stalker-61",
       "category": "stalker",
-      "title": "Roblox Stalker",
+      "title": "LAHELU STALKER",
       "method": "GET",
-      "path": "/api/stalker/roblox?usn=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/lahelu",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "username",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-7",
+      "id": "stalker-minecraft-user-stalk-62",
       "category": "stalker",
-      "title": "Pinterest Stalker",
+      "title": "MINECRAFT USER STALK",
       "method": "GET",
-      "path": "/api/stalker/pinterest?username=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/minecraft",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "username",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-8",
+      "id": "stalker-ml-check-63",
       "category": "stalker",
-      "title": "NPM Stalker",
+      "title": "ML CHECK",
       "method": "GET",
-      "path": "/api/stalker/npm?name=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/ml",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        },
+        {
+          "name": "zone_id",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-9",
+      "id": "stalker-npm-stalk-64",
       "category": "stalker",
-      "title": "ML Stalker",
+      "title": "NPM STALK",
       "method": "GET",
-      "path": "/api/stalker/ml?user_id=...&zone_id=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/npm",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "name",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-10",
+      "id": "stalker-pinterest-user-stalker-65",
       "category": "stalker",
-      "title": "Minecraft Stalker",
+      "title": "PINTEREST USER STALKER",
       "method": "GET",
-      "path": "/api/stalker/minecraft?username=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/pinterest",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "username",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-11",
+      "id": "stalker-roblox-stalk-66",
       "category": "stalker",
-      "title": "Lahelu Stalker",
+      "title": "ROBLOX STALK",
       "method": "GET",
-      "path": "/api/stalker/lahelu?username=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/roblox",
+      "description": "API untuk mencari profil pengguna Roblox berdasarkan username. Menampilkan informasi detail seperti user_id, display_name, bio, stats, avatar, dan status.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "usn",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-12",
+      "id": "stalker-soundcloud-user-stalker-67",
       "category": "stalker",
-      "title": "Instagram Stalker",
+      "title": "SOUNDCLOUD USER STALKER",
       "method": "GET",
-      "path": "/api/stalker/instagram?username=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/soundcloud",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "username",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-13",
+      "id": "stalker-telegram-stalk-68",
       "category": "stalker",
-      "title": "GitHub Stalker",
+      "title": "TELEGRAM STALK",
       "method": "GET",
-      "path": "/api/stalker/github?username=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/telegram",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "username",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-14",
+      "id": "stalker-x-stalker-69",
       "category": "stalker",
-      "title": "FreeFire BIO Stalker",
+      "title": "X STALKER",
       "method": "GET",
-      "path": "/api/stalker/ff?uid=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/x",
+      "description": "API untuk mengambil profil dan tweet dari Twitter/X",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "username",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        },
+        {
+          "name": "mode",
+          "type": "select",
+          "options": [
+            "profil",
+            "tweets"
+          ],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-15",
+      "id": "stalker-youtube-channel-stalker-70",
       "category": "stalker",
-      "title": "Chess Stalker",
+      "title": "YOUTUBE CHANNEL STALKER",
       "method": "GET",
-      "path": "/api/stalker/chess?username=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/stalker/youtube",
+      "description": "",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "username",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
     },
     {
-      "id": "stalker-16",
-      "category": "stalker",
-      "title": "Channel WhatsApp View",
-      "method": "GET",
-      "path": "/api/stalker/channelwa?url=...",
-      "source": "legacy-html",
-      "verification": "unverified"
-    },
-    {
-      "id": "tools-1",
+      "id": "tools-anime-text-to-speech-71",
       "category": "tools",
-      "title": "Bypass Web (anti ads)",
+      "title": "ANIME TEXT TO SPEECH",
       "method": "GET",
-      "path": "/api/tools/bypassurl?url=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/tools/animetts",
+      "description": "API untuk mengubah suara menjadi suara anime dengan 789 pilihan voice",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        },
+        {
+          "name": "voice",
+          "type": "select",
+          "options": [
+            "amara",
+            "hestia",
+            "demeter",
+            "listvoice"
+          ],
+          "placeholder": ""
+        },
+        {
+          "name": "emotion",
+          "type": "select",
+          "options": [
+            "normal",
+            "happy",
+            "sad",
+            "angry",
+            "fear",
+            "disgust",
+            "suprise",
+            "neutral"
+          ],
+          "placeholder": ""
+        },
+        {
+          "name": "format",
+          "type": "select",
+          "options": [
+            "audio",
+            "json"
+          ],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
     },
     {
-      "id": "tools-2",
+      "id": "tools-bypass-url-72",
       "category": "tools",
-      "title": "Bypass V2 (lebih kuat)",
+      "title": "BYPASS URL",
       "method": "GET",
-      "path": "/api/tools/bypassurl2?url=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/tools/bypassurl",
+      "description": "Bylass URL — Endpoint API bypass short URL yang mendukung Platoboost, Linkvertise, Lootlabs, Admaven, Rekonise, Work.ink, Shortfly, Lockr.so, serta 90+ layanan shortlink lainnya dengan proses cepat, stabil, dan hasil langsung tanpa ribet.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Link-bypass behavior is disabled pending policy and provider-terms review."
     },
     {
-      "id": "tools-3",
+      "id": "tools-bypass-url-v2-73",
       "category": "tools",
-      "title": "Web Screenshot (Phone, PC, Tablet)",
+      "title": "BYPASS URL V2",
       "method": "GET",
-      "path": "/api/tools/ssweb?url=...&device=...",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/tools/bypassurl2",
+      "description": "Bypass Linkvertise, LootLinks, Work.ink & 47+ more",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "Link-bypass behavior is disabled pending policy and provider-terms review."
     },
     {
-      "id": "uploader-1",
+      "id": "tools-ss-web-74",
+      "category": "tools",
+      "title": "SS WEB",
+      "method": "GET",
+      "path": "/api/tools/ssweb",
+      "description": "API untuk mengambil screenshot dari sebuah website dengan 3 mode tampilan (mobile, tablet, desktop).",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        },
+        {
+          "name": "mode",
+          "type": "select",
+          "options": [
+            "desktop",
+            "mobile",
+            "tablet"
+          ],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
+    },
+    {
+      "id": "tools-text-to-speech-75",
+      "category": "tools",
+      "title": "TEXT TO SPEECH",
+      "method": "GET",
+      "path": "/api/tools/tts",
+      "description": "API untuk mengubah text menjadi suara dengan 884 pilihan voice",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "options": [],
+          "placeholder": ""
+        },
+        {
+          "name": "voice",
+          "type": "select",
+          "options": [
+            "silas reed",
+            "maisy",
+            "iris camden",
+            "listvoice"
+          ],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "preview-only"
+    },
+    {
+      "id": "tools-youtube-summary-76",
+      "category": "tools",
+      "title": "YOUTUBE SUMMARY",
+      "method": "GET",
+      "path": "/api/tools/ytsummary",
+      "description": "API untuk mengubah video YouTube menjadi transkrip teks otomatis. Cukup kirimkan parameter URL, dan API akan mengembalikan teks lengkap beserta format UI ber-timestamp. Tanpa AI Summary, murni dan akurat hanya untuk transkripsi.",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "options": [],
+          "placeholder": "https://youtu.be/.."
+        }
+      ],
+      "playgroundPolicy": "preview-only"
+    },
+    {
+      "id": "uploader-uguu-77",
       "category": "uploader",
-      "title": "Uguu Image Hosting",
+      "title": "Uguu",
       "method": "POST",
-      "path": "/api/uploader/uguu (multipart/form-data)",
-      "source": "legacy-html",
-      "verification": "unverified"
+      "path": "/api/uploader/uguu",
+      "description": "upload file ke uguu dan akan mengbasilkan link",
+      "source": "bintangapi-docs",
+      "sourceUrl": "https://bintangapi.my.id/api",
+      "verification": "documented-not-live-verified",
+      "params": [
+        {
+          "name": "file",
+          "type": "file",
+          "options": [],
+          "placeholder": ""
+        }
+      ],
+      "playgroundPolicy": "review-required",
+      "reviewReason": "File upload is disabled until gateway-side file type, size and storage controls exist."
     }
-  ],
-  "sourceSnapshot": {
-    "capturedAt": "2026-11-10",
-    "source": "BintangAPI official documentation index",
-    "sourceUrl": "https://bintangapi.my.id/api",
-    "relatedOrigin": "https://starlabs.biz.id/",
-    "reportedEndpointCount": 77,
-    "reportedCategories": [
-      {
-        "id": "ai",
-        "name": "AI chat",
-        "count": 9
-      },
-      {
-        "id": "ai-image",
-        "name": "AI img",
-        "count": 3
-      },
-      {
-        "id": "ai-tools",
-        "name": "AI tools",
-        "count": 6
-      },
-      {
-        "id": "baca",
-        "name": "baca",
-        "count": 4
-      },
-      {
-        "id": "downloader",
-        "name": "downloader",
-        "count": 3
-      },
-      {
-        "id": "info",
-        "name": "info",
-        "count": 8
-      },
-      {
-        "id": "maker",
-        "name": "maker",
-        "count": 2
-      },
-      {
-        "id": "nonton",
-        "name": "nonton",
-        "count": 9
-      },
-      {
-        "id": "scriptblox",
-        "name": "scriptblox",
-        "count": 3
-      },
-      {
-        "id": "search",
-        "name": "search",
-        "count": 8
-      },
-      {
-        "id": "stalker",
-        "name": "stalker",
-        "count": 15
-      },
-      {
-        "id": "tools",
-        "name": "tools",
-        "count": 6
-      },
-      {
-        "id": "uploader",
-        "name": "uploader",
-        "count": 1
-      }
-    ],
-    "locallyMappedRecords": 74,
-    "unmappedNetDelta": 3,
-    "note": "The official index reports 77 entries, while this repository has 74 individually transcribed legacy route records. The net difference is not represented as fabricated route names or paths. Category totals differ in both directions; individual additions/removals require detail-page reconciliation."
-  }
+  ]
 }
