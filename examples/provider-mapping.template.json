@@ -1,0 +1,10 @@
+{
+  "providerId": "replace-with-approved-provider-id",
+  "origin": "https://api.example.com/",
+  "allowedHosts": [
+    "api.example.com"
+  ],
+  "sourceReference": "https://provider.example.com/documentation",
+  "permissionStatus": "pending-confirmation",
+  "endpoints": []
+}
