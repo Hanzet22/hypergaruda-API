@@ -11,7 +11,7 @@ A refreshed, responsive interface for browsing the BintangAPI endpoint inventory
 The new interface provides category navigation, endpoint search, method labels, route copying, dark/light themes, and a mobile-friendly layout.
 
 ## Catalog inventory
-The catalog contains **74 endpoint records across 13 modules**, transcribed from the preserved legacy HTML pages.
+The local catalog contains **74 individually transcribed endpoint records across 13 modules**. The official BintangAPI documentation index currently reports **77 endpoints**; the net difference of 3 is tracked as an unmapped source delta rather than invented route names.
 
 | Module | Records |
 |---|---:|
@@ -30,7 +30,7 @@ The catalog contains **74 endpoint records across 13 modules**, transcribed from
 | Uploader | 1 |
 | **Total** | **74** |
 
-> These are catalog records, not live-verified or approved endpoint claims. The redesigned dashboard does not invoke upstream APIs directly. Legacy playgrounds retain their prior direct-request behavior.
+> The 74 local records are not live-verified or approved endpoint claims. BintangAPI's current index reports 77 total endpoints with category counts that differ from the preserved legacy pages. Three net records are not yet individually mapped. The redesigned dashboard and new Playground simulation do not invoke upstream APIs directly. Legacy module pages remain separate.
 
 ## Architecture
 - `assets/`: shared visual system and browser interactions.
@@ -45,13 +45,17 @@ The catalog contains **74 endpoint records across 13 modules**, transcribed from
 
 The current UI uses HTML5, CSS3, and browser JavaScript to keep this migration slice lightweight and compatible with static hosting. The framework boundaries from Phase 03 remain reserved and are not falsely described as fully instantiated apps.
 
+## Phase 06 — Endpoint catalog & Playground
+The official BintangAPI index reports 77 endpoints. This repository preserves 74 individually transcribed route records and records the three-entry net delta as unmapped until individual detail pages can be reconciled. The new `playground.html` is a documentation and request-preview simulator only: it does not send upstream requests. Live execution remains disabled until a validated gateway and provider allowlist exist. See [Phase 06 notes](docs/PHASE-06-ENDPOINT-PLAYGROUND.md).
+
 ## Phase 05 — Rate limiting
 The rate-limit package separates gateway/client policies from provider/endpoint policies. Its memory backend is for local or single-process use; Redis is optional and is not connected or provisioned by this repository. See [Phase 05 design and integration notes](docs/PHASE-05-RATE-LIMITING.md).
 
 ## Attribution
 - Dashboard UI / integration: [HyperGaruda](https://github.com/Hanzet22)
 - API documentation / upstream service: [BintangAPI X](https://github.com/Bintang-X)
-- Upstream documentation: [bintangapi.my.id](https://bintangapi.my.id/)
+- Upstream documentation: [BintangAPI](https://bintangapi.my.id/) · [API index](https://bintangapi.my.id/api)
+- Related snippet-library reference: [StarLabs](https://starlabs.biz.id/) (the public page currently reports 0 snippets; no code was copied from it).
 
 This repository does not claim ownership of the upstream BintangAPI service or its implementation. Use and redistribution of upstream code or services remain subject to their respective terms and permissions.
 
@@ -66,7 +70,7 @@ This UI slice has no third-party runtime dependencies and can be served as stati
 5. Authentication, authorization, audit events, and operational hardening.
 6. Provider migration, deployment, monitoring, and release readiness.
 
-See [Phase 03 Foundation](docs/PHASE-03-FOUNDATION.md), [Phase 04 UI Revamp](docs/PHASE-04-UI-REVAMP.md), and [Phase 05 Rate Limiting](docs/PHASE-05-RATE-LIMITING.md).
+See [Phase 03 Foundation](docs/PHASE-03-FOUNDATION.md), [Phase 04 UI Revamp](docs/PHASE-04-UI-REVAMP.md), and [Phase 05 Rate Limiting](docs/PHASE-05-RATE-LIMITING.md), plus [Phase 06 Playground](docs/PHASE-06-ENDPOINT-PLAYGROUND.md).
 
 ## License
 This repository retains its existing MIT license. Upstream APIs, provider names, and third-party services remain the property of their respective owners and may have separate terms.
