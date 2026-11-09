@@ -119,6 +119,26 @@ hanzet22.github.io/
 
 ---
 
+### 🧱 Phase 03 Foundation
+
+Fondasi migrasi mulai disiapkan tanpa menghapus dashboard HTML lama. Struktur aplikasi baru dipisahkan berdasarkan tanggung jawab:
+
+- `apps/web`: Next.js untuk aplikasi interaktif utama.
+- `apps/docs`: Astro untuk dokumentasi dan konten.
+- `apps/ui-lab`: Vite untuk eksperimen komponen terisolasi.
+- `packages/contracts`: kontrak TypeScript lintas aplikasi.
+- `packages/config`: validasi konfigurasi runtime yang bebas dari akses rahasia di browser.
+- `services/native`: fondasi Rust yang belum diekspos sebagai service produksi.
+
+Baseline toolchain: Node.js 22.23.4. Tailwind CSS digunakan per aplikasi; CSS Houdini hanya enhancement progresif dengan fallback CSS biasa.
+
+Dokumentasi: [Phase 03 Foundation](docs/PHASE-03-FOUNDATION.md).
+
+> [!IMPORTANT]
+> Ini adalah fondasi monorepo, bukan klaim bahwa seluruh aplikasi Next.js, Astro, Vite, atau gateway sudah siap produksi. Halaman HTML lama tetap dipertahankan selama migrasi bertahap.
+
+---
+
 ### 🧭 Phase 02 Blueprint
 
 Dokumentasi rekonsiliasi inventaris dashboard, rancangan arsitektur, keamanan, privasi, deployment, dan roadmap tersedia di [docs/PHASE-02-BLUEPRINT.md](docs/PHASE-02-BLUEPRINT.md). Angka 74 merujuk pada kartu yang tercantum, bukan jaminan seluruh endpoint aktif.

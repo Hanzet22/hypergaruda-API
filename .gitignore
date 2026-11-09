@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.astro/
+dist/
+build/
+coverage/
+.turbo/
+.vercel/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+services/target/
