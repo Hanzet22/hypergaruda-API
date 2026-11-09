@@ -28,6 +28,7 @@
 - [🙏 Kredit & Apresiasi](#-kredit--apresiasi)
 - [📄 Lisensi](#-lisensi)
 - [📞 Kontak](#-kontak)
+- [🧭 Phase 02 Blueprint](docs/PHASE-02-BLUEPRINT.md)
 
 ---
 
@@ -89,7 +90,7 @@ hanzet22.github.io/
 | 🔧 AI Tools | 5 |
 | 📖 Baca WattPad | 4 |
 | ⬇️ Downloader | 3 |
-| 📰 Berita | 9 |
+| 📰 Berita | 8 |
 | 🎨 Brat Maker | 2 |
 | 🎬 Nonton | 9 |
 | 📜 ScriptBlox | 3 |
@@ -118,8 +119,14 @@ hanzet22.github.io/
 
 ---
 
+### 🧭 Phase 02 Blueprint
+
+Dokumentasi rekonsiliasi inventaris dashboard, rancangan arsitektur, keamanan, privasi, deployment, dan roadmap tersedia di [docs/PHASE-02-BLUEPRINT.md](docs/PHASE-02-BLUEPRINT.md). Angka 74 merujuk pada kartu yang tercantum, bukan jaminan seluruh endpoint aktif.
+
+---
+
 ### ✨ Fitur Utama
-* 🚀 **74 Live Endpoints:** Seluruh server aktif dan terintegrasi penuh.
+* 🚀 **74 Dashboard Cards:** Jumlah kartu endpoint yang tercantum di HTML; status layanan upstream belum diverifikasi.
 * 📱 **Mobile Friendly & Responsive:** UI tetap presisi dibuka dari HP, tablet, maupun desktop.
 * 🪄 **Automated Form Fields:** Input form otomatis menyesuaikan kebutuhan dari *endpoint* yang dipilih.
 * 📦 **JSON Pretty Viewer:** Output data rapi dengan indentasi kode yang jelas.
