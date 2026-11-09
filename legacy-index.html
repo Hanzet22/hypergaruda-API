@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BintangAPI · Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <style>
+        /* ── reset & base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f6f8fc;
+            color: #0b1a33;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* ── header ── */
+        header {
+            background: linear-gradient(135deg, #0b1a33 0%, #1a2f4f 100%);
+            padding: 28px 0 20px;
+            color: #fff;
+            border-bottom: 4px solid #fbbf24;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .logo h1 span {
+            color: #fbbf24;
+        }
+        .logo p {
+            font-size: 13px;
+            opacity: 0.8;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+        .badge {
+            background: rgba(251, 191, 36, 0.2);
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fbbf24;
+        }
+
+        /* ── hero ── */
+        .hero {
+            background: #fff;
+            padding: 40px 0 32px;
+            border-bottom: 1px solid #e9edf4;
+        }
+        .hero h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0b1a33;
+            margin-bottom: 8px;
+        }
+        .hero h2 span {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #4a5a72;
+            max-width: 640px;
+            line-height: 1.6;
+        }
+        .hero .credits {
+            margin-top: 14px;
+            font-size: 14px;
+            color: #6b7d98;
+            background: #f1f4f9;
+            padding: 12px 20px;
+            border-radius: 12px;
+            display: inline-block;
+            border: 1px solid #e2e8f0;
+        }
+        .hero .credits strong {
+            color: #0b1a33;
+        }
+        .hero .credits a {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        /* ── nav tabs ── */
+        .nav-tabs {
+            background: #fff;
+            padding: 16px 0 0;
+            border-bottom: 1px solid #e9edf4;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .nav-tabs .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 10px;
+            padding-bottom: 12px;
+        }
+        .nav-tabs a {
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            background: #f1f4f9;
+            color: #2c3e5a;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            white-space: nowrap;
+        }
+        .nav-tabs a:hover {
+            background: #e2e8f0;
+            border-color: #cbd5e1;
+        }
+        .nav-tabs a.active {
+            background: #0b1a33;
+            color: #fff;
+            border-color: #0b1a33;
+        }
+        .nav-tabs a.home-link {
+            background: #fbbf24;
+            color: #0b1a33;
+            border-color: #fbbf24;
+        }
+        .nav-tabs a.home-link:hover {
+            background: #f59e0b;
+            border-color: #f59e0b;
+        }
+
+        /* ── main content ── */
+        .main-content {
+            flex: 1;
+            padding: 32px 0 60px;
+        }
+        .main-content .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        /* ── card grid (daftar isi) ── */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .card-grid .card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 20px 18px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e9edf4;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .card-grid .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
+        }
+        .card-grid .card .icon {
+            font-size: 32px;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .card-grid .card .label {
+            font-weight: 700;
+            font-size: 15px;
+            color: #0b1a33;
+        }
+        .card-grid .card .count {
+            font-size: 12px;
+            color: #6b7d98;
+            margin-top: 4px;
+        }
+        .card-grid .card a {
+            display: block;
+        }
+
+        /* ── footer ── */
+        footer {
+            background: #0b1a33;
+            color: #8ba0bb;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            border-top: 3px solid #fbbf24;
+            margin-top: auto;
+        }
+        footer a {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        /* ── responsive ── */
+        @media (max-width: 640px) {
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .hero h2 {
+                font-size: 24px;
+            }
+            .nav-tabs .container {
+                gap: 4px 8px;
+            }
+            .nav-tabs a {
+                font-size: 12px;
+                padding: 6px 14px;
+            }
+            .card-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>✦ Bintang<span>API</span></h1>
+                <p>All-in-one API playground — 74 endpoint siap pakai</p>
+            </div>
+            <div class="badge">🚀 v1.0</div>
+        </div>
+    </header>
+
+    <!-- navigation tabs -->
+    <nav class="nav-tabs">
+        <div class="container">
+            <a href="index.html" class="home-link">🏠 Home</a>
+            <a href="ai.html">🧠 AI Chat</a>
+            <a href="ai-image.html">🖼️ AI Image</a>
+            <a href="ai-tools.html">🔧 AI Tools</a>
+            <a href="baca.html">📖 Baca</a>
+            <a href="downloader.html">⬇️ Downloader</a>
+            <a href="berita.html">📰 Berita</a>
+            <a href="brat-maker.html">🎨 Brat Maker</a>
+            <a href="nonton.html">🎬 Nonton</a>
+            <a href="scriptblox.html">📜 Scriptblox</a>
+            <a href="search.html">🔍 Search</a>
+            <a href="stalker.html">🕵️ Stalker</a>
+            <a href="tools.html">🛠️ Tools</a>
+            <a href="uploader.html">📤 Uploader</a>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <section class="hero">
+        <div class="container">
+            <h2>Selamat datang di <span>BintangAPI</span></h2>
+            <p>Koleksi lengkap endpoint gratis dari BintangAPI — mulai dari AI chat, image generation, downloader, berita, hingga stalker media sosial. Semua siap pakai langsung dari browser.</p>
+            <div class="credits">
+                <strong>📄 API Document</strong> &nbsp;·&nbsp; Powered by <a href="https://bintangapi.my.id" target="_blank">BintangAPI</a> &nbsp;·&nbsp; Dibuat dengan ❤️ oleh <strong>Bintang-X</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- main -->
+    <main class="main-content">
+        <div class="container">
+            <!-- daftar isi -->
+            <div>
+                <h3 style="font-size:20px; font-weight:700; margin-bottom:16px; color:#0b1a33;">📋 Daftar Isi — 13 Modul</h3>
+                <div class="card-grid">
+                    <div class="card"><a href="ai.html"><span class="icon">🧠</span><div class="label">AI Chat</div><div class="count">9 endpoint</div></a></div>
+                    <div class="card"><a href="ai-image.html"><span class="icon">🖼️</span><div class="label">AI Image</div><div class="count">3 endpoint</div></a></div>
+                    <div class="card"><a href="ai-tools.html"><span class="icon">🔧</span><div class="label">AI Tools</div><div class="count">5 endpoint</div></a></div>
+                    <div class="card"><a href="baca.html"><span class="icon">📖</span><div class="label">Baca</div><div class="count">4 endpoint</div></a></div>
+                    <div class="card"><a href="downloader.html"><span class="icon">⬇️</span><div class="label">Downloader</div><div class="count">3 endpoint</div></a></div>
+                    <div class="card"><a href="berita.html"><span class="icon">📰</span><div class="label">Berita</div><div class="count">9 endpoint</div></a></div>
+                    <div class="card"><a href="brat-maker.html"><span class="icon">🎨</span><div class="label">Brat Maker</div><div class="count">2 endpoint</div></a></div>
+                    <div class="card"><a href="nonton.html"><span class="icon">🎬</span><div class="label">Nonton</div><div class="count">9 endpoint</div></a></div>
+                    <div class="card"><a href="scriptblox.html"><span class="icon">📜</span><div class="label">Scriptblox</div><div class="count">3 endpoint</div></a></div>
+                    <div class="card"><a href="search.html"><span class="icon">🔍</span><div class="label">Search</div><div class="count">8 endpoint</div></a></div>
+                    <div class="card"><a href="stalker.html"><span class="icon">🕵️</span><div class="label">Stalker</div><div class="count">16 endpoint</div></a></div>
+                    <div class="card"><a href="tools.html"><span class="icon">🛠️</span><div class="label">Tools</div><div class="count">3 endpoint</div></a></div>
+                    <div class="card"><a href="uploader.html"><span class="icon">📤</span><div class="label">Uploader</div><div class="count">1 endpoint</div></a></div>
+                </div>
+            </div>
+
+            <!-- deskripsi tambahan -->
+            <div style="background:#fff; border-radius:16px; padding:24px 28px; border:1px solid #e9edf4; box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+                <h4 style="font-size:18px; font-weight:700; margin-bottom:10px; color:#0b1a33;">📌 Tentang BintangAPI</h4>
+                <p style="color:#2c3e5a; line-height:1.7; max-width:800px;">
+                    BintangAPI adalah layanan REST API gratis yang menyediakan berbagai macam endpoint untuk keperluan pengembangan, mulai dari <strong>AI Chat</strong> (Prompt, Research, CoPilot, DeepSeek, GITA, Llama, Qwen, WormGPT), <strong>AI Image</strong> (Flux, WhiteCream, ZImage), <strong>AI Tools</strong> (Generator Prompt, Humanizer, Rewrite, TTS), <strong>Downloader</strong> (CapCut, Spotify, TikTok), <strong>Berita</strong> (Antara, CNBC, CNN, Google, Kompas, Liputan6, Sindo), <strong>Stalker</strong> (YouTube, X, TikTok, Telegram, SoundCloud, Roblox, Pinterest, NPM, ML, Minecraft, Lahelu, Instagram, GitHub, FreeFire, Chess, Channel WA), dan masih banyak lagi.
+                </p>
+                <p style="color:#4a5a72; margin-top:12px; font-size:14px;">
+                    ⚡ <strong>Cara pakai:</strong> Klik modul di atas, isi parameter yang dibutuhkan, lalu tekan tombol <strong>Fetch</strong>. Hasil akan ditampilkan langsung di halaman.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; 2026 <a href="https://bintangapi.my.id" target="_blank">BintangAPI</a> · Dibuat dengan 💛 oleh Bintang-X · Hosting via GitHub Pages
+        </div>
+    </footer>
+
+</body>
+</html>
