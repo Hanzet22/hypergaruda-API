@@ -6,8 +6,13 @@ const requiredFiles = [
   ".nvmrc",
   ".env.example",
   "docs/PHASE-03-FOUNDATION.md",
+  "docs/PHASE-05-RATE-LIMITING.md",
   "packages/contracts/src/index.ts",
   "packages/config/src/env.ts",
+  "packages/rate-limit/package.json",
+  "packages/rate-limit/src/index.ts",
+  "packages/rate-limit/src/memory-store.ts",
+  "packages/rate-limit/src/redis-store.ts",
   "services/Cargo.toml",
   "services/native/src/lib.rs",
 ];
@@ -22,10 +27,11 @@ const lock = JSON.parse(readFileSync("package-lock.json", "utf8"));
 if (root.name !== "hypergaruda-api") failures.push("Unexpected root package name.");
 if (root.engines?.node !== ">=22.23.4") failures.push("Node engine baseline mismatch.");
 if (lock.lockfileVersion !== 3) failures.push("Expected npm lockfile v3.");
-for (const name of ["@hypergaruda/config", "@hypergaruda/contracts"]) {
-  const manifestPath = name.endsWith("config")
-    ? "packages/config/package.json"
-    : "packages/contracts/package.json";
+for (const [name, manifestPath] of [
+  ["@hypergaruda/config", "packages/config/package.json"],
+  ["@hypergaruda/contracts", "packages/contracts/package.json"],
+  ["@hypergaruda/rate-limit", "packages/rate-limit/package.json"],
+]) {
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
   if (manifest.name !== name) failures.push(`Workspace name mismatch: ${manifestPath}`);
 }

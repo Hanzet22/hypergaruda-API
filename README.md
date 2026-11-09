@@ -40,9 +40,13 @@ The catalog contains **74 endpoint records across 13 modules**, transcribed from
 - `apps/ui-lab`: reserved Vite UI/CSS experiment boundary.
 - `packages/contracts`: transport-neutral TypeScript contracts.
 - `packages/config`: non-secret runtime configuration parser.
+- `packages/rate-limit`: framework-neutral dual-layer token-bucket engine, bounded memory store, and optional injected Redis/Lua adapter.
 - `services/native`: isolated Rust library scaffold.
 
 The current UI uses HTML5, CSS3, and browser JavaScript to keep this migration slice lightweight and compatible with static hosting. The framework boundaries from Phase 03 remain reserved and are not falsely described as fully instantiated apps.
+
+## Phase 05 — Rate limiting
+The rate-limit package separates gateway/client policies from provider/endpoint policies. Its memory backend is for local or single-process use; Redis is optional and is not connected or provisioned by this repository. See [Phase 05 design and integration notes](docs/PHASE-05-RATE-LIMITING.md).
 
 ## Attribution
 - Dashboard UI / integration: [HyperGaruda](https://github.com/Hanzet22)
@@ -57,12 +61,12 @@ This UI slice has no third-party runtime dependencies and can be served as stati
 ## Roadmap
 1. UI revamp and endpoint inventory normalization.
 2. API Gateway Foundation with runtime validation and provider allowlists.
-3. Dual Rate Limiter and abuse controls.
+3. Dual Rate Limiter and abuse controls (Phase 05 package foundation implemented; gateway integration pending).
 4. Sandbox boundary and execution isolation design.
 5. Authentication, authorization, audit events, and operational hardening.
 6. Provider migration, deployment, monitoring, and release readiness.
 
-See [Phase 03 Foundation](docs/PHASE-03-FOUNDATION.md) and [Phase 04 UI Revamp](docs/PHASE-04-UI-REVAMP.md).
+See [Phase 03 Foundation](docs/PHASE-03-FOUNDATION.md), [Phase 04 UI Revamp](docs/PHASE-04-UI-REVAMP.md), and [Phase 05 Rate Limiting](docs/PHASE-05-RATE-LIMITING.md).
 
 ## License
 This repository retains its existing MIT license. Upstream APIs, provider names, and third-party services remain the property of their respective owners and may have separate terms.
