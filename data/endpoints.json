@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "notice": "Transcribed from legacy HTML cards. Records are not live-verified, approved, or guaranteed available. The redesigned UI does not call upstream APIs directly.",
+  "notice": "74 individually transcribed legacy route records. The official BintangAPI documentation index reports 77 endpoints; 3 net records remain unmapped pending individual route details. Nothing here is live-verified or approved.",
   "categories": [
     {
       "id": "ai",
@@ -774,5 +774,82 @@
       "source": "legacy-html",
       "verification": "unverified"
     }
-  ]
+  ],
+  "sourceSnapshot": {
+    "capturedAt": "2026-11-10",
+    "source": "BintangAPI official documentation index",
+    "sourceUrl": "https://bintangapi.my.id/api",
+    "relatedOrigin": "https://starlabs.biz.id/",
+    "reportedEndpointCount": 77,
+    "reportedCategories": [
+      {
+        "id": "ai",
+        "name": "AI chat",
+        "count": 9
+      },
+      {
+        "id": "ai-image",
+        "name": "AI img",
+        "count": 3
+      },
+      {
+        "id": "ai-tools",
+        "name": "AI tools",
+        "count": 6
+      },
+      {
+        "id": "baca",
+        "name": "baca",
+        "count": 4
+      },
+      {
+        "id": "downloader",
+        "name": "downloader",
+        "count": 3
+      },
+      {
+        "id": "info",
+        "name": "info",
+        "count": 8
+      },
+      {
+        "id": "maker",
+        "name": "maker",
+        "count": 2
+      },
+      {
+        "id": "nonton",
+        "name": "nonton",
+        "count": 9
+      },
+      {
+        "id": "scriptblox",
+        "name": "scriptblox",
+        "count": 3
+      },
+      {
+        "id": "search",
+        "name": "search",
+        "count": 8
+      },
+      {
+        "id": "stalker",
+        "name": "stalker",
+        "count": 15
+      },
+      {
+        "id": "tools",
+        "name": "tools",
+        "count": 6
+      },
+      {
+        "id": "uploader",
+        "name": "uploader",
+        "count": 1
+      }
+    ],
+    "locallyMappedRecords": 74,
+    "unmappedNetDelta": 3,
+    "note": "The official index reports 77 entries, while this repository has 74 individually transcribed legacy route records. The net difference is not represented as fabricated route names or paths. Category totals differ in both directions; individual additions/removals require detail-page reconciliation."
+  }
 }
