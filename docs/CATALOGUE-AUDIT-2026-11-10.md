@@ -2,27 +2,26 @@
 
 ## Scope and method
 
-This is a static repository audit of the active catalogue and the code paths that consume it. It does not send requests to BintangAPI or StarLabs, verify live availability, inspect private upstream implementation, or establish permission. No endpoint record has been silently corrected or removed.
+Static inspection of the latest `main` branch, including the active and legacy catalogues, Phase 06–08 documentation, Playground code, Gateway registry, and provider mapping guard. Public documentation was read as documentation only. No upstream endpoint was called, no user content was submitted, and no active probing was performed.
 
-Repository: `Hanzet22/hypergaruda-API`
-Branch reviewed: `main`
-Catalogue: `data/endpoints.json`
-Snapshot date recorded by catalogue: `2026-11-10`
+Repository: `Hanzet22/hypergaruda-API`  
+Branch: `main`  
+Active catalogue: `data/endpoints.json`  
+Recorded source snapshot: `2026-11-10`
 
 ## Inventory integrity
 
-- Active endpoint records: 77 (matches `sourceSnapshot.reportedEndpointCount`).
-- Categories: 13.
-- Every category's declared count matches the actual number of records in that category.
-- Stable endpoint IDs: 77 unique; no duplicate IDs found.
-- HTTP methods: 76 GET, 1 POST.
+- Active endpoint records: 77; matches `sourceSnapshot.reportedEndpointCount`.
+- Categories: 13; every declared category count matches the actual records.
+- Endpoint IDs: 77 unique.
+- Methods: 76 GET, 1 POST.
 - Playground policy: 42 `preview-only`, 35 `review-required`.
-- Verification state: all 77 are `documented-not-live-verified`.
-- Source field: all 77 records use `bintangapi-docs`.
-- Required top-level record fields are populated for all 77 records.
+- Verification: all 77 are `documented-not-live-verified`.
+- Every record has its required top-level catalogue fields populated.
 - Parameter names are unique within each endpoint.
-- Parameter metadata types found: 66 `string`, 9 `select`, 1 `file`.
-- No malformed route-path shapes were found in the catalogue's `/api/` paths.
+- Parameter metadata types: 66 `string`, 9 `select`, 1 `file`.
+- No malformed `/api/` path shapes were found.
+- Exactly one duplicate method + path tuple was found; see Finding 1.
 
 Category counts:
 
@@ -45,20 +44,20 @@ Category counts:
 
 ## Findings requiring resolution
 
-### 1. Duplicate method + path
+### 1. Duplicate method + path — unresolved
 
 Two records share the exact `GET /api/aitools/ai-ppt` route:
 
 - `ai-tools-ai-ppt-13` — title `AI PPT`, parameter `prompt`.
 - `ai-tools-ppt-job-17` — title `PPT JOB`, parameter `job`.
 
-The local Playground distinguishes these records by their unique IDs, but both previews resolve to the same upstream URL path. The Gateway registry currently enforces unique endpoint IDs, not unique provider + method + path tuples. Therefore both could be registered independently even though their upstream route identity collides.
+The public BintangAPI documentation page currently exposes the overall endpoint count, category labels/counts, a generic description of the service, and the published base URL in its accessible rendered/static representation. It did not expose either endpoint's detail-level contract in the retrieved page content. Search did not locate authoritative public detail documentation for these two records. The repository history preserves the same two records but does not resolve their semantics.
 
-Do not delete, rename, or merge either record without checking the upstream documentation semantics. Confirm whether this is one route with two query modes, an intentional overloaded route, or a catalogue transcription error. Until confirmed, both should remain unregistered for live routing.
+Therefore it is not established whether this is one route with different query modes, an intentional overloaded route, or a transcription error. Preserve both IDs and route records unchanged. Do not register either route until the provider documents the distinction. The Gateway registry currently enforces unique endpoint IDs, not unique provider + method + normalized path tuples.
 
-### 2. Missing descriptions
+### 2. Missing descriptions — 33, not 32
 
-32 records have an empty `description` string. Their IDs and titles remain available, but the catalogue lacks descriptive text for them. Do not invent descriptions; recover them from the source documentation or explicitly mark them as unavailable.
+A fresh count of the current `data/endpoints.json` finds **33** empty description strings. The previous audit's summary count of 32 was incorrect; its affected-ID list already contained 33 entries.
 
 Affected IDs:
 
@@ -96,36 +95,63 @@ Affected IDs:
 - `stalker-telegram-stalk-68`
 - `stalker-youtube-channel-stalker-70`
 
-### 3. Provider provenance is not a provider mapping
+No descriptions were filled from endpoint names, category labels, unrelated third-party projects, or assumptions. The public documentation content retrievable in this run did not expose endpoint-level descriptions for these records. Keep the descriptions empty until authoritative BintangAPI detail documentation or a provider-supplied export is available.
 
-The catalogue's base URL is `https://bintangapi.my.id/api`, while `sourceOrigin` is `StarLabs`. Its attribution text describes BintangAPI as a REST wrapper around scraper/script collections from StarLabs. All 77 records are sourced from the BintangAPI documentation snapshot.
+### 3. Provenance, runtime host, and permission are distinct
 
-This does not establish that the 77 routes are directly hosted by StarLabs, that StarLabs is the runtime origin, or that either party has granted permission. Keep BintangAPI documentation provenance, upstream attribution, actual runtime host, and permission status as separate facts.
+The current catalogue has a single documentation source for all 77 records: the BintangAPI public documentation snapshot. Each record's `source` and `sourceUrl` identify that documentation provenance.
 
-### 4. Parameter contract is incomplete
+BintangAPI's own homepage describes the service as a collection of scraping code used internally at StarLabs, packaged as REST endpoints. The documentation publishes `https://bintangapi.my.id/api` as its base URL. These statements establish the provider's public attribution and documented base URL; they do **not** independently confirm the runtime host or live behavior of each individual route.
 
-The catalogue records names and basic UI types, but the Phase 06 documentation correctly notes that the source does not consistently state required/optional status and does not provide complete response schemas. The single `file` parameter also needs a dedicated upload contract before it can be represented by the current primitive-only Gateway parameter interface.
+Keep the following concepts separate:
 
-Do not infer requiredness, content types, file limits, response shapes, authentication, or idempotency from the current metadata.
+| Concept | Evidence-backed status |
+| --- | --- |
+| Documentation source | BintangAPI public API documentation; applies to all 77 catalogue records |
+| Claimed upstream attribution | StarLabs, as stated by BintangAPI |
+| Published documentation base URL | `https://bintangapi.my.id/api` |
+| Confirmed runtime host per endpoint | Unknown; no live requests or endpoint-level host evidence |
+| Permission evidence | Pending confirmation; no written approval recorded in this repository |
 
-## Existing implementation behavior
+The existing `sourceSnapshot.sourceOrigin` value must not be interpreted as a confirmed runtime origin. The current record set does not contain endpoint-specific runtime-host or permission evidence. Do not infer either from the documentation URL, attribution statement, or route path.
 
-- The Playground selects records by unique endpoint ID and creates local previews only. It does not send upstream requests.
-- The Playground uses the BintangAPI hostname for preview URL construction; this is preview generation, not proof that the route is live.
-- The Gateway registry rejects duplicate endpoint IDs and missing provider adapters, but does not reject duplicate provider + method + path combinations.
-- The Phase 08 mapping guard requires explicit `permissionStatus: "confirmed"`; the example mapping remains pending and empty.
-- The 35 `review-required` records remain gated in the Playground.
-- No provider is configured and no catalogue route is registered in the Gateway.
+### 4. Parameter contracts remain partial
 
-## Decision and remediation order
+The catalogue stores parameter names, UI metadata types, options, and placeholders. It does not consistently provide authoritative required/optional declarations or complete parameter semantics. The single `file` parameter has no complete upload contract in the Gateway's primitive query-parameter interface.
 
-1. Resolve the duplicate AI PPT route against source documentation.
-2. Recover or explicitly mark the 32 missing descriptions.
-3. Record provider provenance per endpoint: documentation source, claimed upstream origin, actual confirmed runtime host, and permission evidence.
-4. Complete parameter contracts, especially upload/file behavior and requiredness.
-5. Add a route-collision guard keyed by provider ID + HTTP method + normalized provider path before live route registration.
-6. Only then prepare an approval-gated mapping for a single provider and a small reviewed subset.
+Do not infer requiredness, data formats beyond the documented metadata, authentication, content types, file limits, response schemas, idempotency, or validation rules. Do not promote placeholder values into contract constraints. A parameter contract may be expanded only from endpoint-level source documentation or written provider confirmation.
+
+### 5. Other consistency and implementation observations
+
+- Category totals, unique IDs, top-level fields, parameter-name uniqueness, method totals, policy totals, and path shapes are structurally consistent on current `main`.
+- No other method + path collision was found in the active catalogue.
+- The duplicate AI PPT path is not rejected by `packages/gateway/src/registry.ts`, which checks endpoint ID uniqueness only. A future registration guard should use provider ID + method + normalized provider path, but no runtime registration change is made in this reconciliation.
+- `assets/playground.js` constructs local preview URLs using the documented BintangAPI base host. It explicitly labels the preview as simulation and does not send a request. This is not runtime-host verification.
+- `packages/providers/src/mapping.ts` requires `permissionStatus: "confirmed"` before a mapping passes the approval guard. The current Phase 08 example remains pending and empty.
+- All 35 `review-required` records remain gated. No policy values were changed.
+
+## Evidence reviewed
+
+- [BintangAPI homepage](https://bintangapi.my.id/) — public description and attribution.
+- [BintangAPI API documentation](https://bintangapi.my.id/api) — public catalogue index and published base URL; endpoint detail records were not exposed in the retrieved page content.
+- [StarLabs public site](https://starlabs.biz.id/) — attribution reference only; it does not establish BintangAPI route hosting or permission.
+- [Phase 06 notes](PHASE-06-ENDPOINT-PLAYGROUND.md)
+- [Phase 07 notes](PHASE-07-GATEWAY-RUNTIME.md)
+- [Phase 08 notes](PHASE-08-PROVIDER-ADAPTERS.md)
+- [Phase 06 catalogue import commit](https://github.com/Hanzet22/hypergaruda-API/commit/b1f314705ac5f2f2eb0591356561bce1e5c89b70)
+- [Gateway registry](../packages/gateway/src/registry.ts)
+- [Provider mapping guard](../packages/providers/src/mapping.ts)
+
+## Decision and next evidence required
+
+1. Obtain authoritative BintangAPI endpoint detail documentation or written provider confirmation for the AI PPT duplicate.
+2. Obtain the official endpoint detail export/page content for the 33 blank descriptions.
+3. Obtain written, endpoint-scoped confirmation of runtime routing and permission before adding runtime-host or permission claims.
+4. Obtain source-backed parameter contracts, especially requiredness and the upload/file contract.
+5. Add a provider + method + normalized-path collision guard before any future route registration; this is a code follow-up, not permission to register routes.
+
+Until that evidence exists, preserve both AI PPT records, leave the 33 descriptions empty, retain runtime host as unknown and permission as pending, keep all 35 review-required records gated, and register zero catalogue routes.
 
 ## Verification boundary
 
-This report is based on static GitHub file inspection and structural analysis of the checked-in catalogue and implementation. No tests, builds, live endpoint requests, fuzzing, or active probing were run. It is not a claim that the upstream API is healthy, safe, authorized, or fully documented.
+This is a static repository and public-documentation review. No live upstream API requests, endpoint execution, active probing, fuzzing, tests, or builds were run. No endpoint is claimed live-verified, available, authorized, or approved.
