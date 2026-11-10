@@ -34,7 +34,10 @@ The UI remains static HTML5, CSS3 and browser JavaScript. No live API server is 
 ## Phase 05 — Rate limiting
 The rate-limit package separates gateway/client budgets from provider/endpoint budgets. Memory is single-process development storage; Redis is optional and is not connected or provisioned. See [Phase 05 notes](docs/PHASE-05-RATE-LIMITING.md).
 
-## Catalogue audit\nA static audit of the 77-record inventory, route collision, missing descriptions, provider provenance and integration blockers is recorded in [Catalogue Audit](docs/CATALOGUE-AUDIT-2026-11-10.md). No live upstream requests were made.\n\n## Phase 06 — Endpoint expansion and Playground
+## Catalogue audit
+A static audit of the 77-record inventory, duplicate route, missing descriptions, provider provenance and integration blockers is recorded in [Catalogue Audit](docs/CATALOGUE-AUDIT-2026-11-10.md). No live upstream requests were made.
+
+## Phase 06 — Endpoint expansion and Playground
 The active catalogue follows 77 documented route records. The Playground generates local-only previews; it does not contact upstream hosts. See [Phase 06 notes](docs/PHASE-06-ENDPOINT-PLAYGROUND.md).
 
 ## Phase 07 — Gateway runtime
