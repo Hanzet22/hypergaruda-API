@@ -142,6 +142,19 @@ Do not infer requiredness, data formats beyond the documented metadata, authenti
 - [Gateway registry](../packages/gateway/src/registry.ts)
 - [Provider mapping guard](../packages/providers/src/mapping.ts)
 
+## Follow-up public-documentation pass
+
+A second static source pass was performed against the public documentation page and its discoverable page index:
+
+- The [BintangAPI documentation page](https://bintangapi.my.id/api/) returned its overview HTML with the reported total of 77 endpoints, all 13 category labels/counts, and the published base URL `https://bintangapi.my.id/api`.
+- The returned page content exposes generic category summaries (for example, “Explore AI tools related endpoints and features”), but not individual endpoint detail records, route-specific descriptions, or parameter contracts. The site map did not return separate endpoint-detail URLs, and domain-restricted searches on BintangAPI and StarLabs returned no indexed detail pages for the duplicate or sampled blank-description IDs. This is a search/index limitation, not proof that no private, dynamically loaded, or otherwise undiscovered documentation exists.
+- The page displays an “OPERATIONAL” badge. It is a page-level UI label only; it does not verify any individual route's runtime host, uptime, availability, or response behavior.
+- Broad searches also surfaced documentation hosted at `developer.ppt.ai`. No link or attribution in the BintangAPI/StarLabs materials connects that separate domain to either HyperGaruda AI PPT record, so it was excluded as non-authoritative for this reconciliation: [PPT.AI documentation](https://developer.ppt.ai/id/doc/).
+- A second collision pass normalized route paths by removing query components, collapsing repeated slashes, trimming trailing slashes, and comparing case-insensitively. The only active collision remains `GET /api/aitools/ai-ppt`; no cross-method path overlap was found. The preserved 74-record legacy inventory has 74 unique IDs and no normalized method + path collision. Legacy records remain historical and `unverified`.
+- All active parameter objects still contain only `name`, `type`, `options`, and `placeholder`. There is no source-backed requiredness, request-body schema, upload MIME/size limit, authentication contract, or response schema to add. The sole `file` parameter belongs to the existing review-required Uguu POST record; its policy remains unchanged.
+
+No catalogue field was corrected in this pass because the retrieved public evidence does not establish the missing endpoint-level facts. Both AI PPT records, all 33 blank descriptions, the documentation-only verification state, unknown per-endpoint runtime host, pending permission, and all 35 review-required restrictions remain unchanged.
+
 ## Decision and next evidence required
 
 1. Obtain authoritative BintangAPI endpoint detail documentation or written provider confirmation for the AI PPT duplicate.
