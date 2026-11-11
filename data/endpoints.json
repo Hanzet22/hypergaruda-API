@@ -12,7 +12,18 @@
     "starLabsUrl": "https://starlabs.biz.id/",
     "starLabsSnippetCount": 159,
     "permissionStatus": "pending-confirmation",
-    "attribution": "BintangAPI describes itself as a REST wrapper around scraper and script collections from StarLabs. No upstream source code or scraper implementation was copied."
+    "attribution": "BintangAPI describes itself as a REST wrapper around scraper and script collections from StarLabs. No upstream source code or scraper implementation was copied.",
+    "provenance": {
+      "documentationSource": "BintangAPI public API documentation",
+      "documentationUrl": "https://bintangapi.my.id/api/",
+      "claimedUpstreamAttribution": "StarLabs (as stated by BintangAPI)",
+      "publishedApiBaseUrl": "https://bintangapi.my.id/api",
+      "publishedApiBaseUrlStatus": "documented-not-live-verified",
+      "confirmedRuntimeHost": null,
+      "runtimeHostStatus": "unknown",
+      "permissionStatus": "pending-confirmation",
+      "permissionEvidenceStatus": "not-recorded"
+    }
   },
   "categories": [
     {
@@ -476,7 +487,8 @@
           "name": "text",
           "type": "string",
           "options": [],
-          "placeholder": ""
+          "placeholder": "",
+          "description": "minimal 50 karakter"
         }
       ],
       "playgroundPolicy": "preview-only"
@@ -828,7 +840,8 @@
           "name": "page",
           "type": "string",
           "options": [],
-          "placeholder": ""
+          "placeholder": "",
+          "description": "MAX 66"
         }
       ],
       "playgroundPolicy": "review-required",
@@ -849,7 +862,8 @@
           "name": "id",
           "type": "string",
           "options": [],
-          "placeholder": ""
+          "placeholder": "",
+          "description": "ambil dari animeid"
         }
       ],
       "playgroundPolicy": "review-required",
@@ -919,7 +933,8 @@
           "name": "page",
           "type": "string",
           "options": [],
-          "placeholder": ""
+          "placeholder": "",
+          "description": "max 8"
         }
       ],
       "playgroundPolicy": "review-required",
@@ -1198,7 +1213,8 @@
           "name": "q",
           "type": "string",
           "options": [],
-          "placeholder": ""
+          "placeholder": "",
+          "description": "harus masukin tahun,tanggal,dan bulan"
         }
       ],
       "playgroundPolicy": "preview-only"
@@ -1559,7 +1575,8 @@
             "demeter",
             "listvoice"
           ],
-          "placeholder": ""
+          "placeholder": "",
+          "description": "ada 789 pilihan btw"
         },
         {
           "name": "emotion",
@@ -1574,7 +1591,8 @@
             "suprise",
             "neutral"
           ],
-          "placeholder": ""
+          "placeholder": "",
+          "description": "Ada voice yang tidak support salah satu emotion"
         },
         {
           "name": "format",
@@ -1583,7 +1601,8 @@
             "audio",
             "json"
           ],
-          "placeholder": ""
+          "placeholder": "",
+          "description": "OPSIONAL"
         }
       ],
       "playgroundPolicy": "preview-only"
@@ -1686,7 +1705,8 @@
             "iris camden",
             "listvoice"
           ],
-          "placeholder": ""
+          "placeholder": "",
+          "description": "ada 884 pilihan voice"
         }
       ],
       "playgroundPolicy": "preview-only"
@@ -1706,7 +1726,8 @@
           "name": "url",
           "type": "string",
           "options": [],
-          "placeholder": "https://youtu.be/.."
+          "placeholder": "https://youtu.be/..",
+          "description": "only url video youtube"
         }
       ],
       "playgroundPolicy": "preview-only"

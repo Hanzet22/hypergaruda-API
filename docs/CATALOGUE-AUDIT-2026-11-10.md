@@ -142,28 +142,32 @@ Do not infer requiredness, data formats beyond the documented metadata, authenti
 - [Gateway registry](../packages/gateway/src/registry.ts)
 - [Provider mapping guard](../packages/providers/src/mapping.ts)
 
-## Follow-up public-documentation pass
+## Follow-up public-documentation pass — 2026-11-11
 
-A second static source pass was performed against the public documentation page and its discoverable page index:
+A deeper static inspection of the current public documentation HTML corrected the limitation recorded in the previous pass. The rendered-text extraction omitted an inline script, but the page's raw HTML contains an embedded `window.__RAW_TREE` JSON tree.
 
-- The [BintangAPI documentation page](https://bintangapi.my.id/api/) returned its overview HTML with the reported total of 77 endpoints, all 13 category labels/counts, and the published base URL `https://bintangapi.my.id/api`.
-- The returned page content exposes generic category summaries (for example, “Explore AI tools related endpoints and features”), but not individual endpoint detail records, route-specific descriptions, or parameter contracts. The site map did not return separate endpoint-detail URLs, and domain-restricted searches on BintangAPI and StarLabs returned no indexed detail pages for the duplicate or sampled blank-description IDs. This is a search/index limitation, not proof that no private, dynamically loaded, or otherwise undiscovered documentation exists.
-- The page displays an “OPERATIONAL” badge. It is a page-level UI label only; it does not verify any individual route's runtime host, uptime, availability, or response behavior.
-- Broad searches also surfaced documentation hosted at `developer.ppt.ai`. No link or attribution in the BintangAPI/StarLabs materials connects that separate domain to either HyperGaruda AI PPT record, so it was excluded as non-authoritative for this reconciliation: [PPT.AI documentation](https://developer.ppt.ai/id/doc/).
-- A second collision pass normalized route paths by removing query components, collapsing repeated slashes, trimming trailing slashes, and comparing case-insensitively. The only active collision remains `GET /api/aitools/ai-ppt`; no cross-method path overlap was found. The preserved 74-record legacy inventory has 74 unique IDs and no normalized method + path collision. Legacy records remain historical and `unverified`.
-- All active parameter objects still contain only `name`, `type`, `options`, and `placeholder`. There is no source-backed requiredness, request-body schema, upload MIME/size limit, authentication contract, or response schema to add. The sole `file` parameter belongs to the existing review-required Uguu POST record; its policy remains unchanged.
+- The [BintangAPI API documentation](https://bintangapi.my.id/api/) embeds **77 endpoint records across 13 categories**, including each record's display name, method, relative route, endpoint description, and parameter metadata. This was read from the documentation page source only; no endpoint URL was executed.
+- All 77 current catalogue records match the embedded source by title, method, and route. Existing endpoint descriptions and parameter names, types, options, and placeholders also match the source. All 13 category counts match.
+- The source tree itself has **33 empty endpoint descriptions**, exactly matching the 33 empty descriptions in the active catalogue. The documentation therefore does not currently provide replacement text for those records. No endpoint descriptions were invented or filled.
+- The embedded source contains two separate records named **AI PPT** and **PPT JOB**, both with `GET /api/aitools/ai-ppt`. Their source descriptions and parameter names differ (`prompt` versus `job`). This confirms the collision exists in the public source tree, not merely in the local transcription. It does not establish whether the provider intends an overloaded route or has a documentation error; preserve both IDs and route records pending written clarification.
+- Ten non-empty parameter-level `description` notes in the source tree are now preserved verbatim as `params[].description` in the active catalogue. The explicit `OPSIONAL` note remains literal text; it was not converted into a boolean requiredness rule. Source `default_value` entries are prefilled examples, not validation contracts, and were not imported as defaults.
+- The page's `OPERATIONAL` badge is page-level presentation only. The published base URL `https://bintangapi.my.id/api` is documented provenance, not independent confirmation of each endpoint's runtime host or availability.
+- Repository history was checked: the earlier 74-record catalogue commit did not contain alternate endpoint descriptions; the 77-record import commit already contains the same AI PPT/PPT JOB collision and 33 blank descriptions. No historical source in this repository resolves the missing text or route semantics.
+- A normalized method + path pass still finds only the AI PPT/PPT JOB collision in the active catalogue. The 74-record legacy inventory has 74 unique IDs and no normalized method + path collision.
 
-No catalogue field was corrected in this pass because the retrieved public evidence does not establish the missing endpoint-level facts. Both AI PPT records, all 33 blank descriptions, the documentation-only verification state, unknown per-endpoint runtime host, pending permission, and all 35 review-required restrictions remain unchanged.
+The `sourceSnapshot.provenance` block now explicitly separates documentation source, claimed upstream attribution, published base URL, unknown confirmed runtime host, pending permission, and absent recorded permission evidence. It applies uniformly to the 77 endpoint records, each of which retains its own `source`, `sourceUrl`, and `verification` fields. No endpoint-specific runtime-host or permission evidence was found.
+
+The Gateway registry still checks endpoint ID uniqueness but does not reject duplicate provider + method + normalized provider-path tuples. No registry behavior or route registration was changed. The provider mapping approval guard remains in place, its example remains pending with no endpoints, and all 35 `review-required` records remain gated.
 
 ## Decision and next evidence required
 
-1. Obtain authoritative BintangAPI endpoint detail documentation or written provider confirmation for the AI PPT duplicate.
-2. Obtain the official endpoint detail export/page content for the 33 blank descriptions.
-3. Obtain written, endpoint-scoped confirmation of runtime routing and permission before adding runtime-host or permission claims.
-4. Obtain source-backed parameter contracts, especially requiredness and the upload/file contract.
-5. Add a provider + method + normalized-path collision guard before any future route registration; this is a code follow-up, not permission to register routes.
+1. Obtain written provider clarification for whether AI PPT and PPT JOB are intentionally multiplexed on the same `GET /api/aitools/ai-ppt` path or whether one source record has an incorrect route. The public documentation confirms the collision but not its runtime semantics.
+2. Obtain provider-supplied descriptions or an updated documentation export for the 33 records whose descriptions are blank in the current embedded source tree.
+3. Obtain endpoint-scoped written confirmation of runtime routing and permission before recording any confirmed runtime host or approval. The published documentation base URL and claimed StarLabs attribution are not substitutes for this evidence.
+4. Obtain source-backed requiredness, request-body, authentication, response-schema, and upload MIME/size details before extending those contract fields. Keep the ten literal parameter notes as notes only; do not infer validation rules from them.
+5. Add a provider + method + normalized provider-path collision guard before any future route registration. This is a separate implementation follow-up, not permission to register either colliding route.
 
-Until that evidence exists, preserve both AI PPT records, leave the 33 descriptions empty, retain runtime host as unknown and permission as pending, keep all 35 review-required records gated, and register zero catalogue routes.
+Until those confirmations exist, preserve both AI PPT records, keep all 33 endpoint descriptions empty, retain runtime host as unknown and permission as pending, keep all 35 review-required records gated, and register zero catalogue routes.
 
 ## Verification boundary
 
