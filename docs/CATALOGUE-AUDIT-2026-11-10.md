@@ -159,6 +159,29 @@ The `sourceSnapshot.provenance` block now explicitly separates documentation sou
 
 The Gateway registry still checks endpoint ID uniqueness but does not reject duplicate provider + method + normalized provider-path tuples. No registry behavior or route registration was changed. The provider mapping approval guard remains in place, its example remains pending with no endpoints, and all 35 `review-required` records remain gated.
 
+## Follow-up public-documentation contract and provenance pass — 2026-11-12
+
+A fresh static read of the current BintangAPI documentation page and its public documentation UI assets was completed. The site map exposes the homepage and the single API documentation page; targeted public search did not locate separate endpoint-detail pages for AI PPT or PPT JOB. No endpoint URL was executed.
+
+### Parameter metadata semantics
+
+- The embedded source tree contains 76 parameter objects. Its documented parameter keys are `default_value`, `description`, `name`, `options`, `placeholder`, and `type`; the retrieved endpoint records do not provide a `required` flag, response schema, authentication contract, or file MIME/size limits.
+- The public form renderer [`85444744script.js`](https://bintangapi.my.id/api/assets/85444744script.js) assigns `default_value` to the documentation form input. The public snippet generator [`94407567script.js`](https://bintangapi.my.id/api/assets/94407567script.js) also uses it as a fallback while assembling example URLs and generated request snippets. These are documentation UI prefill/example values; they do not establish a server-side API default and are not promoted to a request contract field.
+- The source's ten non-empty parameter description notes, parameter names, types, options, and placeholders remain matched by the active catalogue. No new requiredness or validation constraints are justified.
+- The sole `file` parameter belongs to `Uguu` (`POST`) and remains `review-required`. No MIME types, maximum upload size, body schema, or other upload constraints are documented. The Gateway's `GatewayRequest.params` and `ProviderCall.params` accept only primitive values; `FetchProviderAdapter` appends those values to the URL query and has no request-body contract. Therefore the current Gateway cannot represent the documented file field as a verified upload contract. Do not activate or reclassify this route.
+
+### Provenance scope per endpoint
+
+Each active endpoint retains its own `source`, `sourceUrl`, and `verification`. The remaining provenance facts are shared snapshot-level evidence, not endpoint-specific confirmations. The active catalogue now makes that inheritance explicit: every endpoint has `provenanceRef: "#/sourceSnapshot/provenance"`, and the referenced object declares its scope as all endpoint records in this snapshot. The shared values remain: BintangAPI documentation source; StarLabs as claimed attribution by BintangAPI; published documentation base URL only; confirmed runtime host `null` / `unknown`; permission `pending-confirmation`; permission evidence `not-recorded`. No endpoint-scoped runtime-host or permission approval was discovered.
+
+### History and route-collision guard
+
+- The [74-record historical snapshot](https://github.com/Hanzet22/hypergaruda-API/commit/d14274c41e0d2551fdbab6ae1fa088f570aaf12c) has no normalized method + path collision and contains no endpoint descriptions; it does not supply alternate text for the active records.
+- The [77-record import commit](https://github.com/Hanzet22/hypergaruda-API/commit/b1f314705ac5f2f2eb0591356561bce1e5c89b70) already contains the same AI PPT/PPT JOB collision and 33 blank descriptions. Repository history therefore does not resolve either issue.
+- The current [Gateway registry](../packages/gateway/src/registry.ts) rejects duplicate endpoint IDs but does not reject duplicate provider + method + normalized provider-path tuples. The active catalogue still has only the known AI PPT/PPT JOB collision; the legacy inventory has none. No generic collision guard or route behavior was changed because provider confirmation is still needed to distinguish intentional multiplexing from a documentation error.
+
+No README link change was required. This pass changed metadata/documentation only; it did not register routes or change endpoint semantics.
+
 ## Decision and next evidence required
 
 1. Obtain written provider clarification for whether AI PPT and PPT JOB are intentionally multiplexed on the same `GET /api/aitools/ai-ppt` path or whether one source record has an incorrect route. The public documentation confirms the collision but not its runtime semantics.

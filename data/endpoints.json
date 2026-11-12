@@ -22,7 +22,9 @@
       "confirmedRuntimeHost": null,
       "runtimeHostStatus": "unknown",
       "permissionStatus": "pending-confirmation",
-      "permissionEvidenceStatus": "not-recorded"
+      "permissionEvidenceStatus": "not-recorded",
+      "scope": "shared-default-for-all-endpoint-records-in-this-snapshot",
+      "endpointSpecificEvidenceStatus": "not-recorded"
     }
   },
   "categories": [
@@ -168,7 +170,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-chat-ai-research-02",
@@ -188,7 +191,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-chat-copilot-03",
@@ -208,7 +212,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-chat-deepseek-v3-04",
@@ -228,7 +233,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-chat-deepseek-v4-flash-05",
@@ -248,7 +254,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-chat-gita-ai-06",
@@ -268,7 +275,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-chat-llama-4-scout-07",
@@ -288,7 +296,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-chat-qwen3-coder-08",
@@ -308,7 +317,8 @@
           "placeholder": "halo cuy"
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-chat-wormgpt-09",
@@ -329,7 +339,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "This route label requires a separate safety review."
+      "reviewReason": "This route label requires a separate safety review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-image-grok-imagine-10",
@@ -370,7 +381,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-image-writecream-11",
@@ -390,7 +402,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-image-zimage-12",
@@ -410,7 +423,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-tools-ai-ppt-13",
@@ -430,7 +444,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-tools-generator-prompt-14",
@@ -450,7 +465,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-tools-google-tts-15",
@@ -470,7 +486,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-tools-humanizer-ai-16",
@@ -491,7 +508,8 @@
           "description": "minimal 50 karakter"
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-tools-ppt-job-17",
@@ -511,7 +529,8 @@
           "placeholder": "bintangapi_xxxxxx"
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "ai-tools-rewrite-ai-18",
@@ -543,7 +562,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "baca-wattpad-baca-19",
@@ -563,7 +583,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "baca-wattpad-detail-20",
@@ -583,7 +604,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "baca-wattpad-home-21",
@@ -596,7 +618,8 @@
       "sourceUrl": "https://bintangapi.my.id/api",
       "verification": "documented-not-live-verified",
       "params": [],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "baca-wattpad-search-22",
@@ -616,7 +639,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "downloader-capcut-dl-23",
@@ -637,7 +661,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "downloader-soptify-dl-24",
@@ -658,7 +683,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "downloader-tiktok-dl-25",
@@ -679,7 +705,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "info-antara-26",
@@ -692,7 +719,8 @@
       "sourceUrl": "https://bintangapi.my.id/api",
       "verification": "documented-not-live-verified",
       "params": [],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "info-cnbc-indonesia-27",
@@ -705,7 +733,8 @@
       "sourceUrl": "https://bintangapi.my.id/api",
       "verification": "documented-not-live-verified",
       "params": [],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "info-cnn-28",
@@ -718,7 +747,8 @@
       "sourceUrl": "https://bintangapi.my.id/api",
       "verification": "documented-not-live-verified",
       "params": [],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "info-gag-stock-29",
@@ -731,7 +761,8 @@
       "sourceUrl": "https://bintangapi.my.id/api",
       "verification": "documented-not-live-verified",
       "params": [],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "info-google-news-30",
@@ -744,7 +775,8 @@
       "sourceUrl": "https://bintangapi.my.id/api",
       "verification": "documented-not-live-verified",
       "params": [],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "info-kompas-news-31",
@@ -757,7 +789,8 @@
       "sourceUrl": "https://bintangapi.my.id/api",
       "verification": "documented-not-live-verified",
       "params": [],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "info-liputan6-32",
@@ -770,7 +803,8 @@
       "sourceUrl": "https://bintangapi.my.id/api",
       "verification": "documented-not-live-verified",
       "params": [],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "info-sindo-news-33",
@@ -783,7 +817,8 @@
       "sourceUrl": "https://bintangapi.my.id/api",
       "verification": "documented-not-live-verified",
       "params": [],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "maker-brat-34",
@@ -803,7 +838,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "maker-brat-video-35",
@@ -823,7 +859,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "nonton-otakudesu-completed-36",
@@ -845,7 +882,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "nonton-otakudesu-detail-37",
@@ -867,7 +905,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "nonton-otakudesu-genre-38",
@@ -888,7 +927,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "nonton-otakudesu-genre-list-39",
@@ -902,7 +942,8 @@
       "verification": "documented-not-live-verified",
       "params": [],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "nonton-otakudesu-home-40",
@@ -916,7 +957,8 @@
       "verification": "documented-not-live-verified",
       "params": [],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "nonton-otakudesu-ongoing-41",
@@ -938,7 +980,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "nonton-otakudesu-schedule-42",
@@ -952,7 +995,8 @@
       "verification": "documented-not-live-verified",
       "params": [],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "nonton-otakudesu-search-43",
@@ -973,7 +1017,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "nonton-otakudesu-stream-download-44",
@@ -994,7 +1039,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review."
+      "reviewReason": "Media retrieval is disabled pending rights and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "scriptblox-scriptblox-home-45",
@@ -1008,7 +1054,8 @@
       "verification": "documented-not-live-verified",
       "params": [],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Script discovery is disabled pending content and safety review."
+      "reviewReason": "Script discovery is disabled pending content and safety review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "scriptblox-scriptblox-search-46",
@@ -1029,7 +1076,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Script discovery is disabled pending content and safety review."
+      "reviewReason": "Script discovery is disabled pending content and safety review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "scriptblox-scriptblox-trending-47",
@@ -1043,7 +1091,8 @@
       "verification": "documented-not-live-verified",
       "params": [],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Script discovery is disabled pending content and safety review."
+      "reviewReason": "Script discovery is disabled pending content and safety review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "search-an1-search-48",
@@ -1070,7 +1119,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Third-party app discovery is disabled pending source and distribution review."
+      "reviewReason": "Third-party app discovery is disabled pending source and distribution review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "search-brainly-search-49",
@@ -1096,7 +1146,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "search-ff-hero-50",
@@ -1116,7 +1167,8 @@
           "placeholder": "alok"
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "search-pinterest-51",
@@ -1136,7 +1188,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "search-reuters-search-52",
@@ -1156,7 +1209,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "search-stikerly-search-53",
@@ -1176,7 +1230,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "search-wikipedia-54",
@@ -1196,7 +1251,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "search-zodiak-checker-55",
@@ -1217,7 +1273,8 @@
           "description": "harus masukin tahun,tanggal,dan bulan"
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-channel-wa-view-56",
@@ -1238,7 +1295,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-chess-com-user-stalker-57",
@@ -1259,7 +1317,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-free-fire-stalker-58",
@@ -1280,7 +1339,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-github-stalker-59",
@@ -1301,7 +1361,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-instagram-stalker-60",
@@ -1322,7 +1383,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-lahelu-stalker-61",
@@ -1343,7 +1405,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-minecraft-user-stalk-62",
@@ -1364,7 +1427,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-ml-check-63",
@@ -1391,7 +1455,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-npm-stalk-64",
@@ -1412,7 +1477,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-pinterest-user-stalker-65",
@@ -1433,7 +1499,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-roblox-stalk-66",
@@ -1454,7 +1521,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-soundcloud-user-stalker-67",
@@ -1475,7 +1543,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-telegram-stalk-68",
@@ -1496,7 +1565,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-x-stalker-69",
@@ -1526,7 +1596,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "stalker-youtube-channel-stalker-70",
@@ -1547,7 +1618,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Profile lookup is disabled pending privacy and consent review."
+      "reviewReason": "Profile lookup is disabled pending privacy and consent review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "tools-anime-text-to-speech-71",
@@ -1605,7 +1677,8 @@
           "description": "OPSIONAL"
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "tools-bypass-url-72",
@@ -1626,7 +1699,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Link-bypass behavior is disabled pending policy and provider-terms review."
+      "reviewReason": "Link-bypass behavior is disabled pending policy and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "tools-bypass-url-v2-73",
@@ -1647,7 +1721,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "Link-bypass behavior is disabled pending policy and provider-terms review."
+      "reviewReason": "Link-bypass behavior is disabled pending policy and provider-terms review.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "tools-ss-web-74",
@@ -1677,7 +1752,8 @@
           "placeholder": ""
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "tools-text-to-speech-75",
@@ -1709,7 +1785,8 @@
           "description": "ada 884 pilihan voice"
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "tools-youtube-summary-76",
@@ -1730,7 +1807,8 @@
           "description": "only url video youtube"
         }
       ],
-      "playgroundPolicy": "preview-only"
+      "playgroundPolicy": "preview-only",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     },
     {
       "id": "uploader-uguu-77",
@@ -1751,7 +1829,8 @@
         }
       ],
       "playgroundPolicy": "review-required",
-      "reviewReason": "File upload is disabled until gateway-side file type, size and storage controls exist."
+      "reviewReason": "File upload is disabled until gateway-side file type, size and storage controls exist.",
+      "provenanceRef": "#/sourceSnapshot/provenance"
     }
   ]
 }
