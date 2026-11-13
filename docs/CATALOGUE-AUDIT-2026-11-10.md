@@ -182,6 +182,21 @@ Each active endpoint retains its own `source`, `sourceUrl`, and `verification`. 
 
 No README link change was required. This pass changed metadata/documentation only; it did not register routes or change endpoint semantics.
 
+## Follow-up public-source refresh — 2026-11-13
+
+A fresh static fetch of the public BintangAPI documentation page returned HTTP 200 on 2026-11-13. The page source's embedded `window.__RAW_TREE` was parsed as documentation data only; no endpoint URL or Execute control was used.
+
+- The embedded tree still contains **77 endpoint records across 13 category folders**. All 77 match the active catalogue by title, HTTP method, and route. Endpoint descriptions and the parameter fields `name`, `type`, `options`, `placeholder`, and `description` match exactly; no source/catalogue metadata mismatch was found.
+- The source still contains **33 empty endpoint descriptions**, matching the 33 empty catalogue descriptions. No authoritative replacement text was found. The request's reference to 32 missing descriptions remains a stale count; the current evidence supports 33.
+- The source still lists **AI PPT** and **PPT JOB** separately at `GET /api/aitools/ai-ppt`, with distinct descriptions and parameter names (`prompt` and `job`). This confirms the collision in the public documentation, but does not clarify whether the provider intends one overloaded route or has published an incorrect path. Both catalogue records remain unchanged.
+- The source contains 76 parameter objects: 66 `string`, 9 `select`, and 1 `file`. The ten non-empty parameter description notes remain the only parameter descriptions. No `required` field, response schema, endpoint-specific authentication contract, or file MIME/size limit was present. Documentation `default_value` entries remain examples/prefills, not API validation defaults.
+- The documentation site's current map surfaced the homepage, the API documentation page, and its documentation UI assets; it did not surface separate endpoint-detail pages for the unresolved records.
+- The current [BintangAPI homepage](https://bintangapi.my.id/) says users do not need to register or supply their own API key and describes server-side proxying. These are general service-level statements, not endpoint-specific authentication contracts, confirmed runtime-host evidence, or permission approval. No authentication field was added to endpoint records.
+- The current [StarLabs homepage](https://starlabs.biz.id/) rendered a snippet count of **0** and a 404 panel; its linked [/ai page](https://starlabs.biz.id/ai) is an assistant interface, not endpoint-detail documentation or written permission evidence. The catalogue's `starLabsSnippetCount: 159` remains a value recorded in the 2026-11-10 source snapshot; it was not overwritten with a current homepage display or reinterpreted as current availability.
+- The Playground's `fetch("./data/endpoints.json")` reads the repository's local static catalogue. It is not an upstream API request. The Gateway registry still checks endpoint ID uniqueness only and does not reject duplicate provider + method + normalized path tuples.
+
+No catalogue record, endpoint ID, route, parameter contract, provenance status, or review policy was changed in this pass. All 35 `review-required` entries remain gated, permission remains pending, and runtime host remains unknown.
+
 ## Decision and next evidence required
 
 1. Obtain written provider clarification for whether AI PPT and PPT JOB are intentionally multiplexed on the same `GET /api/aitools/ai-ppt` path or whether one source record has an incorrect route. The public documentation confirms the collision but not its runtime semantics.
