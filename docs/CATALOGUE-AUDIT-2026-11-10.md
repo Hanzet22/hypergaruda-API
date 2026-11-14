@@ -210,3 +210,20 @@ Until those confirmations exist, preserve both AI PPT records, keep all 33 endpo
 ## Verification boundary
 
 This is a static repository and public-documentation review. No live upstream API requests, endpoint execution, active probing, fuzzing, tests, or builds were run. No endpoint is claimed live-verified, available, authorized, or approved.
+
+## Follow-up legacy cross-snapshot route check — 2026-11-14
+
+A static comparison of [the active catalogue](../data/endpoints.json) and [the preserved Phase 04 snapshot](../data/legacy-endpoints.json) found **14 exact method + path pairs** represented in both files. The overlaps are historical continuity, not collisions within either catalogue: they are stored in separate snapshots and must not be combined into a runtime registration set.
+
+Overlap counts by legacy category:
+
+- `baca`: 1
+- `berita`: 8
+- `nonton`: 3
+- `scriptblox`: 2
+
+Each file was checked independently:
+- Active catalogue: 77 records, 77 unique IDs; its only within-file method + path collision remains the documented AI PPT / PPT JOB pair.
+- Legacy catalogue: 74 records, 74 unique IDs, no within-file method + path collision.
+
+No historical record was deleted, merged, renamed, or promoted. The cross-snapshot overlaps do not resolve the AI PPT/PPT JOB ambiguity and do not authorize route registration.
