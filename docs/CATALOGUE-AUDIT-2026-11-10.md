@@ -227,3 +227,17 @@ Each file was checked independently:
 - Legacy catalogue: 74 records, 74 unique IDs, no within-file method + path collision.
 
 No historical record was deleted, merged, renamed, or promoted. The cross-snapshot overlaps do not resolve the AI PPT/PPT JOB ambiguity and do not authorize route registration.
+
+## Correction — legacy path-field normalization — 2026-11-15
+
+A closer static comparison found that the legacy catalogue's `path` field is a historical display string rather than a route-only field for many records: **59 of 74** values include query examples, and **3** include explanatory suffixes (some values have both). The prior **14** cross-snapshot count measured literal full-field method + path equality only; it was not the total route-prefix overlap.
+
+For a route-prefix comparison only, the leading `/api/...` token was extracted up to the first query marker or whitespace annotation, then compared together with the HTTP method. This yields:
+
+- **71** method + route-prefix pairs represented in both snapshots.
+- **3** legacy route prefixes not represented in the active snapshot.
+- **5** active route prefixes not represented in the legacy snapshot.
+- Active catalogue: 77 records but 76 unique method + route-prefix pairs because the AI PPT / PPT JOB collision remains.
+- Legacy catalogue: 74 records and 74 unique method + route-prefix pairs, with no within-file collision.
+
+The 14 literal full-field matches remain a valid count of exact stored-string matches, but should not be interpreted as the complete route-level overlap. Route-prefix overlap is a syntactic comparison only; it does not prove semantic equivalence, identical parameter contracts, provider behavior, or permission. The legacy `path` strings remain unchanged to preserve the historical snapshot. No records were deleted, merged, renamed, or registered.
