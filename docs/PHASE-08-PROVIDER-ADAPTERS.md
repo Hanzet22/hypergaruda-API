@@ -34,7 +34,7 @@ The Phase 06 catalogue contains documented metadata, not permission or live avai
 - No BintangAPI or StarLabs origin is hardcoded as an active provider.
 - No endpoint from the 77-record catalogue is registered.
 - The 35 review-required catalogue entries remain disabled.
-- The example mapping template starts with `pending-confirmation` and an empty endpoint list.
+- No concrete provider manifest instance or example mapping file is shipped in this phase. `ProviderMappingManifest` is a type contract and `assertProviderMappingApproved()` is the approval guard; any future manifest must remain `pending-confirmation` until written permission is recorded.
 - A mapping must be reviewed and explicitly marked `confirmed` before it can pass the approval guard. This code guard does not replace a written permission record or legal/terms review.
 
 ## Configuration example

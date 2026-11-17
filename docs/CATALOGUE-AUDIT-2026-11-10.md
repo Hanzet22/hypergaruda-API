@@ -127,7 +127,7 @@ Do not infer requiredness, data formats beyond the documented metadata, authenti
 - No other method + path collision was found in the active catalogue.
 - The duplicate AI PPT path is not rejected by `packages/gateway/src/registry.ts`, which checks endpoint ID uniqueness only. A future registration guard should use provider ID + method + normalized provider path, but no runtime registration change is made in this reconciliation.
 - `assets/playground.js` constructs local preview URLs using the documented BintangAPI base host. It explicitly labels the preview as simulation and does not send a request. This is not runtime-host verification.
-- `packages/providers/src/mapping.ts` requires `permissionStatus: "confirmed"` before a mapping passes the approval guard. The current Phase 08 example remains pending and empty.
+- `packages/providers/src/mapping.ts` requires `permissionStatus: "confirmed"` before a mapping passes the approval guard. The Phase 08 document previously described a pending/empty mapping template; the 2026-11-17 follow-up below clarifies that no concrete provider manifest instance or example file is shipped.
 - All 35 `review-required` records remain gated. No policy values were changed.
 
 ## Evidence reviewed
@@ -241,3 +241,14 @@ For a route-prefix comparison only, the leading `/api/...` token was extracted u
 - Legacy catalogue: 74 records and 74 unique method + route-prefix pairs, with no within-file collision.
 
 The 14 literal full-field matches remain a valid count of exact stored-string matches, but should not be interpreted as the complete route-level overlap. Route-prefix overlap is a syntactic comparison only; it does not prove semantic equivalence, identical parameter contracts, provider behavior, or permission. The legacy `path` strings remain unchanged to preserve the historical snapshot. No records were deleted, merged, renamed, or registered.
+
+
+## Follow-up provider-manifest and parameter-prefill source check — 2026-11-17
+
+A fresh recursive repository-tree inspection at the current `main` commit (`3b28b38886108a937fa40a22bfaa10bd88e9e57c`) found only the provider package manifest and these implementation files: `packages/providers/src/index.ts`, `fetch-adapter.ts`, and `mapping.ts`. The tree is complete (not truncated); there is no `examples` directory, concrete `ProviderMappingManifest` object, or checked-in provider mapping instance. `src/index.ts` only re-exports the adapter and mapping modules, while `src/mapping.ts` defines the manifest types and approval guard. The Phase 08 wording has been corrected to distinguish this type/guard foundation from a shipped manifest example.
+
+The public documentation form renderer at [`85444744script.js`](https://bintangapi.my.id/api/assets/85444744script.js) assigns each parameter's `default_value` to the generated HTML input's `value`. This confirms it is a documentation-form prefill. It is not evidence of a server-side API default or a validation rule. The embedded source parameter records do not contain a `required` field; no requiredness has been inferred or added. The active catalogue intentionally continues to preserve only the documented parameter names, UI types, options, placeholders, and ten non-empty parameter-description notes.
+
+A fresh static comparison of the embedded `window.__RAW_TREE` against the active catalogue still matches all 77 records for title, method, normalized route, description, category, and the parameter fields represented in the catalogue. Both source and catalogue contain 33 empty endpoint descriptions. The site map returned the homepage and the API documentation page only; no separate endpoint-detail pages were discovered.
+
+No endpoint records, route semantics, IDs, parameter contracts, provenance values, or review policies were changed. No provider manifest or route was created, and all 35 `review-required` entries remain gated.
