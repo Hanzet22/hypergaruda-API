@@ -127,7 +127,7 @@ Do not infer requiredness, data formats beyond the documented metadata, authenti
 - No other method + path collision was found in the active catalogue.
 - The duplicate AI PPT path is not rejected by `packages/gateway/src/registry.ts`, which checks endpoint ID uniqueness only. A future registration guard should use provider ID + method + normalized provider path, but no runtime registration change is made in this reconciliation.
 - `assets/playground.js` constructs local preview URLs using the documented BintangAPI base host. It explicitly labels the preview as simulation and does not send a request. This is not runtime-host verification.
-- `packages/providers/src/mapping.ts` requires `permissionStatus: "confirmed"` before a mapping passes the approval guard. The Phase 08 document previously described a pending/empty mapping template; the 2026-11-17 follow-up below clarifies that no concrete provider manifest instance or example file is shipped.
+- `packages/providers/src/mapping.ts` requires `permissionStatus: "confirmed"` and at least one endpoint mapping before a manifest passes the approval guard. A generic pending/empty placeholder template exists at `examples/provider-mapping.template.json`; it is not a concrete provider configuration or permission record. The 2026-11-18 correction below supersedes the earlier inventory statement that no examples directory or template file was present.
 - All 35 `review-required` records remain gated. No policy values were changed.
 
 ## Evidence reviewed
@@ -252,3 +252,14 @@ The public documentation form renderer at [`85444744script.js`](https://bintanga
 A fresh static comparison of the embedded `window.__RAW_TREE` against the active catalogue still matches all 77 records for title, method, normalized route, description, category, and the parameter fields represented in the catalogue. Both source and catalogue contain 33 empty endpoint descriptions. The site map returned the homepage and the API documentation page only; no separate endpoint-detail pages were discovered.
 
 No endpoint records, route semantics, IDs, parameter contracts, provenance values, or review policies were changed. No provider manifest or route was created, and all 35 `review-required` entries remain gated.
+
+
+## Correction — provider mapping template inventory — 2026-11-18
+
+A fresh inspection of the complete recursive tree at the current `main` commit found `examples/provider-mapping.template.json` (275 bytes). The file was introduced in [`8d14b3b`](https://github.com/Hanzet22/hypergaruda-API/commit/8d14b3bfc03e35a94cf4c9d64b42bad109c7dbc9), which added the Phase 08 provider foundation on 2026-11-09. The earlier 2026-11-17 statement that no `examples` directory or checked-in mapping template existed was incorrect and is superseded by this correction.
+
+The checked-in file is a **generic placeholder template**, not a concrete provider manifest instance. Its `providerId`, `origin`, `allowedHosts`, and `sourceReference` use example placeholders; `permissionStatus` is `pending-confirmation`; and `endpoints` is empty. It does not identify BintangAPI, StarLabs, or any confirmed provider origin, and it supplies no endpoint mapping or permission evidence. The Phase 08 document now describes this distinction accurately.
+
+The implementation in [`packages/providers/src/mapping.ts`](../packages/providers/src/mapping.ts) rejects a manifest unless permission is explicitly `confirmed`, its provider/source/origin/host fields pass validation, endpoint IDs and paths are valid, and at least one endpoint mapping exists. The placeholder template therefore cannot pass the approval guard as checked in. This guard does not itself establish written permission.
+
+No provider origin was configured, no route was registered, and no catalogue record, endpoint ID, route, parameter contract, provenance status, or review policy was changed. All 35 `review-required` entries remain gated and permission remains pending.
