@@ -263,3 +263,35 @@ The checked-in file is a **generic placeholder template**, not a concrete provid
 The implementation in [`packages/providers/src/mapping.ts`](../packages/providers/src/mapping.ts) rejects a manifest unless permission is explicitly `confirmed`, its provider/source/origin/host fields pass validation, endpoint IDs and paths are valid, and at least one endpoint mapping exists. The placeholder template therefore cannot pass the approval guard as checked in. This guard does not itself establish written permission.
 
 No provider origin was configured, no route was registered, and no catalogue record, endpoint ID, route, parameter contract, provenance status, or review policy was changed. All 35 `review-required` entries remain gated and permission remains pending.
+
+## Follow-up static source metadata and documentation UI contract inspection — 2026-11-20
+
+A fresh static fetch of the [BintangAPI API documentation](https://bintangapi.my.id/api/) returned HTTP 200. Its raw HTML still embeds `window.__RAW_TREE`. The embedded tree was parsed as documentation data only; no script was executed and no endpoint URL was requested.
+
+### Current source-to-catalogue reconciliation
+
+- The embedded tree contains **77 endpoint records across 13 categories**. All 77 match the active catalogue by source name/title, category, method, normalized route, endpoint description, and the parameter fields currently represented by the catalogue. No metadata mismatch was found.
+- The source still has **33 empty endpoint descriptions**, matching the active catalogue's 33 empty descriptions. The source itself does not supply replacement text.
+- The only active method + normalized-path collision remains **AI PPT** and **PPT JOB**, both `GET /api/aitools/ai-ppt`. Both source records also carry the same presentation group label, `ai ppt`. The [documentation UI renderer](https://bintangapi.my.id/api/assets/86124835script.js) uses the source `group` field to arrange records under display headings. Shared display grouping is not evidence that the route is intentionally multiplexed or that either path is correct; written provider clarification is still required.
+- The current source records have a `group` field on all 77 records; 23 have a non-empty display group: `ai ppt` (2), `TTS` (1), `WATTPAD` (4), `BERITA` (7), and `OTAKUDESU` (9). The active catalogue does not currently preserve this optional presentation-only grouping field. This is recorded as a display-metadata omission, not an endpoint-contract or route-semantic mismatch; no `sourceGroup` field was added in this pass.
+- No `fixed_params` field or other additional endpoint-level contract field was present in the current embedded records. The 76 parameter objects still contain no `required` flag. The 33 blank descriptions remain unresolved.
+
+### Documentation UI request construction and Uguu upload boundary
+
+The public [documentation execution script](https://bintangapi.my.id/api/assets/37238647script.js) contains an `execAPI` function that constructs a request from the selected documentation record. In that UI code, parameters typed `file` or `image` are appended to a `FormData` object; when the selected method is `POST` and form data is present, that object is assigned as the fetch request body. The public homepage also describes an Execute control for testing from the documentation page ([BintangAPI homepage](https://bintangapi.my.id/)).
+
+This is evidence of **the documentation UI's request-construction behavior only**. It does not establish server-side requiredness, accepted MIME types, file-size limits, validation behavior, response schema, or whether the Uguu route currently accepts the request. The script was read as static text; `execAPI` was not invoked. No request was sent.
+
+The active Uguu record remains `POST /api/uploader/uguu` with the documented `file` parameter and remains `review-required`. The HyperGaruda Gateway still cannot represent this request body: `GatewayRequest.params` and `ProviderCall.params` accept primitive values only, and `FetchProviderAdapter` appends those values to the URL query. No upload contract or adapter change is made.
+
+### Additional source and repository search
+
+- The current documentation site's map still exposes only the homepage and the API documentation page; no separate endpoint-detail pages were located.
+- Targeted public searches did not locate BintangAPI- or StarLabs-authored detail documentation resolving the AI PPT/PPT JOB route or supplying the 33 missing descriptions. Unrelated PPT API documentation from other providers was excluded because no source relationship to BintangAPI or StarLabs was established.
+- GitHub issue and pull-request searches for the repository returned no clarification. The current `main` HEAD remains `30ac7f4dc7f517bdca9df7842f9704dab9bb5c24`; the repository's recorded import history still contains the same duplicate route and blank descriptions.
+
+### Status retained
+
+No endpoint ID, method, path, description, parameter contract, provenance value, or review policy was changed. The shared provenance reference still distinguishes BintangAPI documentation, StarLabs as claimed attribution by BintangAPI, the published documentation base URL, unknown confirmed runtime host, and pending permission with no recorded endpoint-specific approval. All 35 `review-required` records remain gated; all 77 records remain `documented-not-live-verified`; zero provider routes are registered.
+
+This pass was static repository and public-documentation research only. No live upstream API requests, endpoint execution, active probing, fuzzing, tests, or builds were run.
