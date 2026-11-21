@@ -288,10 +288,40 @@ The active Uguu record remains `POST /api/uploader/uguu` with the documented `fi
 
 - The current documentation site's map still exposes only the homepage and the API documentation page; no separate endpoint-detail pages were located.
 - Targeted public searches did not locate BintangAPI- or StarLabs-authored detail documentation resolving the AI PPT/PPT JOB route or supplying the 33 missing descriptions. Unrelated PPT API documentation from other providers was excluded because no source relationship to BintangAPI or StarLabs was established.
-- GitHub issue and pull-request searches for the repository returned no clarification. The current `main` HEAD remains `30ac7f4dc7f517bdca9df7842f9704dab9bb5c24`; the repository's recorded import history still contains the same duplicate route and blank descriptions.
+- GitHub issue and pull-request searches for the repository returned no clarification. The statement that `30ac7f4dc7f517bdca9df7842f9704dab9bb5c24` remains the current `main` HEAD is stale: the 2026-11-20 audit follow-up was committed as [`957d9d6fe46d03c5779e5fb58e93fff65b86cfe5`](https://github.com/Hanzet22/hypergaruda-API/commit/957d9d6fe46d03c5779e5fb58e93fff65b86cfe5), which was the latest `main` commit found immediately before the 2026-11-21 pass. The repository's recorded import history still contains the same duplicate route and blank descriptions.
 
 ### Status retained
 
 No endpoint ID, method, path, description, parameter contract, provenance value, or review policy was changed. The shared provenance reference still distinguishes BintangAPI documentation, StarLabs as claimed attribution by BintangAPI, the published documentation base URL, unknown confirmed runtime host, and pending permission with no recorded endpoint-specific approval. All 35 `review-required` records remain gated; all 77 records remain `documented-not-live-verified`; zero provider routes are registered.
 
 This pass was static repository and public-documentation research only. No live upstream API requests, endpoint execution, active probing, fuzzing, tests, or builds were run.
+
+
+## Follow-up current-source and UI required-marker review — 2026-11-21
+
+The current `main` branch was reread from GitHub, including the README, active and legacy catalogues, this audit, Phase 06–08 notes, Playground code, Gateway registry/validation/types/runtime, provider mapping/adapter, and the placeholder mapping template. The latest commit found on `main` at the start of this pass was [`957d9d6fe46d03c5779e5fb58e93fff65b86cfe5`](https://github.com/Hanzet22/hypergaruda-API/commit/957d9d6fe46d03c5779e5fb58e93fff65b86cfe5).
+
+A fresh static fetch of the [BintangAPI API documentation](https://bintangapi.my.id/api/) returned its raw HTML, including the embedded `window.__RAW_TREE`. The JSON tree was parsed as documentation data only; no JavaScript was executed and no endpoint URL was requested.
+
+### Reconciliation and route inventory
+
+- The source tree and active catalogue each contain **77 records across 13 categories**. Matching by source name/title, method, normalized `/api/` route, endpoint description, and the catalogue's parameter fields produced **77/77 matches with no metadata mismatch**.
+- Both source and catalogue contain **33 empty endpoint descriptions**; the affected title lists match. No replacement description was supplied by the source.
+- The source tree and active catalogue each contain the same single method + normalized-path collision: **AI PPT** and **PPT JOB**, both `GET /api/aitools/ai-ppt`. The legacy catalogue has no within-file method + normalized-path collision. No additional active collision was found.
+- The source parameter objects still expose no `required` property or `fixed_params` entries. The existing 76-parameter distribution and the 35 `review-required` policies remain unchanged.
+
+### Documentation form's visual required marker
+
+The public [parameter form renderer](https://bintangapi.my.id/api/assets/85444744script.js) displays a visual asterisk (`*`) beside each rendered parameter. Static inspection of that renderer found no `required` attribute on its generated text, select, or file controls and no `required` token in the asset. The embedded source parameter objects likewise have no `required` field.
+
+The asterisk is therefore recorded only as a documentation UI presentation marker. It is not sufficient evidence of an API requiredness contract or server-side validation. Requiredness remains **unknown** and no `required` field or validation rule was added to the catalogue or Gateway.
+
+### Additional public-source search
+
+A current site map returned the BintangAPI homepage, the single API documentation page, and its documentation UI assets; it did not reveal separate endpoint-detail pages. Targeted searches for the AI PPT/PPT JOB distinction and selected non-sensitive blank-description records did not locate BintangAPI- or StarLabs-authored detail documentation. No unrelated provider documentation was used as a substitute.
+
+### Status retained
+
+No endpoint ID, method, path, description, parameter contract, provenance value, or review policy was changed. The existing shared provenance reference continues to distinguish BintangAPI as documentation source, StarLabs as claimed attribution by BintangAPI, the published documentation base URL, unknown confirmed runtime host, and pending permission with no recorded endpoint-specific approval. All 35 `review-required` records remain gated; all 77 records remain `documented-not-live-verified`; zero provider routes are registered.
+
+This pass was static repository and public-documentation research only. No live upstream API request, endpoint execution, active probing, fuzzing, tests, or builds were run.
