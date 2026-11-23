@@ -325,3 +325,31 @@ A current site map returned the BintangAPI homepage, the single API documentatio
 No endpoint ID, method, path, description, parameter contract, provenance value, or review policy was changed. The existing shared provenance reference continues to distinguish BintangAPI as documentation source, StarLabs as claimed attribution by BintangAPI, the published documentation base URL, unknown confirmed runtime host, and pending permission with no recorded endpoint-specific approval. All 35 `review-required` records remain gated; all 77 records remain `documented-not-live-verified`; zero provider routes are registered.
 
 This pass was static repository and public-documentation research only. No live upstream API request, endpoint execution, active probing, fuzzing, tests, or builds were run.
+
+## Follow-up current public UI contract boundary — 2026-11-23
+
+The latest `main` HEAD at the start of this pass was [`e116f02e6df677fe272d0f680e904649119e1b4e`](https://github.com/Hanzet22/hypergaruda-API/commit/e116f02e6df677fe272d0f680e904649119e1b4e). The README, active and legacy catalogues, this audit, Phase 06–08 notes, Playground code, Gateway registry/validation/types/runtime, provider mapping/adapter, and placeholder mapping template were reread from `main`.
+
+A fresh static fetch of the [BintangAPI API documentation](https://bintangapi.my.id/api/) returned HTTP 200 on 2026-11-23. The embedded `window.__RAW_TREE` was parsed as documentation data only. The source tree contains 77 records across 13 categories. A field-level comparison against the active catalogue matched **77/77** records by title, mapped category, method, normalized route, endpoint description, and the parameter fields represented locally (`name`, `type`, `options`, `placeholder`, and `description`). The source and catalogue still contain the same **33 empty endpoint descriptions** and the same **AI PPT / PPT JOB** collision at `GET /api/aitools/ai-ppt`. No source/catalogue mismatch was found.
+
+### Current documentation UI asset review
+
+The following public assets were fetched as static text; no JavaScript was executed:
+
+- [Category renderer](https://bintangapi.my.id/api/assets/86124835script.js) uses the source `group` value to place records under visual subheadings. This remains display metadata, not route or endpoint semantics.
+- [Snippet generator](https://bintangapi.my.id/api/assets/94407567script.js) uses `default_value` and placeholders to prefill example URLs and generated snippets. This remains documentation-example behavior, not a server-side API default.
+- [Parameter form renderer](https://bintangapi.my.id/api/assets/85444744script.js) displays a visual asterisk. Its generated text, select, and file controls do not carry an HTML `required` attribute. The generic file control has no `accept` restriction and displays the UI label `Pilih file (semua format)`; that label and client-side input configuration do not establish which file types the server accepts.
+- [Documentation execution script](https://bintangapi.my.id/api/assets/37238647script.js) contains an `execAPI` function that would construct a request and invoke `fetch` when a user activates Execute. It was read only and was not invoked. Its use of `FormData` for file/image parameters on POST describes the documentation UI's request construction, not a verified server upload contract.
+
+For Uguu, the only supported catalogue facts remain the documented `POST` route and the `file` parameter. Server acceptance, requiredness, MIME types, file-size limits, response schema, and storage behavior remain unknown. The endpoint stays `review-required`; no upload contract or Gateway adapter change is justified.
+
+### Additional source and history search
+
+The current site map returned the BintangAPI homepage, API documentation page, and documentation UI assets; it did not reveal separate endpoint-detail pages. Targeted searches restricted to BintangAPI and StarLabs for the AI PPT/PPT JOB distinction and selected blank-description records returned no public web results. Repository issue and pull-request searches returned no clarification. The repository commit listing still identifies this pass's starting HEAD as the latest commit; the original catalogue import and later audit history do not resolve the route semantics or the blank descriptions.
+
+### Status retained
+
+No catalogue fields, endpoint IDs, route semantics, parameter contracts, provenance values, or review policies were changed. The shared provenance block continues to distinguish BintangAPI documentation, StarLabs as claimed attribution by BintangAPI, the published documentation base URL, unknown confirmed runtime host, and pending permission with no recorded endpoint-specific approval. All 35 `review-required` entries remain gated; all 77 records remain `documented-not-live-verified`; zero provider routes are registered.
+
+This pass was static repository and public-documentation research only. No live upstream API requests, endpoint execution, active probing, fuzzing, tests, or builds were run.
+
