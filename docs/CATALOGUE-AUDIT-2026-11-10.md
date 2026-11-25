@@ -384,3 +384,54 @@ The current active catalogue's 77 endpoint ID/title/method/path tuples are uncha
 No catalogue values, endpoint IDs, historical path strings, route semantics, parameter contracts, provenance values, or review policies were changed. The existing shared provenance reference continues to distinguish BintangAPI as documentation source, StarLabs as claimed attribution by BintangAPI, the published documentation base URL, unknown confirmed runtime host, and pending permission with no recorded endpoint-specific approval. All 35 `review-required` entries remain gated; all 77 active records remain `documented-not-live-verified`; zero provider routes are registered.
 
 This pass was static repository and public-documentation research only. No live upstream API requests, endpoint execution, active probing, fuzzing, tests, or builds were run.
+
+
+## Follow-up current documentation claim boundary and registry collision review — 2026-11-25
+
+The latest `main` HEAD at the start of this pass was [`8568547709c77b588e8568876f741710a89f6d40`](https://github.com/Hanzet22/hypergaruda-API/commit/8568547709c77b588e8568876f741710a89f6d40). The README, active and legacy catalogues, this audit, Phase 06–08 notes, Playground code, Gateway registry/validation/types/runtime, provider mapping/adapter, and placeholder mapping template were reread from `main`.
+
+### Current repository consistency
+
+The active catalogue currently contains 77 records across 13 categories. Static structural checks found:
+
+- 77 unique endpoint IDs and category counts matching the records.
+- 33 records with an explicitly present but empty `description`; no description property is absent.
+- 76 parameters: 66 `string`, 9 `select`, and 1 `file`; no duplicate parameter names within an endpoint and no additional parameter types.
+- 42 `preview-only` and 35 `review-required` records. Every review-required record has a non-empty review reason.
+- All 77 records use `source: bintangapi-docs`, have source URL, documentation-only verification status, and point to the shared `#/sourceSnapshot/provenance` object.
+- All 77 remain `documented-not-live-verified`. No active route path contains a query string or parenthetical annotation.
+- The only active method + normalized-path collision remains AI PPT and PPT JOB at `GET /api/aitools/ai-ppt`.
+
+The legacy inventory still contains 74 unique IDs and no within-file method + normalized-path collision. Its 60 annotated path strings remain historical text. The 71 shared, 5 active-only, and 3 legacy-only normalized method/path counts recorded in the 2026-11-24 review remain unchanged. No historical path was rewritten.
+
+### Current public-page claims and evidence boundary
+
+The current [BintangAPI homepage](https://bintangapi.my.id/) describes BintangAPI as a REST wrapper around scraper code used internally at StarLabs, says requests are proxied server-side, and states that documentation includes an Execute control. The linked [BintangAPI documentation page](https://bintangapi.my.id/api/) currently displays an `OPERATIONAL` page-level label, describes its collection as scraper and script material from StarLabs, and publishes `https://bintangapi.my.id/api` as its base URL.
+
+These are BintangAPI's service-level and page-level statements. They do not independently establish an endpoint-specific runtime host, live health, authentication contract, or written permission. The `OPERATIONAL` label is not treated as a live check of each documented route. The published documentation/API base URL is not copied into `confirmedRuntimeHost`.
+
+The browser-readable documentation extract currently exposes only the page introduction and base URL, not the embedded endpoint tree. Searches for the exact AI PPT/PPT JOB names and selected blank-description titles did not expose endpoint-detail text. Therefore this pass does **not** claim a fresh 2026-11-25 77/77 raw-tree comparison; the last complete field-level raw-tree comparison remains the one recorded in the 2026-11-24 follow-up. A separately indexed PPT.AI documentation site was excluded: its published `/api/ppt/...` paths and lack of an evidenced BintangAPI/StarLabs relationship do not resolve HyperGaruda's `/api/aitools/ai-ppt` records.
+
+### Gateway route-collision guard
+
+The current [ProviderRegistry implementation](https://github.com/Hanzet22/hypergaruda-API/blob/main/packages/gateway/src/registry.ts#L12-L26) rejects duplicate adapter IDs, duplicate `endpointId` values, and routes that reference a missing adapter. It does not currently reject duplicate `providerId + method + providerPath` tuples across different endpoint IDs.
+
+This is a potential integration-time collision guard gap, not evidence of an active runtime collision: Phase 07 still documents zero configured adapters and zero routes. No registry change is made while provider routes remain unapproved and the AI PPT/PPT JOB route semantics remain unresolved. Before any future route registration, the project needs an explicit policy for same-provider, same-method, same-path mappings, including whether a documented multiplexer is permitted.
+
+### Provenance and approval status retained
+
+The active catalogue's shared provenance object continues to distinguish:
+- documentation source: BintangAPI public API documentation;
+- claimed upstream attribution: StarLabs, as stated by BintangAPI;
+- published API/documentation base URL: `https://bintangapi.my.id/api`, documented but not live-verified;
+- confirmed runtime host: `null`, status `unknown`;
+- permission: `pending-confirmation`, evidence `not-recorded`;
+- endpoint-specific evidence: `not-recorded`.
+
+All 77 endpoint records reference this shared snapshot-level object; this is not 77 independent runtime-host or permission confirmations. No endpoint-specific values were inferred or added.
+
+### Status retained
+
+No endpoint ID, method, path, description, parameter contract, provenance value, historical record, or review policy was changed. All 35 `review-required` records remain gated; all 77 records remain `documented-not-live-verified`; zero provider routes are registered.
+
+This pass was static repository and public-documentation research only. No live upstream API requests, documentation Execute actions, endpoint execution, active probing, fuzzing, tests, or builds were run.
