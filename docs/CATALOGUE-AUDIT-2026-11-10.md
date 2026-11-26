@@ -435,3 +435,101 @@ All 77 endpoint records reference this shared snapshot-level object; this is not
 No endpoint ID, method, path, description, parameter contract, provenance value, historical record, or review policy was changed. All 35 `review-required` records remain gated; all 77 records remain `documented-not-live-verified`; zero provider routes are registered.
 
 This pass was static repository and public-documentation research only. No live upstream API requests, documentation Execute actions, endpoint execution, active probing, fuzzing, tests, or builds were run.
+
+
+## Follow-up current raw-tree reconciliation — 2026-11-26
+
+The latest `main` HEAD at the start of this pass was [`d8fbd5bd289a6f3186bec56a15f3f4e5fd298cbf`](https://github.com/Hanzet22/hypergaruda-API/commit/d8fbd5bd289a6f3186bec56a15f3f4e5fd298cbf). The README, active and legacy catalogues, this audit, Phase 06–08 notes, Playground code, Gateway Registry/validation/types/runtime, provider mapping/adapter, and placeholder mapping template were reread from `main`.
+
+### Fresh public source extraction
+
+A fresh static HTTP fetch of the [BintangAPI documentation page](https://bintangapi.my.id/api/) returned status 200 on 2026-11-26. The page's embedded `window.__RAW_TREE` was parsed as JSON data only; no page JavaScript was executed and no API endpoint was called. The current tree contains **77 file records across 13 category folders**. The page metadata identifies `StarLabs` as its author, and the page text describes the collection as scraper and script material from StarLabs. The [BintangAPI homepage](https://bintangapi.my.id/) separately claims that BintangAPI wraps scraping code used internally at StarLabs and proxies requests server-side. These are publisher claims/metadata, not independent runtime-host or permission evidence.
+
+### Full catalogue comparison
+
+The current source tree was compared against [`data/endpoints.json`](../data/endpoints.json). All **77/77** records matched by title, HTTP method, route path, endpoint description, and category-folder mapping. All represented parameter fields also matched: parameter count, name, type, options, placeholder, and parameter description. No mismatch was found.
+
+The source and active catalogue contain **33 empty endpoint descriptions**, not 32. All 33 descriptions are explicitly empty in the current public source tree; the original 77-record import at [commit `b1f314705ac5f2f2eb0591356561bce1e5c89b70`](https://github.com/Hanzet22/hypergaruda-API/commit/b1f314705ac5f2f2eb0591356561bce1e5c89b70) already contains the same 33 empty values. Repository history therefore does not recover them. No descriptions were inferred or added.
+
+The exact affected local records are:
+
+- `ai-chat-qwen3-coder-08` — QWEN3-CODER: `GET /api/aichat/qwen-coder`
+- `info-google-news-30` — GOOGLE NEWS: `GET /api/info/berita/google`
+- `info-kompas-news-31` — KOMPAS NEWS: `GET /api/info/berita/kompas`
+- `info-liputan6-32` — LIPUTAN6: `GET /api/info/berita/liputan6`
+- `info-sindo-news-33` — SINDO NEWS: `GET /api/info/berita/sindo`
+- `maker-brat-34` — BRAT: `GET /api/maker/brat`
+- `maker-brat-video-35` — BRAT VIDEO: `GET /api/maker/bratvid`
+- `nonton-otakudesu-completed-36` — OTAKUDESU COMPLETED: `GET /api/nonton/otakudesu/completed`
+- `nonton-otakudesu-detail-37` — OTAKUDESU DETAIL: `GET /api/nonton/otakudesu/detail`
+- `nonton-otakudesu-genre-38` — OTAKUDESU GENRE: `GET /api/nonton/otakudesu/genre`
+- `nonton-otakudesu-genre-list-39` — OTAKUDESU GENRE LIST: `GET /api/nonton/otakudesu/genre-list`
+- `nonton-otakudesu-home-40` — OTAKUDESU HOME: `GET /api/nonton/otakudesu/home`
+- `nonton-otakudesu-ongoing-41` — OTAKUDESU ONGOING: `GET /api/nonton/otakudesu/ongoing`
+- `nonton-otakudesu-schedule-42` — OTAKUDESU SCHEDULE: `GET /api/nonton/otakudesu/schedule`
+- `nonton-otakudesu-search-43` — OTAKUDESU SEARCH: `GET /api/nonton/otakudesu/search`
+- `nonton-otakudesu-stream-download-44` — OTAKUDESU STREAM + DOWNLOAD: `GET /api/nonton/otakudesu/stream`
+- `scriptblox-scriptblox-home-45` — SCRIPTBLOX HOME: `GET /api/scriptblox/bloxhome`
+- `scriptblox-scriptblox-search-46` — SCRIPTBLOX SEARCH: `GET /api/scriptblox/bloxsearch`
+- `scriptblox-scriptblox-trending-47` — SCRIPTBLOX TRENDING: `GET /api/scriptblox/bloxtrend`
+- `search-ff-hero-50` — FF HERO: `GET /api/search/ff-hero`
+- `search-stikerly-search-53` — STIKERLY SEARCH: `GET /api/search/stikerly`
+- `stalker-channel-wa-view-56` — CHANNEL WA VIEW: `GET /api/stalker/channelwa`
+- `stalker-chess-com-user-stalker-57` — CHESS.COM USER STALKER: `GET /api/stalker/chess`
+- `stalker-free-fire-stalker-58` — FREE FIRE STALKER: `GET /api/stalker/ff`
+- `stalker-instagram-stalker-60` — INSTAGRAM STALKER: `GET /api/stalker/instagram`
+- `stalker-lahelu-stalker-61` — LAHELU STALKER: `GET /api/stalker/lahelu`
+- `stalker-minecraft-user-stalk-62` — MINECRAFT USER STALK: `GET /api/stalker/minecraft`
+- `stalker-ml-check-63` — ML CHECK: `GET /api/stalker/ml`
+- `stalker-npm-stalk-64` — NPM STALK: `GET /api/stalker/npm`
+- `stalker-pinterest-user-stalker-65` — PINTEREST USER STALKER: `GET /api/stalker/pinterest`
+- `stalker-soundcloud-user-stalker-67` — SOUNDCLOUD USER STALKER: `GET /api/stalker/soundcloud`
+- `stalker-telegram-stalk-68` — TELEGRAM STALK: `GET /api/stalker/telegram`
+- `stalker-youtube-channel-stalker-70` — YOUTUBE CHANNEL STALKER: `GET /api/stalker/youtube`
+
+### AI PPT / PPT JOB source records
+
+The current public tree confirms two distinct source records in the `AI tools` folder, both assigned the display group `ai ppt`:
+
+| Source record ID | Title | Method + path | Parameter |
+|---|---|---|---|
+| `-P52B3udPIwq2udquL3L` | AI PPT | `GET /api/aitools/ai-ppt` | `prompt` |
+| `-P52BW4mIavsE5RTAUqM` | PPT JOB | `GET /api/aitools/ai-ppt` | `job` |
+
+The source describes AI PPT as generating presentation structure from a prompt. PPT JOB is described as checking the status of a presentation-generation request. Both source records nevertheless publish the same method and path. The shared `group` is display grouping, not proof of route semantics. The descriptions suggest different operations but do not establish whether the source intentionally multiplexes them or contains a documentation error. Targeted public searches and repository issue/PR/commit searches found no independent clarification. A separate PPT.AI documentation site was excluded because it belongs to a different service and documents different paths.
+
+The collision is confirmed as a documentation/catalogue collision; its intended server semantics remain unknown. Both local endpoint IDs and all route/parameter fields are preserved. No merge, rename, deletion, or route change is justified.
+
+### Parameter contract boundary
+
+The current source tree contains **76 parameters**: 66 `string`, 9 `select`, and 1 `file`. It has 10 non-empty parameter descriptions, 9 option lists, 4 non-empty placeholders, and 67 non-empty `default_value` entries. The active catalogue matches the source for all represented parameter fields.
+
+The source's `default_value` is used by the documentation UI to prefill examples/snippets; it is not evidence of a server-side default. It is not promoted into the API contract. The source does not declare required/optional status or response schemas. Authentication, upload acceptance, MIME restrictions, file limits, and provider-specific response behavior remain unknown unless separately documented. No parameter contract was expanded.
+
+### Provenance and permission boundary
+
+The catalogue still distinguishes the following dimensions through its shared `sourceSnapshot.provenance` object:
+
+- Documentation source: BintangAPI public API documentation.
+- Documentation-page author metadata: StarLabs.
+- Claimed upstream attribution: StarLabs, as stated by BintangAPI.
+- Published API/documentation base URL: `https://bintangapi.my.id/api`, documented but not live-verified.
+- Confirmed runtime host: `null`, status `unknown`.
+- Permission: `pending-confirmation`; permission evidence `not-recorded`.
+- Endpoint-specific runtime/permission evidence: `not-recorded`.
+
+All 77 endpoint records reference this shared snapshot-level object. It is not 77 independent confirmations. No endpoint-specific runtime host, permission, availability, or authentication claim was inferred.
+
+### Additional consistency and route review
+
+- Active catalogue: 77 unique IDs, 13 categories, category counts consistent, 42 `preview-only`, 35 `review-required`; every review-required record retains its reason.
+- Active method + normalized-path tuples: 76 unique tuples for 77 records; the only duplicate tuple is `GET /api/aitools/ai-ppt`.
+- Legacy catalogue: 74 records and 74 unique IDs; no duplicate method + normalized-path tuple. Its annotated historical path strings remain untouched.
+- Active/legacy normalized route-set comparison: 71 shared, 5 active-only, and 3 legacy-only tuples. This comparison does not promote legacy-only routes.
+- Gateway Registry still rejects duplicate adapter IDs, duplicate endpoint IDs, and missing adapters, but does not guard duplicate `providerId + method + providerPath` tuples. This remains a future integration guard gap, not an active runtime collision: Phase 07 documents zero registered routes and zero configured provider adapters. No code change is made while permission and route semantics remain unresolved.
+
+### Status retained
+
+No endpoint ID, title, method, path, description, parameter, provenance value, historical record, or review policy was changed. All 35 `review-required` records remain gated; all 77 active records remain `documented-not-live-verified`; permission remains pending; zero provider routes are registered.
+
+This pass was static repository and public-documentation research only. No live upstream API requests, documentation Execute actions, endpoint execution, active probing, fuzzing, tests, or builds were run.
