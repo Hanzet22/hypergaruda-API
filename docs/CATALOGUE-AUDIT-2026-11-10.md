@@ -504,7 +504,7 @@ The collision is confirmed as a documentation/catalogue collision; its intended 
 
 The current source tree contains **76 parameters**: 66 `string`, 9 `select`, and 1 `file`. It has 10 non-empty parameter descriptions, 9 option lists, 4 non-empty placeholders, and 67 non-empty `default_value` entries. The active catalogue matches the source for all represented parameter fields.
 
-The source's `default_value` is used by the documentation UI to prefill examples/snippets; it is not evidence of a server-side default. It is not promoted into the API contract. The source does not declare required/optional status or response schemas. Authentication, upload acceptance, MIME restrictions, file limits, and provider-specific response behavior remain unknown unless separately documented. No parameter contract was expanded.
+The source's `default_value` is used as a fallback by the documentation UI's request-URL preview and generated cURL/Node.js snippets when a current input is absent. The separate Execute handler reads the current form values and does not consume `default_value`. It is therefore an example/preview fallback, not evidence of a server-side default, and is not promoted into the API contract. The source does not declare required/optional status or response schemas. Authentication, upload acceptance, MIME restrictions, file limits, and provider-specific response behavior remain unknown unless separately documented. No parameter contract was expanded.
 
 ### Provenance and permission boundary
 
@@ -533,3 +533,49 @@ All 77 endpoint records reference this shared snapshot-level object. It is not 7
 No endpoint ID, title, method, path, description, parameter, provenance value, historical record, or review policy was changed. All 35 `review-required` records remain gated; all 77 active records remain `documented-not-live-verified`; permission remains pending; zero provider routes are registered.
 
 This pass was static repository and public-documentation research only. No live upstream API requests, documentation Execute actions, endpoint execution, active probing, fuzzing, tests, or builds were run.
+
+
+## Follow-up current source example-value and form semantics — 2026-11-27
+
+The latest `main` HEAD at the start of this pass was [`ae322ac5b55eb3e895aee180f9c8aa78aa85f1e8`](https://github.com/Hanzet22/hypergaruda-API/commit/ae322ac5b55eb3e895aee180f9c8aa78aa85f1e8). The README, active/legacy catalogues, this audit, Phase 06–08 notes, Playground, Gateway Registry/validation/types/runtime, provider mapping/adapter, and mapping template were reread from `main`.
+
+### Current public-source inventory
+
+The current [BintangAPI documentation page](https://bintangapi.my.id/api/) was retrieved as raw HTML. Its embedded `window.__RAW_TREE` was parsed as JSON data only; none of the page's JavaScript was executed. The current source contains **77 endpoint records in 13 category folders**, with **33 empty descriptions** and **76 parameters**. The active catalogue still matches all 77 records by title, method, path, description and category mapping. The represented parameter fields (name, type, options, placeholder and description) match the source.
+
+The source's parameter metadata also contains a `default_value` field, which is not represented in the local catalogue: **67 of 76** source parameters have a non-empty value and 9 are empty. The source has no non-empty `fixed_params` entries in the current 77-record tree. No additional endpoint or parameter contract fields were added.
+
+### Exact meaning of `default_value`
+
+The public documentation's static assets were retrieved as text, not executed:
+
+- [Bootstrap/tree normalization](https://bintangapi.my.id/api/assets/09027848script.js)
+- [Category and group rendering](https://bintangapi.my.id/api/assets/86124835script.js)
+- [URL preview and cURL/Node.js snippet generation](https://bintangapi.my.id/api/assets/94407567script.js)
+- [Parameter form rendering](https://bintangapi.my.id/api/assets/85444744script.js)
+- [Execute handler](https://bintangapi.my.id/api/assets/37238647script.js)
+
+The URL-preview builder uses a current input value or falls back to the source `default_value`. The cURL and Node.js snippet generators likewise use the current value, then `default_value`, then (for the relevant generator) a placeholder. By contrast, the separate Execute handler reads the current form input values and does not read `default_value`; it adds only non-empty values entered in the form. Accordingly, `default_value` is a documentation preview/snippet fallback, not evidence of a server-side default, an execution-time default, requiredness, or a complete API parameter contract. It remains intentionally excluded from the local contract.
+
+The form renderer emits a visual asterisk after parameter labels but does not set an HTML `required` attribute. That visual marker alone does not establish server-side or client-side requiredness. Requiredness remains unknown.
+
+The category renderer groups records under their `group` value. Both AI PPT records use the display group `ai ppt`; this is UI grouping, not evidence that the provider intentionally multiplexes the two operations.
+
+### AI PPT / PPT JOB and missing descriptions
+
+The current source still publishes two distinct records with the same `GET /api/aitools/ai-ppt` route:
+
+- AI PPT — source record `-P52B3udPIwq2udquL3L`, parameter `prompt`.
+- PPT JOB — source record `-P52BW4mIavsE5RTAUqM`, parameter `job`.
+
+Their descriptions distinguish presentation generation from job-status checking, but the shared method/path remains an unresolved documentation collision. The shared UI group does not resolve its server semantics. Preserve both local IDs and all route/parameter values; no merge, rename, deletion, or route change is justified.
+
+The 33 empty descriptions remain empty in the current BintangAPI source tree. The BintangAPI site map exposes the homepage and the API documentation page only. The linked [StarLabs Code Snippet Library](https://starlabs.biz.id/) currently returned no snippet entries and a not-found fallback in the retrieved page. No separate authoritative endpoint detail documentation was found for the 33 blank descriptions or the AI PPT route distinction. No descriptions were inferred or added.
+
+### Provenance and safety boundary retained
+
+The BintangAPI [homepage](https://bintangapi.my.id/) states that the service packages scraping code used internally at StarLabs and describes server-side proxying. These remain publisher claims. They do not establish endpoint-specific runtime hosts, endpoint availability, authentication contracts, or permission. The catalogue's documentation source remains BintangAPI; claimed upstream attribution remains StarLabs as stated by BintangAPI; confirmed runtime host remains unknown; permission remains pending confirmation with no recorded permission evidence.
+
+All 35 `review-required` records remain gated. All 77 records remain `documented-not-live-verified`. Zero provider routes are registered. No catalogue, legacy record, implementation, route, parameter contract, or permission status was changed in this pass.
+
+This pass used static repository reads and public documentation/source-asset retrieval only. No live upstream API requests, documentation Execute actions, endpoint execution, user-content submissions, active probing, fuzzing, tests, or builds were performed.
